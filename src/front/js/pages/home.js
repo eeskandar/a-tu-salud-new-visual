@@ -1,46 +1,49 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
+import React, { useState } from "react";
+import descarga from "../../img/descarga.jpg";
 import "../../styles/home.css";
+import { BusquedaAvanzada } from "../component/BusquedaAvanzada";
 
 export const Home = () => {
-  const { store, actions } = useContext(Context);
+	const [busquedaAvanzada, SetBusquedaAvanzada] = useState(false);
+	
+	function busquedaFiltro() {
+		console.log(busquedaAvanzada)
+		if(busquedaAvanzada === false) 
+		SetBusquedaAvanzada(true)
+		else SetBusquedaAvanzada(false)
+	}
 
-  const fetchFarmaciaAPI = async () => {
-    try {
-      const response = await fetch(
-        "http://www.farmaplus.com.ve/rest/products?instock=false&page=1&searchStr=dol&status=1"
-      );
-      const body = response.json;
-      console.log(body);
-      console.log("okay");
-      return body;
-    } catch (error) {}
-  };
-
-  return (
-    <div className="text-center mt-5">
-      <h1>Hello Rigo!!</h1>
-      <p>
-        <img src={rigoImageUrl} />
-      </p>
-      <div className="alert alert-info">
-        {store.message ||
-          "Loading message from the backend (make sure your python backend is running)..."}
-      </div>
-      <p>
-        This boilerplate comes with lots of documentation:{" "}
-        <a href="https://github.com/4GeeksAcademy/react-flask-hello/tree/95e0540bd1422249c3004f149825285118594325/docs">
-          Read documentation
-        </a>
-      </p>
-      <button
-        type="button"
-        class="btn btn-primary"
-        onClick={(e) => fetchFarmaciaAPI()}
-      >
-        Primary
-      </button>
-    </div>
+	return(
+	<div className="container h-100">
+		<div className="container d-flex justify-content-center pt-3" style={{height: "100px"}}>
+			<img src={descarga} style={{height: "100px"}}/>
+		</div>
+		<div className="pt-5 container" >
+			<h1 className="text-secondary text-center" style={{fontSize: "25px"}}>Dona algún medicamento que no vayas a usar. <br/> Solicita un medicamento que necesites.<br/> Intercambia.</h1>
+		</div>
+		<div className="d-flex justify-content-around pt-5">
+			<div className="">
+				<label htmlFor="" className="form-label text-secondary">Medicamento</label>
+				<input className="form-control me-2" type="search" placeholder="" aria-label="Search"/>
+			</div>
+			<div>
+				<label htmlFor="" className="form-label text-secondary">Ciudad</label>
+				<input className="form-control me-2" type="search" placeholder="" aria-label="Search"/>
+			</div>
+			<button type="button" className="btn btn-secondary">Buscar</button>
+		</div>
+		<div>
+			<div className="btn-group py-5">
+				<button type="button" className="btn btn-secondary " data-bs-toggle="" aria-expanded="" onClick={(e) => busquedaFiltro()}>
+				Busqueda avanzada...
+				</button>
+			</div>
+				{busquedaAvanzada ?(
+					<BusquedaAvanzada></BusquedaAvanzada>		
+					)
+					:("")
+					}	
+		</div>
+	</div>
   );
 };
