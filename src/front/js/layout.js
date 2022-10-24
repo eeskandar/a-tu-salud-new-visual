@@ -23,18 +23,20 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <ScrollToTop>
           <Navbar />
-          <div className="row">
-            <div className="col-2">
-              <NavbarVertical />
-            </div>
-            <div className="col-10">
-              <Routes>
-                <Route element={<Home />} path="/" />
-                <Route element={<Login />} path="/api/login" />
-                <Route element={<Demo />} path="/demo" />
-                <Route element={<Single />} path="/single/:theid" />
-                <Route element={<h1>Not found!</h1>} />
-              </Routes>
+          <div className="container-fluid">
+            <div className="row view-display">
+              <div className="col-3 p-0">
+                <NavbarVertical />
+              </div>
+              <div className="col-9">
+                <Routes>
+                  <Route element={<Home />} path="/" />
+                  <Route element={<Login />} path="/api/login" />
+                  <Route element={<Demo />} path="/demo" />
+                  <Route element={<Single />} path="/single/:theid" />
+                  <Route element={<h1>Not found!</h1>} />
+                </Routes>
+              </div>
             </div>
           </div>
           <Footer />
