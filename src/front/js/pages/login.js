@@ -31,9 +31,9 @@ export const Login = () => {
     <div>
       <div className="col-6 m-auto my-5 p-4 pb-5 rounded-form">
         <h1 className="text-center form-title">Iniciar sesión</h1>
-        <form className="col-11 m-auto">
+        <form className="col-11 m-auto" onSubmit={(e) => e.preventDefault()}>
           <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Correo electrónico
             </label>
             <input
@@ -51,7 +51,7 @@ export const Login = () => {
             </div>
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Contraseña
             </label>
             <input

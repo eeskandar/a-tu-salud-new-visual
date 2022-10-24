@@ -17,3 +17,8 @@
 .form-btn {
   background-color: #52dee5;
 }
+
+.view-display {
+  min-height: 83vh;
+  height: auto;
+}

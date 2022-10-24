@@ -17,29 +17,32 @@ const Layout = () => {
     // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
     const basename = process.env.BASENAME || "";
 
-    return (
-        <div>
-            <BrowserRouter basename={basename}>
-                <ScrollToTop>
-                <Navbar />
-                    <div className="row">
-                        <div className="col-2">
-                            <NavbarVertical />
-                        </div>
-                        <div className="col-10">    
-                            <Routes>
-                                <Route element={<Home />} path="/" />
-                                <Route element={<Demo />} path="/demo" />
-                                <Route element={<Single />} path="/single/:theid" />
-                                <Route element={<h1>Not found!</h1>} />
-                            </Routes>
-                        </div>
-					</div>
-                    <Footer />
-                </ScrollToTop>
-            </BrowserRouter>
-        </div>
-    );
+  return (
+    <div>
+      <BrowserRouter basename={basename}>
+        <ScrollToTop>
+          <Navbar />
+          <div className="container-fluid">
+            <div className="row view-display">
+              <div className="col-3 p-0">
+                <NavbarVertical />
+              </div>
+              <div className="col-9">
+                <Routes>
+                  <Route element={<Home />} path="/" />
+                  <Route element={<Login />} path="/api/login" />
+                  <Route element={<Demo />} path="/demo" />
+                  <Route element={<Single />} path="/single/:theid" />
+                  <Route element={<h1>Not found!</h1>} />
+                </Routes>
+              </div>
+            </div>
+          </div>
+          <Footer />
+        </ScrollToTop>
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default injectContext(Layout);
