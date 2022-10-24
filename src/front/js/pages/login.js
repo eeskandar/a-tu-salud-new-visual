@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
 export const Login = () => {
-  const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -30,7 +29,7 @@ export const Login = () => {
 
   return (
     <div>
-      <div className="col-6 m-auto mt-5 p-4 pb-5 rounded-form">
+      <div className="col-6 m-auto my-5 p-4 pb-5 rounded-form">
         <h1 className="text-center form-title">Iniciar sesión</h1>
         <form className="col-11 m-auto">
           <div className="mb-3">

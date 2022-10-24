@@ -30,7 +30,7 @@ const Layout = () => {
             <div className="col-10">
               <Routes>
                 <Route element={<Home />} path="/" />
-                <Route element={<Login />} path="/login" />
+                <Route element={<Login />} path="/api/login" />
                 <Route element={<Demo />} path="/demo" />
                 <Route element={<Single />} path="/single/:theid" />
                 <Route element={<h1>Not found!</h1>} />
