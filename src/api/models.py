@@ -11,6 +11,7 @@ class User(db.Model):
     hashed_password = db.Column(db.String(500), unique=True, nullable=False)
     salt = db.Column(db.String(500), unique=True, nullable=False)
     profile_picture = db.Column(db.String(120), unique=False, nullable=True)
+    post_donations = db.relationship("Post_donation")
 
 class Post_donation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,6 +24,7 @@ class Post_donation(db.Model):
     quantity = db.Column(db.String(120), unique=False, nullable=False)
     name = db.Column(db.String(120), unique=False, nullable=False)
     medicine_picture = db.Column(db.String(120), unique=False, nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
 
 
