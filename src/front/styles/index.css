@@ -22,3 +22,16 @@
   min-height: 83vh;
   height: auto;
 }
+
+.align-to-bot {
+  position: absolute;
+  bottom: 4rem;
+}
+
+.padding-a {
+  padding: 5rem;
+}
+
+.margin-a {
+  margin-top: 9rem !important;
+}
