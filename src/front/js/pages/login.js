@@ -1,21 +1,48 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
 export const Login = () => {
-  const { store, actions } = useContext(Context);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  async function login(email, password) {
+    try {
+      let user;
+      user = { email: email, password: password };
+      const response = await fetch(process.env.BACKEND_URL + "/login", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        new Error("Ocurrió un error en la solicitud");
+      }
+      const body = await response.json();
+      localStorage.setItem("token", body.token);
+      navigate("/");
+    } catch (error) {}
+  }
 
   return (
     <div>
-      <div className="col-6 m-auto mt-5 p-4 pb-5 rounded-form">
+      <div className="col-6 m-auto margin-a p-4 pb-5 rounded-form">
         <h1 className="text-center form-title">Iniciar sesión</h1>
-        <form className="col-11 m-auto">
+        <form className="col-11 m-auto" onSubmit={(e) => e.preventDefault()}>
           <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Correo electrónico
             </label>
             <input
               type="email"
               className="form-control form-input border-0"
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+              value={email}
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
@@ -24,12 +51,16 @@ export const Login = () => {
             </div>
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Contraseña
             </label>
             <input
               type="password"
               className="form-control form-input border-0"
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+              value={password}
               id="exampleInputPassword1"
             />
           </div>
@@ -37,6 +68,11 @@ export const Login = () => {
             <button
               type="submit"
               className="btn form-btn text-center btn-lg rounded-pill px-5"
+              onClick={(e) => {
+                if (email.trim() != "" && password.trim() != "") {
+                  login(email, password);
+                }
+              }}
             >
               Iniciar sesión
             </button>

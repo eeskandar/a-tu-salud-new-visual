@@ -2,20 +2,33 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const NavbarVertical = () => {
-	return (
-		<>
-		<div className="bg-light h-100 w-100 container-fluid sm">
-			<div className="h-75 w-75 container pt-5 ps-0">		
-				<a className="nav-link text-secondary p-0 my-3 justify-content-center" href="#" style={{fontSize: "10px"}}><i className="fa-solid fa-hand-holding-heart"></i> Nueva Donación</a>
-				<a className="nav-link text-secondary p-0 my-3" href="#" style={{fontSize: "10px"}}><i className="fa-regular fa-square-plus"></i> Nueva Petición</a>
-				<a className="nav-link text-secondary p-0 my-3" href="#" style={{fontSize: "10px"}}><i className="fa-solid fa-arrow-right-arrow-left"></i> Nuevo Intercambio</a>
-				<a className="nav-link text-secondary p-0 my-3" href="#" style={{fontSize: "10px"}}><i className="fa-solid fa-envelope"></i> Mensajes</a>
-				<a className="nav-link text-secondary p-0 my-3" href="#" style={{fontSize: "10px"}}><i className="fa-solid fa-circle-question"></i> Sobre Nosotros</a>	
-			</div>	
-			<div className="pt-5 w-75 container-fluid ps-0">
-				<a className="nav-link text-secondary p-0" href="#" style={{fontSize: "10px"}}><i className="fa-solid fa-gear"></i> Configuración</a>
-			</div>
-		</div>	
-		</>
-	);
+  return (
+    <div className="bg-light container-fluid view-display my-auto padding-a">
+      <div className="">
+        <Link to="" className="nav-link text-secondary mb-4">
+          <i className="fa-solid fa-hand-holding-heart fs-3 pe-2"></i> Nueva
+          Donación
+        </Link>
+        <Link to="" className="nav-link text-secondary mb-4">
+          <i className="fa-regular fa-square-plus fs-3 pe-2"></i> Nueva Petición
+        </Link>
+        <Link to="" className="nav-link text-secondary mb-4">
+          <i className="fa-solid fa-arrow-right-arrow-left fs-3 pe-2"></i> Nuevo
+          Intercambio
+        </Link>
+        <Link to="" className="nav-link text-secondary mb-4">
+          <i className="fa-solid fa-envelope fs-3 pe-2"></i> Mensajes
+        </Link>
+        <Link to="" className="nav-link text-secondary mb-4">
+          <i className="fa-solid fa-circle-question fs-3 pe-2"></i> Sobre
+          Nosotros
+        </Link>
+      </div>
+      <div className="pb-5 mb-5 align-to-bot">
+        <Link to="" className="nav-link text-secondary">
+          <i className="fa-solid fa-gear fs-3 pe-2"></i> Configuración
+        </Link>
+      </div>
+    </div>
+  );
 };

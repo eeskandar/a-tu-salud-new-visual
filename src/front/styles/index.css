@@ -1,3 +1,37 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+.rounded-form {
+  border-radius: 50px;
+  background-color: #f9f9f9;
+}
+
+.form-title {
+  color: #52dee5;
+}
+
+.form-input {
+  background-color: #c8e5e7;
+}
+
+.form-btn {
+  background-color: #52dee5;
+}
+
+.view-display {
+  min-height: 83vh;
+  height: auto;
+}
+
+.align-to-bot {
+  position: absolute;
+  bottom: 4rem;
+}
+
+.padding-a {
+  padding: 5rem;
+}
+
+.margin-a {
+  margin-top: 9rem !important;
+}
