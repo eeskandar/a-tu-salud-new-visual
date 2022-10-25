@@ -1,3 +1,77 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+footer {
+  background: #7c7c7c;
+  color: white;
+  display: flex-end;
+}
+nav {
+  background: #52b0e5;
+  border-bottom: solid 10px;
+  color: #92dce5;
+}
+::placeholder {
+  color: white;
+}
+input {
+  position: absolute;
+  left: 59.17%;
+  right: 26.88%;
+  top: 22.54%;
+  bottom: 36.62%;
+
+  background: #92dce5;
+  border-radius: 25px;
+  border: 0;
+}
+img {
+  width: 50px;
+  height: 40px;
+}
+.search {
+    box-sizing: border-box;
+
+    position: absolute;
+    left: 56.39%;
+    right: 41.53%;
+    top: 21.13%;
+    bottom: 36.62%;
+    color: #ffffff;
+    padding-top: 7px;
+    
+}
+.register {
+  position: absolute;
+  left: 76.25%;
+  right: 13.19%;
+  top: 29.58%;
+  bottom: 21.13%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 21px;
+  text-align: center;
+  padding-top:0;
+
+  color: #ffffff !important;
+}
+.login {
+  position: absolute;
+  left: 87.64%;
+  right: 1.81%;
+  top: 29.58%;
+  bottom: 21.13%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 21px;
+  text-align: center;
+  padding-top: 0;
+
+  color: #ffffff !important;
+}
