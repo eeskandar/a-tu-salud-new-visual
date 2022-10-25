@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../img/atusalud logo.png";
 
 export const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ export const Navbar = () => {
       <nav className="navbar navbar-expand-sm py-0 bg-info text-white">
         <div className="container-fluid">
           <a className="navbar-brand text-white" href="#">
-            Logo
+          <img src={logo} style={{height: "50px"}}></img>
           </a>
           <div
             className="navbar d-flex justify-content-end"
