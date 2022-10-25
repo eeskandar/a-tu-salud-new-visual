@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../img/atusalud logo.png";
 
 export const Navbar = () => {
   return (
     <>
       <nav className="navbar navbar-expand-sm py-0 bg-info text-white">
-        <div className="container-fluid">
-          <a className="navbar-brand text-white" href="#">
-            Logo
-          </a>
+        <div className="container-fluid"> 
+          <Link to="">
+            <div className="navbar-brand text-white" href="#">
+              <img src={logo} style={{height: "50px"}}></img>
+            </div>
+          </Link>
           <div
             className="navbar d-flex justify-content-end"
             id="navbarSupportedContent"

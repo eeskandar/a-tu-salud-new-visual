@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import descarga from "../../img/descarga.jpg";
+import logo from "../../img/atusalud logo2.png";
 import "../../styles/home.css";
 import { BusquedaAvanzada } from "../component/BusquedaAvanzada";
 
@@ -14,9 +14,9 @@ export const Home = () => {
 	}
 
 	return(
-	<div className="container h-100">
-		<div className="container d-flex justify-content-center pt-3" style={{height: "100px"}}>
-			<img src={descarga} style={{height: "100px"}}/>
+	<div className="container mt-5 pb-5">
+		<div className="container d-flex justify-content-center pt-3" style={{height: "150px"}}>
+			<img src={logo} style={{height: "150px"}}/>
 		</div>
 		<div className="pt-5 container" >
 			<h1 className="text-secondary text-center" style={{fontSize: "25px"}}>Dona algún medicamento que no vayas a usar. <br/> Solicita un medicamento que necesites.<br/> Intercambia.</h1>
