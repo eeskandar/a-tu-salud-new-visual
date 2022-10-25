@@ -6,10 +6,12 @@ export const Navbar = () => {
   return (
     <>
       <nav className="navbar navbar-expand-sm py-0 bg-info text-white">
-        <div className="container-fluid">
-          <a className="navbar-brand text-white" href="#">
-          <img src={logo} style={{height: "50px"}}></img>
-          </a>
+        <div className="container-fluid"> 
+          <Link to="">
+            <div className="navbar-brand text-white" href="#">
+              <img src={logo} style={{height: "50px"}}></img>
+            </div>
+          </Link>
           <div
             className="navbar d-flex justify-content-end"
             id="navbarSupportedContent"
