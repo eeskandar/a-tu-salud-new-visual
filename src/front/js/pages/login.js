@@ -22,8 +22,12 @@ export const Login = () => {
         new Error("Ocurrió un error en la solicitud");
       }
       const body = await response.json();
-      localStorage.setItem("token", body.token);
-      navigate("/");
+      if (body.token == undefined) {
+        alert("Email o contraseña invalidos");
+      } else {
+        localStorage.setItem("token", body.token);
+        navigate("/user/" + body.id);
+      }
     } catch (error) {}
   }
 
@@ -69,7 +73,11 @@ export const Login = () => {
               type="submit"
               className="btn form-btn text-center btn-lg rounded-pill px-5"
               onClick={(e) => {
-                if (email.trim() != "" && password.trim() != "") {
+                if (email.trim() == "") {
+                  alert("Email can't be empty");
+                } else if (password.trim() == "") {
+                  alert("Your password can't be empty");
+                } else {
                   login(email, password);
                 }
               }}
