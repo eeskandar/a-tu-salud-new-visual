@@ -37,7 +37,7 @@ export const Navbar = () => {
                   </a>
                 </li>
                 <li className="nav-item px-4">
-                  <Link to="/api/login" className="nav-link text-white">
+                  <Link to="/login" className="nav-link text-white">
                     Iniciar Sesión
                   </Link>
                 </li>
