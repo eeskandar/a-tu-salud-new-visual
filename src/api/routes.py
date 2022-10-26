@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import jwt_required, create_access_token, get_jwt_identity
+from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
 import bcrypt
 
 api = Blueprint('api', __name__)
@@ -42,11 +42,34 @@ def log_user():
 
     return jsonify(response_body), 200
 
-@api.route('/register', methods=['POST', 'GET'])
-def register_user():
+@api.route('/register', methods=['POST'])
 
-    response_body = {
-        "message": "user was sign up succesfully"
-    }
+def make_user():
+    if request.method == "POST":
+        body = request.json
+        user = User.query.filter_by(email = body["email"]).one_or_none()
+        if user:
+            return jsonify({
+                "msg": "Email already in use"
+            }), 400
+        salt = bcrypt.gensalt().decode()
+        hashed_password = generate_password_hash(f"{body['password']}{salt}")
 
-    return jsonify(response_body), 200
+        new_user = User(
+            email=body['email'], 
+            hashed_password=hashed_password, 
+            salt=salt,
+            name=body['name'], 
+            last_name=body['last_name'], 
+            city=body['city'], 
+            profile_picture=body.get('profile_picture')
+        )
+        print(new_user.serialize())
+        db.session.add(new_user)
+        try:
+            db.session.commit()
+        except:
+            db.session.rollback()
+
+
+    return jsonify(new_user.serialize()),201
