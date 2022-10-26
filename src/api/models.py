@@ -11,7 +11,19 @@ class User(db.Model):
     hashed_password = db.Column(db.String(500), unique=True, nullable=False)
     salt = db.Column(db.String(500), unique=True, nullable=False)
     profile_picture = db.Column(db.String(120), unique=False, nullable=True)
-    post_donations = db.relationship("Post_donation")
+    post_donations = db.relationship("Post_donation", back_populates="users")
+
+    def __repr__(self):
+        return f'<User {self.email}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "email": self.email,
+            "hashed_password": self.hashed_password,
+            "salt": self.salt
+            # do not serialize the password, its a security breach
+        }
 
 class Post_donation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -25,16 +37,4 @@ class Post_donation(db.Model):
     name = db.Column(db.String(120), unique=False, nullable=False)
     medicine_picture = db.Column(db.String(120), unique=False, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-
-
-
-
-    def __repr__(self):
-        return f'<User {self.email}>'
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "email": self.email,
-            # do not serialize the password, its a security breach
-        }
+    users = db.relationship("User", back_populates="post_donations")
