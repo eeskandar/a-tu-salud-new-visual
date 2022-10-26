@@ -1,77 +1,37 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
-footer {
-  background: #7c7c7c;
-  color: white;
-  display: flex-end;
+.rounded-form {
+  border-radius: 50px;
+  background-color: #f9f9f9;
 }
-nav {
-  background: #52b0e5;
-  border-bottom: solid 10px;
-  color: #92dce5;
+
+.form-title {
+  color: #52dee5;
 }
-::placeholder {
-  color: white;
+
+.form-input {
+  background-color: #c8e5e7;
 }
-input {
+
+.form-btn {
+  background-color: #52dee5;
+}
+
+.view-display {
+  min-height: 83vh;
+  height: auto;
+}
+
+.align-to-bot {
   position: absolute;
-  left: 59.17%;
-  right: 26.88%;
-  top: 22.54%;
-  bottom: 36.62%;
-
-  background: #92dce5;
-  border-radius: 25px;
-  border: 0;
+  bottom: 4rem;
 }
-img {
-  width: 50px;
-  height: 40px;
+
+.padding-a {
+  padding: 5rem;
 }
-.search {
-    box-sizing: border-box;
 
-    position: absolute;
-    left: 56.39%;
-    right: 41.53%;
-    top: 21.13%;
-    bottom: 36.62%;
-    color: #ffffff;
-    padding-top: 7px;
-    
-}
-.register {
-  position: absolute;
-  left: 76.25%;
-  right: 13.19%;
-  top: 29.58%;
-  bottom: 21.13%;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 21px;
-  text-align: center;
-  padding-top:0;
-
-  color: #ffffff !important;
-}
-.login {
-  position: absolute;
-  left: 87.64%;
-  right: 1.81%;
-  top: 29.58%;
-  bottom: 21.13%;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 21px;
-  text-align: center;
-  padding-top: 0;
-
-  color: #ffffff !important;
+.margin-a {
+  margin-top: 9rem !important;
 }

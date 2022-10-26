@@ -1,52 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../img/atusalud logo.png";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
-      <div className="container-fluid">
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo01"
-          aria-controls="navbarTogglerDemo01"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <i class="search fa-sharp fa-solid fa-magnifying-glass"></i>
-          <a className="navbar-brand" href="#">
-            <img src="https://media.discordapp.net/attachments/1030851949727334604/1034258021796298762/Group_1.png"></img>
-          </a>
-          <form className="d-flex">
-            <input
-              className="me-2"
-              type="search"
-              placeholder="    Buscar"
-              aria-label="Search"
-            ></input>
-          </form>
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a
-                className="register nav-link active"
-                aria-current="page"
-                href="#"
-              >
-                Registrarse
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="login nav-link active" href="#">
-                Iniciar sesion
-              </a>
-            </li>
-          </ul>
+    <>
+      <nav className="navbar navbar-expand-sm py-0 bg-info text-white">
+        <div className="container-fluid"> 
+          <Link to="">
+            <div className="navbar-brand text-white" href="#">
+              <img src={logo} style={{height: "50px"}}></img>
+            </div>
+          </Link>
+          <div
+            className="navbar d-flex justify-content-end"
+            id="navbarSupportedContent"
+          >
+            <form className="d-flex" role="search">
+              <h2 className="px-4">
+                <i className="fa-solid fa-magnifying-glass"></i>
+              </h2>
+              <input
+                className="form-control me-2 bg-info  bg-opacity-25"
+                type="search"
+                placeholder="Buscar"
+                aria-label="Search"
+              />
+            </form>
+            <div className="navbar " id="navbarNav">
+              <ul className="navbar-nav">
+                <li className="nav-item px-4">
+                  <a
+                    className="nav-link text-white"
+                    aria-current="page"
+                    href="#"
+                  >
+                    Registrarse
+                  </a>
+                </li>
+                <li className="nav-item px-4">
+                  <Link to="/login" className="nav-link text-white">
+                    Iniciar Sesión
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      <div style={{ background: "#92DCE5", height: "10px" }}></div>
+      <div></div>
+    </>
   );
 };
