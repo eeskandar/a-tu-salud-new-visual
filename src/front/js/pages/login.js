@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../styles/home.css";
+import { Context } from "./../store/appContext";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { store, actions } = useContext(Context);
+  const activeUser = store.activeUser;
+  const setActiveUser = actions.setActiveUser;
   const navigate = useNavigate();
 
   async function login(email, password) {
@@ -22,6 +25,7 @@ export const Login = () => {
         new Error("Ocurrió un error en la solicitud");
       }
       const body = await response.json();
+      setActiveUser(body);
       if (body.token == undefined) {
         alert("Email o contraseña invalidos");
       } else {
