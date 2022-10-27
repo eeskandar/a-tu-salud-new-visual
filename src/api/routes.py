@@ -71,5 +71,9 @@ def make_user():
         except:
             db.session.rollback()
 
+# Backend 03 Como visitante quiero poder acceder a la información de busqueda para encontrar lo que necesita
+@api.route('/consult-posts', methods=['GET'])
+def consult_posts():
+    
 
     return jsonify(new_user.serialize()),201
