@@ -35,8 +35,8 @@ def log_user():
 
     access_token = create_access_token(identity=user.id)
     response_body = {
-        "msg": "Welcome back, " + user.username,
         "id": user.id,
+        "name": user.name,
         "token": access_token
     }
 
