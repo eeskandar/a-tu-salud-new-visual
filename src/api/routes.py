@@ -70,6 +70,7 @@ def make_user():
             db.session.commit()
         except:
             db.session.rollback()
+        return jsonify(new_user.serialize()),201
 
 # Backend 03 Como visitante quiero poder acceder a la información de busqueda para encontrar lo que necesita
 # consultar si el medicamento existe
@@ -78,8 +79,21 @@ def make_user():
 def consult_posts():
     if request.method == "GET":
         body = request.json
+        filter = session.query(User).filter(
+            Post.name == body['name'],
+            Post.city == body.get('city'),
+            Post.expiration_date == body.get('expiration_date'),
+            Post.typeof == body.get('typeof'),
+            Post.presentation == body.get('presentation'),
+            Post.quantity == body.get('quantity'),
+            ).all()
+        if filter.len() >= 1:
+            return jsonify({
+            "msg":"here is the list of posts",
+            "list":filter
+        }), 200
+        else:
+            return jsonify({
+                "msg":"no posts found"
+            }), 400
 
-        # Post.query.filter_by(city=)
-        pass
-
-    return jsonify(new_user.serialize()),201
