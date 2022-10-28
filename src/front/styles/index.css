@@ -40,6 +40,11 @@
   height: auto;
 }
 
+.side-nav {
+  flex: 0 0 auto;
+  width: 20%;
+}
+
 .align-to-bot {
   position: absolute;
   bottom: 4rem;

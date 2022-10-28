@@ -25,7 +25,7 @@ const Layout = () => {
           <Navbar />
           <div className="container-fluid">
             <div className="row view-display">
-              <div className="col-3 p-0">
+              <div className="side-nav p-0">
                 <NavbarVertical />
               </div>
               <div className="col-9">
