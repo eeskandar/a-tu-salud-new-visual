@@ -14,6 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           initial: "white",
         },
       ],
+      /////////////////////////////// new stuff
       activeUser: [{ id: "Guest" }],
     },
     actions: {
@@ -22,7 +23,36 @@ const getState = ({ getStore, getActions, setStore }) => {
           activeUser: [user],
         });
       },
-      // Use getActions to call a function within a fuction
+
+      login: async (email, password) => {
+        try {
+          let user;
+          user = { email: email, password: password };
+          const response = await fetch(process.env.BACKEND_URL + "/login", {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          if (!response.ok) {
+            new Error("Ocurrió un error en la solicitud");
+          }
+          const body = await response.json();
+          if (body.token == undefined) {
+            return false;
+          } else {
+            getActions().setActiveUser(body);
+            localStorage.setItem("token", body.token);
+            return true;
+          }
+        } catch (error) {}
+      },
+      logout: () => {
+        localStorage.removeItem("token");
+        getActions().setActiveUser({ id: "Guest" });
+      },
+      ////////////////////////////////////////////////// new stuff
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },

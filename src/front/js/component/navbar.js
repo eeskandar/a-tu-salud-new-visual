@@ -7,13 +7,7 @@ export const Navbar = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
   const activeUser = store.activeUser;
-  const setActiveUser = actions.setActiveUser;
-
-  function logout() {
-    localStorage.removeItem("token");
-    setActiveUser({ id: "Guest" });
-    navigate("/");
-  }
+  const logout = actions.logout;
 
   return (
     <>
@@ -41,7 +35,7 @@ export const Navbar = () => {
             </form>
             <div className="navbar " id="navbarNav">
               <ul className="navbar-nav">
-                {activeUser[0].id == "Guest" ? (
+                {localStorage.getItem("token") == null ? (
                   <div className="d-flex">
                     <li className="nav-item px-4">
                       <a
@@ -70,7 +64,14 @@ export const Navbar = () => {
                       </Link>
                     </li>
                     <li className="nav-item px-4">
-                      <Link to="/" className="nav-link text-white">
+                      <Link
+                        to="/"
+                        className="nav-link text-white"
+                        onClick={(e) => {
+                          logout();
+                          navigate("/");
+                        }}
+                      >
                         Cerrar sesión
                       </Link>
                     </li>
