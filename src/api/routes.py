@@ -27,7 +27,7 @@ def log_user():
             "msg": "Email or password invalid"
         }), 400
 
-    valid_password = check_password_hash(user.password, f'{body["password"]}{user.salt}')
+    valid_password = check_password_hash(user.password, f'{body["password"]}{user.salt}') #esto debería ser user.hashed_password en vez de user.password
     if not valid_password:
         return jsonify({
             "msg": "Email or password invalid"
@@ -72,8 +72,11 @@ def make_user():
             db.session.rollback()
 
 # Backend 03 Como visitante quiero poder acceder a la información de busqueda para encontrar lo que necesita
+# consultar si el medicamento existe
+# filtrar el medicamento por fecha de vencimiento, cantidad, presentación, ciudad. etc.
 @api.route('/consult-posts', methods=['GET'])
 def consult_posts():
-    
+    if request.method == "GET":
+        Post.query.filter_by
 
     return jsonify(new_user.serialize()),201

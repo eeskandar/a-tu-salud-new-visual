@@ -11,7 +11,7 @@ class User(db.Model):
     hashed_password = db.Column(db.String(500), unique=True, nullable=False)
     salt = db.Column(db.String(500), unique=True, nullable=False)
     profile_picture = db.Column(db.String(120), unique=False, nullable=True)
-    post_donations = db.relationship("Post_donation", back_populates="users")
+    posts = db.relationship("Post", back_populates="users")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -25,16 +25,19 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Post_donation(db.Model):
+class Post(db.Model):
+    #add type of post
+    #change the nullable state to true or false depending if it is common or not
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(120), unique=False, nullable=False)
-    description = db.Column(db.String(1200), unique=False, nullable=False)
-    presentation = db.Column(db.String(120), unique=False, nullable=False)
-    active_component = db.Column(db.String(120), unique=False, nullable=False)
-    expiration_date = db.Column(db.String(120), unique=False, nullable=False)
-    specification = db.Column(db.String(120), unique=False, nullable=False)
-    quantity = db.Column(db.String(120), unique=False, nullable=False)
-    name = db.Column(db.String(120), unique=False, nullable=False)
-    medicine_picture = db.Column(db.String(120), unique=False, nullable=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    users = db.relationship("User", back_populates="post_donations")
+    title = db.Column(db.String(120), unique=False, nullable=True) #titulo del post
+    description = db.Column(db.String(1200), unique=False, nullable=True) # descripción de cada post
+    presentation = db.Column(db.String(120), unique=False, nullable=True) # presentación significa si es tableta, capsula, jarabe, inyección, etc
+    active_component = db.Column(db.String(120), unique=False, nullable=True) # componente activo
+    expiration_date = db.Column(db.String(120), unique=False, nullable=True) # fecha de vencimiento
+    dosis = db.Column(db.String(120), unique=False, nullable=True) # la cantidad de principio activo de un medicamento
+    quantity = db.Column(db.String(120), unique=False, nullable=True) # número de unidades que trae el envace o como vergas venga
+    name = db.Column(db.String(120), unique=False, nullable=True) # ps el nombre
+    medicine_picture = db.Column(db.String(120), unique=True, nullable=True) # foto o imagen del medicamento
+    typeof = db.Column(db.String(120), unique=False, nullable=True) # especificación del tipo
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True) # relacion con el usuario
+    users = db.relationship("User", back_populates="posts")
