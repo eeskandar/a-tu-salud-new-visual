@@ -1,35 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../styles/home.css";
+import { Context } from "./../store/appContext";
 
 export const Login = () => {
+  const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-
-  async function login(email, password) {
-    try {
-      let user;
-      user = { email: email, password: password };
-      const response = await fetch(process.env.BACKEND_URL + "/login", {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (!response.ok) {
-        new Error("Ocurrió un error en la solicitud");
-      }
-      const body = await response.json();
-      if (body.token == undefined) {
-        alert("Email o contraseña invalidos");
-      } else {
-        localStorage.setItem("token", body.token);
-        navigate("/user/" + body.id);
-      }
-    } catch (error) {}
-  }
+  const login = actions.login;
 
   return (
     <div>
@@ -72,13 +50,17 @@ export const Login = () => {
             <button
               type="submit"
               className="btn form-btn text-center btn-lg rounded-pill px-5"
-              onClick={(e) => {
+              onClick={async (e) => {
                 if (email.trim() == "") {
                   alert("Email can't be empty");
                 } else if (password.trim() == "") {
                   alert("Your password can't be empty");
                 } else {
-                  login(email, password);
+                  let success = await login(email, password);
+                  if (success == true) {
+                    return navigate("/user/" + body.id);
+                  }
+                  alert("Email o contraseña invalidos");
                 }
               }}
             >
