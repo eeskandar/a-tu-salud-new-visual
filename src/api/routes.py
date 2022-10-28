@@ -74,9 +74,10 @@ def make_user():
 # Backend 03 Como visitante quiero poder acceder a la información de busqueda para encontrar lo que necesita
 # consultar si el medicamento existe
 # filtrar el medicamento por fecha de vencimiento, cantidad, presentación, ciudad. etc.
-@api.route('/consult-posts', methods=['GET'])
+@api.route('/posts', methods=['GET'])
 def consult_posts():
     if request.method == "GET":
-        Post.query.filter_by
+        # Post.query.filter_by
+        pass
 
     return jsonify(new_user.serialize()),201
