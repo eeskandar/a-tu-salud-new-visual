@@ -1,6 +1,23 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+.nav-color {
+  background-color: #52b0e5;
+}
+
+.nav-logo {
+  height: 50px;
+}
+
+.nav-bottom {
+  background-color: #92dce5;
+  height: 10px;
+}
+
+.nav-input {
+  background-color: #92dce5;
+}
+
 .rounded-form {
   border-radius: 50px;
   background-color: #f9f9f9;
