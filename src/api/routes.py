@@ -77,7 +77,9 @@ def make_user():
 @api.route('/posts', methods=['GET'])
 def consult_posts():
     if request.method == "GET":
-        # Post.query.filter_by
+        body = request.json
+
+        # Post.query.filter_by(city=)
         pass
 
     return jsonify(new_user.serialize()),201
