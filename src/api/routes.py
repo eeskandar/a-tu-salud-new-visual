@@ -80,16 +80,21 @@ def make_user():
 def posts():
     if request.method == "GET":
         
-        result = db.session.query(Post).filter(
-            Post.name == request.args.get('name'),
-            Post.expiration_date == request.args.get('expiration_date'),
-            Post.typeof == request.args.get('typeof'),
-            Post.presentation == request.args.get('presentation'),
-            Post.quantity == request.args.get('quantity'),
-            ).all()
-        print(request.args.get('name'))
-        print(result)
-        if result:
+        filters = [                
+            ]
+        if request.args.get('name') != None:
+            filters.append(Post.name == request.args.get('name'))
+        if request.args.get('expiration_date') != None:
+            filters.append(Post.expiration_date == request.args.get('expiration_date'))
+        if request.args.get('typeof') != None:
+            filters.append(Post.typeof == request.args.get('typeof'))
+        if request.args.get('presentation') != None:
+            filters.append(Post.presentation == request.args.get('presentation'))
+        if request.args.get('quantity') != None:
+            filters.append(Post.quantity == request.args.get('quantity'))
+        # post = db.session.query()
+        result = db.session.query(Post).filter(*filters)
+        if result.count() > 0:
             return jsonify({
             "msg":"here is the list of posts",
             "list":[post.serialize() for post in result]
