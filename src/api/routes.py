@@ -2,11 +2,12 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Post
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
 import bcrypt
+
 
 api = Blueprint('api', __name__)
 
@@ -70,14 +71,31 @@ def make_user():
             db.session.commit()
         except:
             db.session.rollback()
+        return jsonify(new_user.serialize()),201
 
 # Backend 03 Como visitante quiero poder acceder a la información de busqueda para encontrar lo que necesita
 # consultar si el medicamento existe
 # filtrar el medicamento por fecha de vencimiento, cantidad, presentación, ciudad. etc.
 @api.route('/posts', methods=['GET'])
-def consult_posts():
+def posts():
     if request.method == "GET":
-        # Post.query.filter_by
-        pass
+        
+        result = db.session.query(Post).filter(
+            Post.name == request.args.get('name'),
+            Post.expiration_date == request.args.get('expiration_date'),
+            Post.typeof == request.args.get('typeof'),
+            Post.presentation == request.args.get('presentation'),
+            Post.quantity == request.args.get('quantity'),
+            ).all()
+        print(request.args.get('name'))
+        print(result)
+        if result:
+            return jsonify({
+            "msg":"here is the list of posts",
+            "list":[post.serialize() for post in result]
+        }), 200
+        else:
+            return jsonify({
+                "msg":"no posts found"
+            }), 404
 
-    return jsonify(new_user.serialize()),201
