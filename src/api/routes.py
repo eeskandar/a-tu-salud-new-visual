@@ -2,11 +2,12 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Post
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
 import bcrypt
+
 
 api = Blueprint('api', __name__)
 
@@ -76,24 +77,25 @@ def make_user():
 # consultar si el medicamento existe
 # filtrar el medicamento por fecha de vencimiento, cantidad, presentación, ciudad. etc.
 @api.route('/posts', methods=['GET'])
-def consult_posts():
+def posts():
     if request.method == "GET":
-        body = request.json
-        filter = session.query(User).filter(
-            Post.name == body['name'],
-            Post.city == body.get('city'),
-            Post.expiration_date == body.get('expiration_date'),
-            Post.typeof == body.get('typeof'),
-            Post.presentation == body.get('presentation'),
-            Post.quantity == body.get('quantity'),
+        
+        result = db.session.query(Post).filter(
+            Post.name == request.args.get('name'),
+            Post.expiration_date == request.args.get('expiration_date'),
+            Post.typeof == request.args.get('typeof'),
+            Post.presentation == request.args.get('presentation'),
+            Post.quantity == request.args.get('quantity'),
             ).all()
-        if filter.len() >= 1:
+        print(request.args.get('name'))
+        print(result)
+        if result:
             return jsonify({
             "msg":"here is the list of posts",
-            "list":filter
+            "list":[post.serialize() for post in result]
         }), 200
         else:
             return jsonify({
                 "msg":"no posts found"
-            }), 400
+            }), 404
 
