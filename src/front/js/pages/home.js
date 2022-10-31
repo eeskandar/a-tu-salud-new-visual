@@ -21,7 +21,7 @@ export const Home = () => {
 		<div className="pt-5 container" >
 			<h1 className="text-secondary text-center" style={{fontSize: "25px"}}>Dona algún medicamento que no vayas a usar. <br/> Solicita un medicamento que necesites.<br/> Intercambia.</h1>
 		</div>
-		<div className="d-flex justify-content-around pt-5">
+		<div className="d-flex justify-content-evenly pt-5">
 			<div className="">
 				<label htmlFor="" className="form-label text-secondary">Medicamento</label>
 				<input className="form-control me-2" type="search" placeholder="" aria-label="Search"/>
@@ -29,6 +29,14 @@ export const Home = () => {
 			<div>
 				<label htmlFor="" className="form-label text-secondary">Ciudad</label>
 				<input className="form-control me-2" type="search" placeholder="" aria-label="Search"/>
+			</div>
+			<div>
+			<label htmlFor="" className="form-label text-secondary"> Tipo de Busqueda</label>
+			<select class="form-select text-secondary" aria-label="Default select example">
+				<option value="1">Donación</option>
+				<option value="2">Solicitud</option>
+				<option value="3">Intercambio</option>
+			</select>
 			</div>
 			<button type="button" className="btn btn-secondary">Buscar</button>
 		</div>

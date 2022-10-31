@@ -42,6 +42,11 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True) # relacion con el usuario
     users = db.relationship("User", back_populates="posts")
 
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.name
+        }
 
 class TradingPost(db.Model):
     #add type of post
@@ -66,3 +71,10 @@ class TradingPost(db.Model):
     typeof = db.Column(db.String(120), unique=False, nullable=True) # especificación del tipo ("trade")
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True) # relacion con el usuario
     users = db.relationship("User", back_populates="posts")
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "req_name": self.req_name
+        }

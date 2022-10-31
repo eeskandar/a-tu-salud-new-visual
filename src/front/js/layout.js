@@ -25,10 +25,10 @@ const Layout = () => {
           <Navbar />
           <div className="container-fluid">
             <div className="row view-display">
-              <div className="side-nav p-0">
+              <div className="col-1 col-lg-3 p-0">
                 <NavbarVertical />
               </div>
-              <div className="col-9">
+              <div className="col-11 col-lg-9">
                 <Routes>
                   <Route element={<Home />} path="/" />
                   <Route element={<Login />} path="/login" />
