@@ -41,3 +41,28 @@ class Post(db.Model):
     typeof = db.Column(db.String(120), unique=False, nullable=True) # especificación del tipo
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True) # relacion con el usuario
     users = db.relationship("User", back_populates="posts")
+
+
+class TradingPost(db.Model):
+    #add type of post
+    #change the nullable state to true or false depending if it is common or not
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(120), unique=False, nullable=True) #titulo del post
+    description = db.Column(db.String(1200), unique=False, nullable=True) # descripción de cada post
+    presentation = db.Column(db.String(120), unique=False, nullable=True) # presentación significa si es tableta, capsula, jarabe, inyección, etc
+    active_component = db.Column(db.String(120), unique=False, nullable=True) # componente activo
+    expiration_date = db.Column(db.String(120), unique=False, nullable=True) # fecha de vencimiento
+    dosis = db.Column(db.String(120), unique=False, nullable=True) # la cantidad de principio activo de un medicamento
+    quantity = db.Column(db.String(120), unique=False, nullable=True) # número de unidades que trae el envace o como vergas venga
+    name = db.Column(db.String(120), unique=False, nullable=True) # ps el nombre
+    medicine_picture = db.Column(db.String(120), unique=True, nullable=True) # foto o imagen del medicamento (solicitado)
+    req_presentation = db.Column(db.String(120), unique=False, nullable=True) # presentación significa si es tableta, capsula, jarabe, inyección, etc (solicitado)
+    req_active_component = db.Column(db.String(120), unique=False, nullable=True) # componente activo (solicitado)
+    req_expiration_date = db.Column(db.String(120), unique=False, nullable=True) # fecha de vencimiento (solicitado)
+    req_dosis = db.Column(db.String(120), unique=False, nullable=True) # la cantidad de principio activo de un medicamento (solicitado)
+    req_quantity = db.Column(db.String(120), unique=False, nullable=True) # número de unidades que trae el envace o como vergas venga (solicitado)
+    req_name = db.Column(db.String(120), unique=False, nullable=True) # ps el nombre (solicitado)
+    req_medicine_picture = db.Column(db.String(120), unique=True, nullable=True) # foto o imagen del medicamento (solicitado)
+    typeof = db.Column(db.String(120), unique=False, nullable=True) # especificación del tipo ("trade")
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True) # relacion con el usuario
+    users = db.relationship("User", back_populates="posts")
