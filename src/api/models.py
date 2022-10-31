@@ -12,6 +12,7 @@ class User(db.Model):
     salt = db.Column(db.String(500), unique=True, nullable=False)
     profile_picture = db.Column(db.String(120), unique=False, nullable=True)
     posts = db.relationship("Post", back_populates="users")
+    trading_posts = db.relationship("TradingPost", back_populates="users")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -70,7 +71,7 @@ class TradingPost(db.Model):
     req_medicine_picture = db.Column(db.String(120), unique=True, nullable=True) # foto o imagen del medicamento (solicitado)
     typeof = db.Column(db.String(120), unique=False, nullable=True) # especificación del tipo ("trade")
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True) # relacion con el usuario
-    users = db.relationship("User", back_populates="posts")
+    users = db.relationship("User", back_populates="trading_posts")
 
     def serialize(self):
         return {
