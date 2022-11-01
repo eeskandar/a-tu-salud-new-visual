@@ -71,6 +71,9 @@ def make_user():
             db.session.commit()
         except:
             db.session.rollback()
+            return jsonify({
+                "msg":"something unexpected happened"
+            }), 500
         return jsonify(new_user.serialize()),201
 
 # Backend 03 Como visitante quiero poder acceder a la información de busqueda para encontrar lo que necesita
@@ -104,7 +107,12 @@ def posts():
             filters.append(User.city == request.args.get('city'))
         
         # post = db.session.query()
-        result = db.session.query(Post).join(User).filter(*filters).all()
+        try:
+            result = db.session.query(Post).join(User).filter(*filters).all()
+        except Error:
+            return jsonify({
+                "msg":"something unexpected happened"
+            }), 500
         if len(result) > 0:
             return jsonify({
             "msg":"here is the list of posts",
