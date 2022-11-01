@@ -82,19 +82,30 @@ def posts():
         
         filters = [                
             ]
+        
+        # print(db.session.query(Post).join(Post.users).filter(Post.users.city == 'test'))
+
         if request.args.get('name') != None:
             filters.append(Post.name == request.args.get('name'))
+        
         if request.args.get('expiration_date') != None:
             filters.append(Post.expiration_date == request.args.get('expiration_date'))
+        
         if request.args.get('typeof') != None:
             filters.append(Post.typeof == request.args.get('typeof'))
+        
         if request.args.get('presentation') != None:
             filters.append(Post.presentation == request.args.get('presentation'))
+        
         if request.args.get('quantity') != None:
             filters.append(Post.quantity == request.args.get('quantity'))
+
+        if request.args.get('city') != None:
+            filters.append(User.city == request.args.get('city'))
+        
         # post = db.session.query()
-        result = db.session.query(Post).filter(*filters)
-        if result.count() > 0:
+        result = db.session.query(Post).join(User).filter(*filters).all()
+        if len(result) > 0:
             return jsonify({
             "msg":"here is the list of posts",
             "list":[post.serialize() for post in result]

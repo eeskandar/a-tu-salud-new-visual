@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -11,6 +12,7 @@ class User(db.Model):
     hashed_password = db.Column(db.String(500), unique=True, nullable=False)
     salt = db.Column(db.String(500), unique=True, nullable=False)
     profile_picture = db.Column(db.String(120), unique=False, nullable=True)
+    created_at = db.Column(db.DateTime(), default=datetime.now())
     posts = db.relationship("Post", back_populates="users")
 
     def __repr__(self):
@@ -22,6 +24,13 @@ class User(db.Model):
             "email": self.email,
             "hashed_password": self.hashed_password,
             "salt": self.salt
+            # do not serialize the password, its a security breach
+        }
+    def serialize_post(self):
+        return {
+            "id": self.id,
+            "email": self.email,
+            "city": self.city
             # do not serialize the password, its a security breach
         }
 
@@ -45,5 +54,6 @@ class Post(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "name": self.name
+            "name": self.name,
+            "user": self.users.serialize_post()
         }
