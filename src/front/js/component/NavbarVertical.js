@@ -13,7 +13,7 @@ export const NavbarVertical = () => {
           <i className="fa-regular fa-square-plus fs-3 pe-2"></i>
           <span className="d-none d-lg-block">Nueva Petición</span>
         </Link>
-        <Link to="" className="d-flex nav-link text-secondary mb-4">
+        <Link to="/post/trade" className="d-flex nav-link text-secondary mb-4">
           <i className="fa-solid fa-arrow-right-arrow-left fs-3 pe-2"></i>
           <span className="d-none d-lg-block">Nueva Intercambio</span>
         </Link>

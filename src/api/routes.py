@@ -11,14 +11,6 @@ import bcrypt
 
 api = Blueprint('api', __name__)
 
-
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
-
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
-    }
-
 @api.route('/login', methods=['POST'])
 def log_user():
     body = request.json
@@ -122,4 +114,31 @@ def posts():
             return jsonify({
                 "msg":"no posts found"
             }), 404
+
+@api.route('/solicitud', methods=['GET', 'POST'])
+def handle_solicitud():
+    if request.method == 'GET':
+        get_request = Post_donation.query.all()
+
+        if get_request is None:
+            return jsonify({
+                "msg": "There are no requests yet!"
+            }), 400
+
+        request_list = list(map(lambda requests: requests.serialize(), get_request))
+
+        return jsonify(request_list), 200
+
+    body = request.json    
+    new_request = Post_donation.create(body)   
+
+    if type(new_request) == dict:   
+        return jsonify({
+            "msg": new_request["msg"]
+        }), new_request["status"]
+
+    response_body = {     
+        "user": new_request.serialize()
+    }
+    return jsonify(response_body), 200
 
