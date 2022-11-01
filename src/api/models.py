@@ -106,7 +106,8 @@ class Post(db.Model):
 # Agregar los atributos del post que queremos serializar para luego mostrar en el frontend
     def serialize(self):
         return {
-            "name": self.title + " " + self.presentation,
+            "id": self.id,
+            "name": self.name,
             "user": self.users.serialize_post()
         }
 
