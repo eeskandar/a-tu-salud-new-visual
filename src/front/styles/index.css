@@ -66,6 +66,10 @@
   border-radius: 50%;
 }
 
+.side-profile {
+  background-color: #b9b9b9;
+}
+
 .cards-width {
   width: 18rem;
 }

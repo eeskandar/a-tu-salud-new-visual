@@ -7,8 +7,8 @@ export const Profile = () => {
   const user = store.user;
 
   return (
-    <div className="container-fluid d-flex justify-content-between p-0">
-      <div className="col-2 bg-secondary p-0">
+    <div className="d-flex justify-content-between p-0 col-11 bg-color">
+      <div className="col-3 side-profile p-0">
         {/* sidebar */}
         <div className="d-flex justify-content-center mt-5">
           <img
@@ -17,26 +17,26 @@ export const Profile = () => {
             className="prof-pic"
           />
         </div>
-        <div className="text-white text-center mt-3 fw-bold">
+        <div className="text-secondary text-center mt-3 fw-bold">
           user.name + user.last_name
         </div>
-        <Link to="" className="nav-link text-white mt-4 text-center">
+        <Link to="" className="nav-link text-secondary mt-4 text-center">
           Información
         </Link>
-        <Link to="" className="nav-link text-white mt-2 text-center">
+        <Link to="" className="nav-link text-secondary mt-2 text-center">
           Donaciones
         </Link>
-        <Link to="" className="nav-link text-white mt-2 text-center">
+        <Link to="" className="nav-link text-secondary mt-2 text-center">
           Solicitudes
         </Link>
-        <Link to="" className="nav-link text-white mt-2 text-center">
+        <Link to="" className="nav-link text-secondary mt-2 text-center">
           Intercambio
         </Link>
-        <Link to="" className="nav-link text-white mt-2 mb-5 text-center">
+        <Link to="" className="nav-link text-secondary mt-2 mb-5 text-center">
           Mensajes
         </Link>
       </div>
-      <div className="col-10">
+      <div className="col-9">
         {/* info */}
         <h1 className="text-center mt-4 text-secondary">
           Información de usuario
