@@ -11,7 +11,7 @@ export const Navbar = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-sm py-0 text-white nav-color">
+      <nav className="navbar navbar-expand-sm py-0 text-white nav-color ">
         <div className="container-fluid">
           <Link to="">
             <img src={logo} className="nav-logo ms-3"></img>
