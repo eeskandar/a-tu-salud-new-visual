@@ -57,3 +57,11 @@
 .margin-a {
   margin-top: 9rem !important;
 }
+
+.prof-pic {
+  width: 10rem;
+  height: 10rem;
+  box-sizing: border-box;
+  object-fit: cover;
+  border-radius: 50%;
+}

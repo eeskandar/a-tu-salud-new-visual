@@ -12,6 +12,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { NavbarVertical } from "./component/NavbarVertical";
 import { TradingPost } from "./pages/trading-post";
+import { Profile } from "./pages/profile";
 
 //create your first component
 const Layout = () => {
@@ -26,13 +27,14 @@ const Layout = () => {
           <Navbar />
           <div className="container-fluid">
             <div className="row view-display">
-              <div className="col-1 col-lg-3 p-0">
+              <div className="col-1 p-0">
                 <NavbarVertical />
               </div>
-              <div className="col-11 col-lg-9">
+              <div className="col-11 p-0">
                 <Routes>
                   <Route element={<Home />} path="/" />
                   <Route element={<Login />} path="/login" />
+                  <Route element={<Profile />} path="/user/:userid" />
                   <Route element={<TradingPost />} path="/post/trade" />
                   <Route element={<Demo />} path="/demo" />
                   <Route element={<Single />} path="/single/:theid" />
