@@ -7,7 +7,9 @@ export const NavbarVertical = () => {
   return (
     <div
       className={`${
-        location.pathname == "/results" || location.pathname == "/user"
+        location.pathname == "/results" ||
+        location.pathname == "/user/trade" ||
+        location.pathname == "/user"
           ? "col-1 p-0 bg-light view-display p-2"
           : "col-1 col-lg-2 p-0 bg-light view-display p-2"
       }`}
@@ -17,7 +19,9 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-hand-holding-heart fs-3 pe-2"></i>{" "}
           <span
             className={`${
-              location.pathname == "/results" || location.pathname == "/user"
+              location.pathname == "/results" ||
+              location.pathname == "/user/trade" ||
+              location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}
@@ -29,7 +33,9 @@ export const NavbarVertical = () => {
           <i className="fa-regular fa-square-plus fs-3 pe-2"></i>
           <span
             className={`${
-              location.pathname == "/results" || location.pathname == "/user"
+              location.pathname == "/results" ||
+              location.pathname == "/user/trade" ||
+              location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}
@@ -37,23 +43,27 @@ export const NavbarVertical = () => {
             Nueva Petición
           </span>
         </Link>
-        <Link to="/post/trade" className="d-flex nav-link text-secondary mb-4">
+        <Link to="/user/trade" className="d-flex nav-link text-secondary mb-4">
           <i className="fa-solid fa-arrow-right-arrow-left fs-3 pe-2"></i>
           <span
             className={`${
-              location.pathname == "/results" || location.pathname == "/user"
+              location.pathname == "/results" ||
+              location.pathname == "/user/trade" ||
+              location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}
           >
-            Nueva Intercambio
+            Nuevo Intercambio
           </span>
         </Link>
         <Link to="" className="d-flex nav-link text-secondary mb-4">
           <i className="fa-solid fa-envelope fs-3 pe-2"></i>
           <span
             className={`${
-              location.pathname == "/results" || location.pathname == "/user"
+              location.pathname == "/results" ||
+              location.pathname == "/user/trade" ||
+              location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}
@@ -65,7 +75,9 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-circle-question fs-3 pe-2"></i>{" "}
           <span
             className={`${
-              location.pathname == "/results" || location.pathname == "/user"
+              location.pathname == "/results" ||
+              location.pathname == "/user/trade" ||
+              location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}
@@ -79,7 +91,9 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-gear fs-3 pe-2"></i>{" "}
           <span
             className={`${
-              location.pathname == "/results" || location.pathname == "/user"
+              location.pathname == "/results" ||
+              location.pathname == "/user/trade" ||
+              location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}

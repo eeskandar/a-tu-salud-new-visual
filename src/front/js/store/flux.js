@@ -15,7 +15,18 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
       /////////////////////////////// new stuff
-      activeUser: [{ id: "Guest" }],
+      activeUser: [
+        {
+          id: "Guest",
+          name: "Pedro",
+          last_name: "Mapache",
+          city: "Narnia",
+          email: "holyjohnny@gmail.com",
+          phone: "(424) 1112233",
+          profile_picture:
+            "https://images.hola.com/imagenes/mascotas/20220811215146/mapaches-curiosidades-dn/1-124-915/mapaches-curiosidades-mascota-t.jpg",
+        },
+      ],
     },
     actions: {
       setActiveUser: (user) => {

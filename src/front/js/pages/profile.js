@@ -1,40 +1,17 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { SideProfile } from "../component/SideProfile";
 import { Context } from "../store/appContext";
 
 export const Profile = () => {
   const { store, actions } = useContext(Context);
-  const user = store.user;
+  const user = store.activeUser;
+
+  console.log(user);
 
   return (
     <div className="d-flex justify-content-between p-0 col-11 bg-color">
       <div className="col-3 side-profile p-0">
-        {/* sidebar */}
-        <div className="d-flex justify-content-center mt-5">
-          <img
-            src="https://images.hola.com/imagenes/mascotas/20220811215146/mapaches-curiosidades-dn/1-124-915/mapaches-curiosidades-mascota-t.jpg"
-            alt="profile_picture"
-            className="prof-pic"
-          />
-        </div>
-        <div className="text-secondary text-center mt-3 fw-bold">
-          user.name + user.last_name
-        </div>
-        <Link to="" className="nav-link text-secondary mt-4 text-center">
-          Información
-        </Link>
-        <Link to="" className="nav-link text-secondary mt-2 text-center">
-          Donaciones
-        </Link>
-        <Link to="" className="nav-link text-secondary mt-2 text-center">
-          Solicitudes
-        </Link>
-        <Link to="" className="nav-link text-secondary mt-2 text-center">
-          Intercambio
-        </Link>
-        <Link to="" className="nav-link text-secondary mt-2 mb-5 text-center">
-          Mensajes
-        </Link>
+        <SideProfile />
       </div>
       <div className="col-9">
         {/* info */}
@@ -46,13 +23,13 @@ export const Profile = () => {
             <div>
               <div className="fs-5 text-secondary text-center">Nombre</div>
               <div className="fw-bold text-secondary text-center">
-                user.name + user.last_name
+                {user[0].name + " " + user[0].last_name}
               </div>
             </div>
             <div>
               <div className="fs-5 text-secondary text-center mt-4">Email</div>
               <div className="fw-bold text-secondary text-center">
-                user.email
+                {user[0].email}
               </div>
             </div>
           </div>
@@ -60,7 +37,7 @@ export const Profile = () => {
             <div>
               <div className="fs-5 text-secondary text-center">Ciudad</div>
               <div className="fw-bold text-secondary text-center">
-                user.city
+                {user[0].city}
               </div>
             </div>
             <div>
@@ -68,7 +45,7 @@ export const Profile = () => {
                 Teléfono
               </div>
               <div className="fw-bold text-secondary text-center">
-                user.phone
+                {user[0].phone}
               </div>
             </div>
           </div>
