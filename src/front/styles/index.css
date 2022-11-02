@@ -65,3 +65,7 @@
   object-fit: cover;
   border-radius: 50%;
 }
+
+.cards-width {
+  width: 18rem;
+}

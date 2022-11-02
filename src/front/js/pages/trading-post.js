@@ -20,7 +20,7 @@ export const TradingPost = () => {
   const [description, setDescription] = useState("");
 
   return (
-    <div>
+    <div className="col-10">
       <div className="mt-5">
         <h1 className="ps-5 pb-5 form-title">Intercambio de medicamentos</h1>
         <form className="m-auto" onSubmit={(e) => e.preventDefault()}>

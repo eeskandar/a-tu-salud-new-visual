@@ -1,11 +1,9 @@
-import React, { useContext, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Profile = () => {
   const { store, actions } = useContext(Context);
-  const navigate = useNavigate();
-  const params = useParams();
   const user = store.user;
 
   return (
