@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Post
+from api.models import db, User, Post, TradingPost
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
@@ -28,6 +28,7 @@ def log_user():
 
     access_token = create_access_token(identity=user.id)
     response_body = {
+        "id": user.id,
         "name": user.name,
         "token": access_token,
         "phone": user.phone,
@@ -147,3 +148,45 @@ def handle_post():
     }
     return jsonify(response_body), 200
 
+########## el atelier de Alejo #########
+@api.route('/user/trade', methods=['POST'])
+def trade_post():
+    body = request.json
+
+    new_trade = TradingPost(
+        title = body["nameA"] + " (" + body["presentA"] + ", " + body["dosisA"] + ") por " + body["nameB"] + " (" + body["presentB"] + ", " + body["dosisB"] + ")",
+        description = body.get("description"),
+        presentation = body["presentA"],
+        active_component = body["activeCompA"],
+        expiration_date = body["expDateA"],
+        dosis = body["dosisA"],
+        quantity = body["quantityA"],
+        name = body["nameA"],
+        medicine_picture = body.get("medicine_picture"),
+        req_presentation =  body["presentB"],
+        req_active_component = body["activeCompB"],
+        req_expiration_date = body["expDateB"],
+        req_dosis = body["dosisB"],
+        req_quantity = body["quantityB"],
+        req_name = body["nameB"],
+        req_medicine_picture = body.get("medicine_picture"),
+    )
+
+    if not isinstance(new_trade, TradingPost):
+        return jsonify({
+            "msg": "Server error"
+        }), 500
+
+    saved = new_trade.save_and_commit()
+
+    if saved is False:
+        return jsonify()({
+            "msg": "Data Base error"
+        }), 500
+
+    response_body = {
+        "msg": "New trade created!",
+        "title": new_trade.title
+    }
+
+    return jsonify(response_body), 200

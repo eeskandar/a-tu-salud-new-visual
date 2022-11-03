@@ -68,7 +68,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           activeUser: [user],
         });
       },
-
+      /////////////// Log in below ///////////////////
       login: async (email, password) => {
         try {
           let user;
@@ -97,27 +97,96 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.removeItem("token");
         getActions().setActiveUser({ id: "Guest" });
       },
-      ////////////////////////////////////////////////// vista post
+      ////////////////////////////////////////////////// vista post below ////////////////////
 
-      post: async (title, description, presentation, active_component, expiration_date, quantity) => {
+      post: async (
+        title,
+        description,
+        presentation,
+        active_component,
+        expiration_date,
+        quantity
+      ) => {
         try {
           let medicine;
-          medicine = { title: title, description: description, presentation: presentation, active_component: active_component, expiration_date: expiration_date, quantity: quantity };
-          const response = await fetch(process.env.BACKEND_URL + "/api/solicitud", {
-            method: "POST",
-            body: JSON.stringify(medicine),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          if (!response.ok) throw new Error (`invalid response. Response status: ${response.status}`)
-					const body = await response.json()
-          medicine = body
-				}catch(error){
-					console.log(error)
-				}
-			},
-      ////////////////////////////////////////////////// vista post
+          medicine = {
+            title: title,
+            description: description,
+            presentation: presentation,
+            active_component: active_component,
+            expiration_date: expiration_date,
+            quantity: quantity,
+          };
+          const response = await fetch(
+            process.env.BACKEND_URL + "/api/solicitud",
+            {
+              method: "POST",
+              body: JSON.stringify(medicine),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (!response.ok)
+            throw new Error(
+              `invalid response. Response status: ${response.status}`
+            );
+          const body = await response.json();
+          medicine = body;
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      ////////////////////////////////////////////////// trading post below ////////////////////
+      trade: async (
+        nameA,
+        nameB,
+        quantityA,
+        quantityB,
+        dosisA,
+        dosisB,
+        expDateA,
+        expDateB,
+        activeCompA,
+        activeCompB,
+        presentA,
+        presentB,
+        description
+      ) => {
+        try {
+          let trade;
+          trade = {
+            nameA: nameA,
+            nameB: nameB,
+            quantityA: quantityA,
+            quantityB: quantityB,
+            dosisA: dosisA,
+            dosisB: dosisB,
+            expDateA: expDateA,
+            expDateB: expDateB,
+            activeCompA: activeCompA,
+            activeCompB: activeCompB,
+            presentA: presentA,
+            presentB: presentB,
+            description: description,
+          };
+          const response = await fetch(
+            process.env.BACKEND_URL + "/api/user/trade",
+            {
+              method: "POST",
+              body: JSON.stringify(trade),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (!response.ok) {
+            new Error("Ocurrió un error en la solicitud");
+          }
+        } catch (error) {}
+      },
+
+      //////////////////////// old stuff below ////////////////////////////
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
