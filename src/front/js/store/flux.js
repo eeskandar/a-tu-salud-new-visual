@@ -97,7 +97,27 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.removeItem("token");
         getActions().setActiveUser({ id: "Guest" });
       },
-      ////////////////////////////////////////////////// new stuff
+      ////////////////////////////////////////////////// vista post
+
+      post: async (title, description, presentation, active_component, expiration_date, quantity) => {
+        try {
+          let medicine;
+          medicine = { title: title, description: description, presentation: presentation, active_component: active_component, expiration_date: expiration_date, quantity: quantity };
+          const response = await fetch(process.env.BACKEND_URL + "/api/solicitud", {
+            method: "POST",
+            body: JSON.stringify(medicine),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          if (!response.ok) throw new Error (`invalid response. Response status: ${response.status}`)
+					const body = await response.json()
+          medicine = body
+				}catch(error){
+					console.log(error)
+				}
+			},
+      ////////////////////////////////////////////////// vista post
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },

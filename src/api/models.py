@@ -126,6 +126,15 @@ class Post(db.Model):
             "quantity": self.quantity,
         }
 
+    def save_and_commit(self):
+        try:
+            db.session.add(self) 
+            db.session.commit()
+            return True
+        except Exception as error:
+            db.session.rollback()
+            return False
+
 class TradingPost(db.Model):
     #add type of post
     #change the nullable state to true or false depending if it is common or not

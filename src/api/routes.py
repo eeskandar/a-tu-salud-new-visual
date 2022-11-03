@@ -130,7 +130,7 @@ def handle_post():
                 "msg": "There are no requests yet!"
             }), 400
 
-        request_list = list(map(lambda requests: requests.serialize(), get_post))
+        post_list = list(map(lambda requests: requests.serialize(), get_post))
 
         return jsonify(post_list), 200
 
