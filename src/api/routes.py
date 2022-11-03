@@ -20,7 +20,7 @@ def log_user():
             "msg": "Email or password invalid"
         }), 400
 
-    valid_password = check_password_hash(user.password, f'{body["password"]}{user.salt}') #esto debería ser user.hashed_password en vez de user.password
+    valid_password = check_password_hash(user.hashed_password, f'{body["password"]}{user.salt}') #esto debería ser user.hashed_password en vez de user.password
     if not valid_password:
         return jsonify({
             "msg": "Email or password invalid"
@@ -30,7 +30,11 @@ def log_user():
     response_body = {
         "id": user.id,
         "name": user.name,
-        "token": access_token
+        "token": access_token,
+        "phone": user.phone,
+        "email": user.email,
+        "last_name": user.last_name,
+        "city": user.city,
     }
 
     return jsonify(response_body), 200
@@ -52,6 +56,7 @@ def make_user():
             email=body['email'], 
             hashed_password=hashed_password, 
             salt=salt,
+            phone=body['phone'],
             name=body['name'], 
             last_name=body['last_name'], 
             city=body['city'], 
@@ -61,10 +66,11 @@ def make_user():
         db.session.add(new_user)
         try:
             db.session.commit()
-        except:
+        except Exception as error:
             db.session.rollback()
             return jsonify({
-                "msg":"something unexpected happened"
+                "msg":"something unexpected happened",
+                "error msg": error.args
             }), 500
         return jsonify(new_user.serialize()),201
 

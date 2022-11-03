@@ -14,7 +14,7 @@ export const Home = () => {
   }
 
   return (
-    <div className="container mt-5 pb-5 col-10">
+    <div className="container mt-5 pb-5 col-11 col-lg-10 px-0">
       <div
         className="container d-flex justify-content-center pt-3"
         style={{ height: "150px" }}
@@ -22,7 +22,7 @@ export const Home = () => {
         <img src={logo} style={{ height: "150px" }} />
       </div>
       <div className="pt-5 container">
-        <h1 className="text-secondary text-center" style={{ fontSize: "25px" }}>
+        <h1 className="text-secondary text-center" style={{ fontSize: "2rem" }}>
           Dona algún medicamento que no vayas a usar. <br /> Solicita un
           medicamento que necesites.
           <br /> Intercambia.
