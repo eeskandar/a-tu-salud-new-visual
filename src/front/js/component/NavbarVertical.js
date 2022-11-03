@@ -8,6 +8,7 @@ export const NavbarVertical = () => {
     <div
       className={`${
         location.pathname == "/results" ||
+        location.pathname == "/user/post" ||
         location.pathname == "/user/trade" ||
         location.pathname == "/user/post" ||
         location.pathname == "/user"

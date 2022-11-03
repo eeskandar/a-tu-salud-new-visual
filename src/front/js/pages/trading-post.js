@@ -21,7 +21,7 @@ export const TradingPost = () => {
   const [description, setDescription] = useState("");
 
   return (
-    <div className="d-flex col-11 p-0">
+    <div className="d-flex col-11 p-0 overflow-hidden row">
       <div className="col-3 side-profile p-0">
         <SideProfile />
       </div>

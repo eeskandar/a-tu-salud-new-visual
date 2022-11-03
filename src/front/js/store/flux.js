@@ -27,6 +27,40 @@ const getState = ({ getStore, getActions, setStore }) => {
             "https://images.hola.com/imagenes/mascotas/20220811215146/mapaches-curiosidades-dn/1-124-915/mapaches-curiosidades-mascota-t.jpg",
         },
       ],
+      posts: [
+        {
+          title: "",
+          description: "",
+          presentation: "",
+          active_component: "",
+          expiration_date: "",
+          dosis: "",
+          quantity: "",
+          name: "",
+          medicine_picture: "",
+          typeof: "",
+          description: "",
+          user_id: "",
+          id: "",
+        },
+      ],
+      tradingPost: [
+        {
+          title: "",
+          description: "",
+          presentation: "",
+          active_component: "",
+          expiration_date: "",
+          dosis: "",
+          quantity: "",
+          name: "",
+          medicine_picture: "",
+          typeof: "",
+          description: "",
+          user_id: "",
+          id: "",
+        },
+      ],
     },
     actions: {
       setActiveUser: (user) => {
@@ -39,7 +73,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         try {
           let user;
           user = { email: email, password: password };
-          const response = await fetch(process.env.BACKEND_URL + "/login", {
+          const response = await fetch(process.env.BACKEND_URL + "/api/login", {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
