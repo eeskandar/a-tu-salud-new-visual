@@ -9,6 +9,7 @@ export const NavbarVertical = () => {
       className={`${
         location.pathname == "/results" ||
         location.pathname == "/user/trade" ||
+        location.pathname == "/user/post" ||
         location.pathname == "/user"
           ? "col-1 p-0 bg-light view-display p-2"
           : "col-1 col-lg-2 p-0 bg-light view-display p-2"
@@ -21,6 +22,7 @@ export const NavbarVertical = () => {
             className={`${
               location.pathname == "/results" ||
               location.pathname == "/user/trade" ||
+              location.pathname == "/user/post" ||
               location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
@@ -35,6 +37,7 @@ export const NavbarVertical = () => {
             className={`${
               location.pathname == "/results" ||
               location.pathname == "/user/trade" ||
+              location.pathname == "/user/post" ||
               location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
@@ -49,6 +52,7 @@ export const NavbarVertical = () => {
             className={`${
               location.pathname == "/results" ||
               location.pathname == "/user/trade" ||
+              location.pathname == "/user/post" ||
               location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
@@ -63,6 +67,7 @@ export const NavbarVertical = () => {
             className={`${
               location.pathname == "/results" ||
               location.pathname == "/user/trade" ||
+              location.pathname == "/user/post" ||
               location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
@@ -77,6 +82,7 @@ export const NavbarVertical = () => {
             className={`${
               location.pathname == "/results" ||
               location.pathname == "/user/trade" ||
+              location.pathname == "/user/post" ||
               location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"
@@ -93,6 +99,7 @@ export const NavbarVertical = () => {
             className={`${
               location.pathname == "/results" ||
               location.pathname == "/user/trade" ||
+              location.pathname == "/user/post" ||
               location.pathname == "/user"
                 ? "d-none"
                 : "d-none d-lg-block"

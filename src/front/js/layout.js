@@ -14,6 +14,7 @@ import { NavbarVertical } from "./component/NavbarVertical";
 import { TradingPost } from "./pages/trading-post";
 import { Profile } from "./pages/profile";
 import { Results } from "./pages/results";
+import { UserPost } from "./pages/user-post";
 
 //create your first component
 const Layout = () => {
@@ -33,6 +34,7 @@ const Layout = () => {
               <Route element={<Login />} path="/login" />
               <Route element={<Profile />} path="/user" />
               <Route element={<TradingPost />} path="/user/trade" />
+              <Route element={<UserPost />} path="/user/post" />
               <Route element={<Results />} path="/results" />
               <Route element={<Demo />} path="/demo" />
               <Route element={<Single />} path="/single/:theid" />

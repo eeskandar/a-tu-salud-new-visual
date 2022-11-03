@@ -116,29 +116,29 @@ def posts():
             }), 404
 
 @api.route('/solicitud', methods=['GET', 'POST'])
-def handle_solicitud():
+def handle_post():
     if request.method == 'GET':
-        get_request = Post_donation.query.all()
+        get_post = Post.query.all()
 
-        if get_request is None:
+        if get_post is None:
             return jsonify({
                 "msg": "There are no requests yet!"
             }), 400
 
-        request_list = list(map(lambda requests: requests.serialize(), get_request))
+        request_list = list(map(lambda requests: requests.serialize(), get_post))
 
-        return jsonify(request_list), 200
+        return jsonify(post_list), 200
 
     body = request.json    
-    new_request = Post_donation.create(body)   
+    new_post = Post.create(body)   
 
-    if type(new_request) == dict:   
+    if type(new_post) == dict:   
         return jsonify({
-            "msg": new_request["msg"]
-        }), new_request["status"]
+            "msg": new_post["msg"]
+        }), new_post["status"]
 
     response_body = {     
-        "user": new_request.serialize()
+        "user": new_post.serialize()
     }
     return jsonify(response_body), 200
 

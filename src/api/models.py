@@ -60,32 +60,42 @@ class Post(db.Model):
                     "msg": "Your title can't be empty",
                     "status": 400
                 })
+            if body.get("description") is None:
+                raise Exception ({
+                    "msg": "Your description can't be empty",
+                    "status": 400
+                })
             if body.get("presentation") is None:
                 raise Exception ({
                     "msg": "Your presentation can't be empty",
+                    "status": 400
+                })
+            if body.get("active_component") is None:
+                raise Exception ({
+                    "msg": "Your active_component can't be empty",
+                    "status": 400
+                })
+            if body.get("expiration_date") is None:
+                raise Exception ({
+                    "msg": "Your expiration_date can't be empty",
                     "status": 400
                 })
             if body.get("quantity") is None:
                 raise Exception ({
                     "msg": "Your quantity can't be empty",
                     "status": 400
-                })
-            if body.get("medicine_picture") is None:
-                raise Exception ({
-                    "msg": "Your medicine_picture can't be empty",
-                    "status": 400
-                })
+                }) 
 
             
-            new_request = cls(title = body["title"], presentation = body["presentation"], quantity = body["quantity"], medicine_picture = body["medicine_picture"])
+            new_post = cls(title = body["title"], description = body["description"], presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"])
 
-            if not isinstance(new_request, cls):
+            if not isinstance(new_post, cls):
                 raise Exception ({
                     "msg": "Server Error",
                     "status": 500
                 })
             
-            save_instance = new_request.save_and_commit()
+            save_instance = new_post.save_and_commit()
 
             if save_instance is False:
                 raise Exception ({
@@ -93,9 +103,9 @@ class Post(db.Model):
                     "status": 500
                 })
 
-            return new_request
+            return new_post
             
-        except Exception as error:
+        except Exception as error: 
             return ({
                 "msg": "Error (" + error.args[0]["msg"] + ")",
                 "status": error.args[0]["status"]
@@ -107,8 +117,12 @@ class Post(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "name": self.name,
-            "user": self.users.serialize_post()
+            "title": self.title,
+            "description": self.description,
+            "presentation": self.presentation,
+            "active_component": self.active_component,
+            "expiration_date": self.expiration_date,
+            "quantity": self.quantity,
         }
 
 class TradingPost(db.Model):
