@@ -30,6 +30,11 @@ def log_user():
     response_body = {
         "id": user.id,
         "name": user.name,
+        "last_name": user.last_name,
+        "email": user.email,
+        "phone": user.phone,
+        "city": user.city,
+        "profile_picture": user.profile_picture,
         "token": access_token
     }
 
@@ -49,7 +54,8 @@ def make_user():
         hashed_password = generate_password_hash(f"{body['password']}{salt}")
 
         new_user = User(
-            email=body['email'], 
+            email=body['email'],
+            phone=body['phone'], 
             hashed_password=hashed_password, 
             salt=salt,
             name=body['name'], 

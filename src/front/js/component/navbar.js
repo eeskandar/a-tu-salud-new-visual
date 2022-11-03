@@ -51,7 +51,7 @@ export const Navbar = () => {
                 <div className="d-flex">
                   <li className="nav-item px-4">
                     <Link
-                      to={`/user/${activeUser[0].id}`}
+                      to="/user"
                       className="nav-link text-white"
                       aria-current="page"
                     >
