@@ -36,7 +36,7 @@ export const SideProfile = () => {
       </Link>
       <Link
         to="/user/trade"
-        className={`nav-link text-secondary mt-4 text-center ${
+        className={`nav-link text-secondary mt-2 text-center ${
           location.pathname == "/user/trade" ? "fw-bold" : ""
         }`}
       >
