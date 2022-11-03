@@ -35,6 +35,7 @@ def log_user():
         "email": user.email,
         "last_name": user.last_name,
         "city": user.city,
+        "profile_picture": user.profile_picture,
     }
 
     return jsonify(response_body), 200
@@ -170,6 +171,7 @@ def trade_post():
         req_quantity = body["quantityB"],
         req_name = body["nameB"],
         req_medicine_picture = body.get("medicine_picture"),
+        user_id = body["userid"]
     )
 
     if not isinstance(new_trade, TradingPost):

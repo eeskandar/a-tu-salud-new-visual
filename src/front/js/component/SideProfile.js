@@ -7,11 +7,17 @@ export const SideProfile = () => {
   const user = store.activeUser;
   let location = useLocation();
 
+  console.log(user);
+
   return (
     <div>
       <div className="d-flex justify-content-center mt-5">
         <img
-          src={user[0].profile_picture}
+          src={
+            user[0].profile_picture != null
+              ? user[0].profile_picture
+              : "https://estaticos.muyinteresante.es/uploads/images/gallery/593938475bafe8ad873c986b/conejo-orejas-caidas-jardin_1.jpg"
+          }
           alt="profile_picture"
           className="prof-pic"
         />
