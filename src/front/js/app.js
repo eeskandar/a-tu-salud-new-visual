@@ -25,6 +25,7 @@ export const App = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token") == null) {
+      actions.logout();
       navigate("/login");
     } else {
       actions.getUser(localStorage.getItem("id"));

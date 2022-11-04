@@ -72,6 +72,11 @@
   height: auto;
 }
 
+.side-icon {
+  height: 30px;
+  width: 30px;
+}
+
 .cards-width {
   width: 18rem;
 }

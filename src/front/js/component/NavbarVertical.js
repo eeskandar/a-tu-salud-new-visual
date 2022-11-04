@@ -23,24 +23,24 @@ export const NavbarVertical = () => {
     >
       <div className="p-lg-5">
         <Link to="" className="d-flex nav-link text-secondary mb-4">
-          <i className="fa-solid fa-hand-holding-heart fs-3 pe-2"></i>{" "}
+          <i className="fa-solid fa-hand-holding-heart fs-3 side-icon"></i>
           <span
             className={`${
               includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
-                : "d-none d-lg-block"
+                : "d-none d-lg-block ps-2"
             }`}
           >
             Nueva Donación
           </span>
         </Link>
         <Link to="" className="d-flex nav-link text-secondary mb-4">
-          <i className="fa-regular fa-square-plus fs-3 pe-2"></i>
+          <i className="fa-regular fa-square-plus fs-3 side-icon"></i>
           <span
             className={`${
               includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
-                : "d-none d-lg-block"
+                : "d-none d-lg-block ps-2"
             }`}
           >
             Nueva Petición
@@ -55,36 +55,36 @@ export const NavbarVertical = () => {
           }}
           className="d-flex nav-link text-secondary mb-4"
         >
-          <i className="fa-solid fa-arrow-right-arrow-left fs-3 pe-2"></i>
+          <i className="fa-solid fa-arrow-right-arrow-left fs-3 side-icon"></i>
           <span
             className={`${
               includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
-                : "d-none d-lg-block"
+                : "d-none d-lg-block ps-2"
             }`}
           >
             Nuevo Intercambio
           </span>
         </Link>
         <Link to="" className="d-flex nav-link text-secondary mb-4">
-          <i className="fa-solid fa-envelope fs-3 pe-2"></i>
+          <i className="fa-solid fa-envelope fs-3 side-icon"></i>
           <span
             className={`${
               includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
-                : "d-none d-lg-block"
+                : "d-none d-lg-block ps-2"
             }`}
           >
             Mensajes
           </span>
         </Link>
         <Link to="" className="d-flex nav-link text-secondary mb-4">
-          <i className="fa-solid fa-circle-question fs-3 pe-2"></i>{" "}
+          <i className="fa-solid fa-circle-question fs-3 side-icon"></i>
           <span
             className={`${
               includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
-                : "d-none d-lg-block"
+                : "d-none d-lg-block ps-2"
             }`}
           >
             Sobre Nosotros
@@ -93,12 +93,12 @@ export const NavbarVertical = () => {
       </div>
       <div className="pb-5 mb-5 align-to-bot p-lg-5">
         <Link to="" className="d-flex nav-link text-secondary">
-          <i className="fa-solid fa-gear fs-3 pe-2"></i>{" "}
+          <i className="fa-solid fa-gear fs-3 side-icon"></i>
           <span
             className={`${
               includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
-                : "d-none d-lg-block"
+                : "d-none d-lg-block ps-2"
             }`}
           >
             Configuración
