@@ -1,20 +1,9 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
+import { BrowserRouter } from "react-router-dom";
 
-import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
-import { Login } from "./pages/login";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
-import { NavbarVertical } from "./component/NavbarVertical";
-import { TradingPost } from "./pages/trading-post";
-import { Profile } from "./pages/profile";
-import { Results } from "./pages/results";
-import { UserPost } from "./pages/user-post";
+import { App } from "./app";
 
 //create your first component
 const Layout = () => {
@@ -25,24 +14,7 @@ const Layout = () => {
   return (
     <div>
       <BrowserRouter basename={basename}>
-        <ScrollToTop>
-          <Navbar />
-          <div className="container-fluid row row-list">
-            <NavbarVertical />
-            <Routes>
-              <Route element={<Home />} path="/" />
-              <Route element={<Login />} path="/login" />
-              <Route element={<Profile />} path="/user/:userid" />
-              <Route element={<TradingPost />} path="/user/trade" />
-              <Route element={<UserPost />} path="/user/post" />
-              <Route element={<Results />} path="/results" />
-              <Route element={<Demo />} path="/demo" />
-              <Route element={<Single />} path="/single/:theid" />
-              <Route element={<h1>Not found!</h1>} />
-            </Routes>
-          </div>
-          <Footer />
-        </ScrollToTop>
+        <App />
       </BrowserRouter>
     </div>
   );

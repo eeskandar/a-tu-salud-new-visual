@@ -68,6 +68,8 @@
 
 .side-profile {
   background-color: #b9b9b9;
+  min-height: 83vh;
+  height: auto;
 }
 
 .cards-width {
