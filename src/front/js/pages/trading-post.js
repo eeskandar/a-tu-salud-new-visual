@@ -250,7 +250,7 @@ export const TradingPost = () => {
                 presentA.trim() == "" ||
                 presentB.trim() == ""
               ) {
-                alert(
+                swal(
                   "Debes llenar todos los campos para poder publicar tu solicitud"
                 );
               } else {
@@ -269,7 +269,11 @@ export const TradingPost = () => {
                   presentB,
                   description
                 );
-                alert("Solicitud creada con éxito");
+                swal(
+                  "¡Perfecto!",
+                  "Tu solicitud ha sido creada con éxito",
+                  "success"
+                );
                 navigate("/user");
               }
             }}

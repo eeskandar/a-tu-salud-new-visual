@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "./../store/appContext";
+import swal from "sweetalert";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
@@ -52,15 +53,20 @@ export const Login = () => {
               className="btn form-btn text-center btn-lg rounded-pill px-5"
               onClick={async (e) => {
                 if (email.trim() == "") {
-                  alert("Email can't be empty");
+                  swal("¡Ups!", "Debes colocar un Email");
                 } else if (password.trim() == "") {
-                  alert("Your password can't be empty");
+                  swal("¡Ups!", "Debes colocar tu contraseña");
                 } else {
                   let success = await login(email, password);
                   if (success == true) {
+                    swal("¡Bienvenido!", "Inicio de sesión exitoso", "success");
                     return navigate("/user/" + store.activeUser[0].id);
                   }
-                  alert("Email o contraseña invalidos");
+                  swal(
+                    "Email o contraseña invalidos",
+                    "Intenta de nuevo",
+                    "error"
+                  );
                 }
               }}
             >
