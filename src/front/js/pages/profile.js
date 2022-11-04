@@ -1,21 +1,28 @@
 import React, { useContext, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SideProfile } from "../component/SideProfile";
 import { Context } from "../store/appContext";
+import swal from "sweetalert";
 
 export const Profile = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
-  const params = useParams();
   const getUser = actions.getUser;
+  const logout = actions.logout;
 
   console.log(store.activeUser);
 
+  // cuando refresco la pag no reconoce el useEffect (no hace el getUser)
   useEffect(() => {
+    if (store.activeUser[0].id == "Guest") {
+      swal("¡Ha pasado mucho tiempo!", "Debes iniciar sesión de nuevo");
+      logout();
+      navigate("/login");
+    }
     if (localStorage.getItem("token") == null) {
       navigate("/login");
     } else {
-      getUser(params.userid);
+      getUser(localStorage.getItem("id"));
     }
   }, []);
 

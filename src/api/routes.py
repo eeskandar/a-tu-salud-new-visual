@@ -45,7 +45,6 @@ def log_user():
 def get_user(userid):
     user = get_jwt_identity()
     get_user = User.query.get_or_404(userid)
-    print(get_user)
     
     response_body = {
         "id": get_user.id,

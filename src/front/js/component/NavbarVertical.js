@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import swal from "sweetalert";
 
 export const NavbarVertical = () => {
   let location = useLocation();
@@ -45,7 +46,15 @@ export const NavbarVertical = () => {
             Nueva Petición
           </span>
         </Link>
-        <Link to="/user/trade" className="d-flex nav-link text-secondary mb-4">
+        <Link
+          to={localStorage.getItem("token") == null ? "" : "/user/trade"}
+          onClick={(e) => {
+            if (localStorage.getItem("token") == null) {
+              swal("¡Debes iniciar sesión para poder publicar!");
+            }
+          }}
+          className="d-flex nav-link text-secondary mb-4"
+        >
           <i className="fa-solid fa-arrow-right-arrow-left fs-3 pe-2"></i>
           <span
             className={`${

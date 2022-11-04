@@ -57,6 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           } else {
             getActions().setActiveUser(body);
             localStorage.setItem("token", body.token);
+            localStorage.setItem("id", body.id);
             return true;
           }
         } catch (error) {}
@@ -81,6 +82,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       logout: () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("id");
         getActions().setActiveUser({ id: "Guest" });
       },
       ////////////////////////////////////////////////// vista post below ////////////////////
