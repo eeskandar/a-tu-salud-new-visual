@@ -27,6 +27,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             "https://images.hola.com/imagenes/mascotas/20220811215146/mapaches-curiosidades-dn/1-124-915/mapaches-curiosidades-mascota-t.jpg",
         },
       ],
+      /////////////////////////////// new stuff
+      donations: undefined
     },
     actions: {
       setActiveUser: (user) => {
@@ -123,6 +125,26 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log(error);
         }
       },
+      ////////////////////////////////////////////////// get donations below ////////////////////
+      getDonations: async () => {
+          try{
+            const response = await fetch(process.env.BACKEND_URL + "/api/solicitud",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+            if (!response.ok) throw new Error (`invalid response. Response status: ${response.status}`)
+            const body = await response.json()
+            
+            setStore({ donations: body})
+            console.log(donations)
+          }catch(error){
+            console.log(error)
+          }
+        },
       ////////////////////////////////////////////////// trading post below ////////////////////
       trade: async (
         nameA,

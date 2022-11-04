@@ -61,26 +61,23 @@ export const UserPost = () => {
 					<button type="button" 
 					className="btn bg-info bg-opacity-75 btn-lg text-white fw-bold" 
 					onClick={async (e) => {
-						if (title.trim() == "") {
-							alert("title can't be empty");
-						} else if (description.trim() == "") {
-							alert("Your description can't be empty")
-						} else if (presentation.trim() == "") {
-							alert("Your presentation can't be empty")
-						} else if (active_component.trim() == "") {
-							alert("Your active component can't be empty");
-						} else if (expiration_date.trim() == "") {
-							alert("Your expiration date can't be empty")
-						} else if (quantity.trim() == "") {
-							alert("Your quantity can't be empty")
-						} else {
-						let success = await post(title, description, presentation, active_component, expiration_date, quantity);
-						if (success == true) {
-							return navigate("/user");
-						}
-						alert("Donación creada satisfactoriamente");
-						}
-					}}>
+						if(
+						title.trim() == "" ||
+						description.trim() == "" ||
+						presentation.trim() == "" ||
+						active_component.trim() == "" ||
+						expiration_date.trim() == "" ||
+						quantity.trim() == "" 
+						){
+							alert(
+							"Debes llenar todos los campos para poder publicar tu solicitud"
+							);
+						} else{
+						await post(title, description, presentation, active_component, expiration_date, quantity);
+						alert("Solicitud creada con éxito");
+                		navigate("/user/donation")	
+					}
+				}}>
 							Crear donación
 					</button>
 				</div>
