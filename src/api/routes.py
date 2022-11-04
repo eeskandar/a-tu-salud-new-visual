@@ -2,6 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
+from flask_socketio import SocketIO, send
 from api.models import db, User, Post
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -120,19 +121,19 @@ def posts():
                 "msg":"no posts found"
             }), 404
 
-@api.route('/solicitud', methods=['GET', 'POST'])
+@api.route('/solicitud', methods=['POST'])
 def handle_solicitud():
-    if request.method == 'GET':
-        get_request = Post_donation.query.all()
+    # if request.method == 'GET':
+    #     get_request = Post_donation.query.all()
 
-        if get_request is None:
-            return jsonify({
-                "msg": "There are no requests yet!"
-            }), 400
+    #     if get_request is None:
+    #         return jsonify({
+    #             "msg": "There are no requests yet!"
+    #         }), 400
 
-        request_list = list(map(lambda requests: requests.serialize(), get_request))
+    #     request_list = list(map(lambda requests: requests.serialize(), get_request))
 
-        return jsonify(request_list), 200
+    #     return jsonify(request_list), 200
 
     body = request.json    
     new_request = Post_donation.create(body)   

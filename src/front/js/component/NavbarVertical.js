@@ -15,7 +15,7 @@ export const NavbarVertical = () => {
           : "col-1 col-lg-2 p-0 bg-light view-display p-2"
       }`}
     >
-      <div className="p-lg-5">
+      <div className="p-lg-3">
         <Link to="" className="d-flex nav-link text-secondary mb-4">
           <i className="fa-solid fa-hand-holding-heart fs-3 pe-2"></i>{" "}
           <span

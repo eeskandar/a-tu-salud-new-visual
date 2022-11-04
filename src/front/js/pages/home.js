@@ -60,9 +60,9 @@ export const Home = () => {
             class="form-select text-secondary"
             aria-label="Default select example"
           >
-            <option value="1">Donación</option>
-            <option value="2">Solicitud</option>
-            <option value="3">Intercambio</option>
+            <option defaultValue="1">Donación</option>
+            <option defaultValue="2">Solicitud</option>
+            <option defaultValue="3">Intercambio</option>
           </select>
         </div>
         <Link to="/results" className="btn btn-secondary">

@@ -22,9 +22,9 @@ export const Login = () => {
               type="email"
               className="form-control form-input border-0"
               onChange={(event) => {
-                setEmail(event.target.value);
+                setEmail(event.target.defaultValue);
               }}
-              value={email}
+              defaultValue={email}
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />
@@ -40,9 +40,9 @@ export const Login = () => {
               type="password"
               className="form-control form-input border-0"
               onChange={(event) => {
-                setPassword(event.target.value);
+                setPassword(event.target.defaultValue);
               }}
-              value={password}
+              defaultValue={password}
               id="exampleInputPassword1"
             />
           </div>

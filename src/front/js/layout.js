@@ -14,6 +14,7 @@ import { NavbarVertical } from "./component/NavbarVertical";
 import { TradingPost } from "./pages/trading-post";
 import { Profile } from "./pages/profile";
 import { Results } from "./pages/results";
+import { MoreInfo } from "./pages/moreInfo";
 
 //create your first component
 const Layout = () => {
@@ -26,20 +27,19 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <ScrollToTop>
           <Navbar />
-          <div className="container-fluid">
-            <div className="row row-list">
-              <NavbarVertical />
-              <Routes>
-                <Route element={<Home />} path="/" />
-                <Route element={<Login />} path="/login" />
-                <Route element={<Profile />} path="/user" />
-                <Route element={<TradingPost />} path="/user/trade" />
-                <Route element={<Results />} path="/results" />
-                <Route element={<Demo />} path="/demo" />
-                <Route element={<Single />} path="/single/:theid" />
-                <Route element={<h1>Not found!</h1>} />
-              </Routes>
-            </div>
+          <div className="container-fluid row row-list">
+            <NavbarVertical />
+            <Routes>
+              <Route element={<Home />} path="/" />
+              <Route element={<Login />} path="/login" />
+              <Route element={<Profile />} path="/user" />
+              <Route element={<TradingPost />} path="/user/trade" />
+              <Route element={<Results />} path="/results" />
+              <Route element={<MoreInfo />} path="/more-info/:id" />
+              <Route element={<Demo />} path="/demo" />
+              <Route element={<Single />} path="/single/:theid" />
+              <Route element={<h1>Not found!</h1>} />
+            </Routes>
           </div>
           <Footer />
         </ScrollToTop>

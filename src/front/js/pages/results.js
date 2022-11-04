@@ -13,6 +13,25 @@ import { Posts } from "../component/posts";
 // - [ ] Que el side navbar muestre solamente los íconos en el view de resultados para dar espacio al filtro
 
 export const Results = () => {
+  const getPosts = async () => {
+    try {
+      const res = await fetch(
+        process.env.BACKEND_URL + "/api/posts" + new URLSearchParams(),
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (!res.ok) {
+        new Error("Ocurrió un error en la solicitud");
+      }
+      const body = await res.json();
+      console.log(body);
+    } catch (error) {}
+  };
+
   return (
     <div className="col-11 col-lg-10">
       {/* side bar with filters */}
@@ -108,13 +127,6 @@ export const Results = () => {
         </div>
         {/* results */}
         <div className="col-7 col-lg-9">
-          <Posts />
-          <Posts />
-          <Posts />
-          <Posts />
-          <Posts />
-          <Posts />
-          <Posts />
           <Posts />
           <Posts />
           <Posts />
