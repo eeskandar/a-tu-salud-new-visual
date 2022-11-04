@@ -1,30 +1,19 @@
-import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
 import { SideProfile } from "../component/SideProfile";
 import { Context } from "../store/appContext";
-import swal from "sweetalert";
 
 export const Profile = () => {
   const { store, actions } = useContext(Context);
-  const navigate = useNavigate();
-  const getUser = actions.getUser;
-  const logout = actions.logout;
 
   console.log(store.activeUser);
 
   // cuando refresco la pag no reconoce el useEffect (no hace el getUser)
-  useEffect(() => {
-    if (store.activeUser[0].id == "Guest") {
-      swal("¡Ha pasado mucho tiempo!", "Debes iniciar sesión de nuevo");
-      logout();
-      navigate("/login");
-    }
-    if (localStorage.getItem("token") == null) {
-      navigate("/login");
-    } else {
-      getUser(localStorage.getItem("id"));
-    }
-  }, []);
+
+  // if (store.activeUser[0].id == "Guest") {
+  //   swal("¡Ha pasado mucho tiempo!", "Debes iniciar sesión de nuevo");
+  //   logout();
+  //   navigate("/login");
+  // }
 
   return (
     <div className="d-flex justify-content-between p-0 col-11 bg-color">

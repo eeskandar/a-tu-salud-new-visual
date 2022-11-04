@@ -57,7 +57,7 @@ export const Home = () => {
             Tipo de Busqueda
           </label>
           <select
-            class="form-select text-secondary"
+            className="form-select text-secondary"
             aria-label="Default select example"
           >
             <option value="1">Donación</option>
