@@ -59,6 +59,24 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         } catch (error) {}
       },
+      getUser: async (userid) => {
+        try {
+          const response = await fetch(
+            process.env.BACKEND_URL + `/api/user/${userid}`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          );
+          if (!response.ok) {
+            new Error("Ocurrió un error en la solicitud");
+          }
+          const body = await response.json();
+          getActions().setActiveUser(body);
+        } catch (error) {}
+      },
       logout: () => {
         localStorage.removeItem("token");
         getActions().setActiveUser({ id: "Guest" });

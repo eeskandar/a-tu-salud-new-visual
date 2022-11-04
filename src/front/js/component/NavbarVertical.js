@@ -3,15 +3,19 @@ import { Link, useLocation } from "react-router-dom";
 
 export const NavbarVertical = () => {
   let location = useLocation();
-  console.log(location.pathname);
+
+  function includesPath(path) {
+    if (location.pathname.includes(path)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   return (
     <div
       className={`${
-        location.pathname == "/results" ||
-        location.pathname == "/user/post" ||
-        location.pathname == "/user/trade" ||
-        location.pathname == "/user/post" ||
-        location.pathname == "/user"
+        includesPath("/user/") || location.pathname == "/results"
           ? "col-1 p-0 bg-light view-display p-2"
           : "col-1 col-lg-2 p-0 bg-light view-display p-2"
       }`}
@@ -21,10 +25,7 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-hand-holding-heart fs-3 pe-2"></i>{" "}
           <span
             className={`${
-              location.pathname == "/results" ||
-              location.pathname == "/user/trade" ||
-              location.pathname == "/user/post" ||
-              location.pathname == "/user"
+              includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}
@@ -36,10 +37,7 @@ export const NavbarVertical = () => {
           <i className="fa-regular fa-square-plus fs-3 pe-2"></i>
           <span
             className={`${
-              location.pathname == "/results" ||
-              location.pathname == "/user/trade" ||
-              location.pathname == "/user/post" ||
-              location.pathname == "/user"
+              includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}
@@ -51,10 +49,7 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-arrow-right-arrow-left fs-3 pe-2"></i>
           <span
             className={`${
-              location.pathname == "/results" ||
-              location.pathname == "/user/trade" ||
-              location.pathname == "/user/post" ||
-              location.pathname == "/user"
+              includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}
@@ -66,10 +61,7 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-envelope fs-3 pe-2"></i>
           <span
             className={`${
-              location.pathname == "/results" ||
-              location.pathname == "/user/trade" ||
-              location.pathname == "/user/post" ||
-              location.pathname == "/user"
+              includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}
@@ -81,10 +73,7 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-circle-question fs-3 pe-2"></i>{" "}
           <span
             className={`${
-              location.pathname == "/results" ||
-              location.pathname == "/user/trade" ||
-              location.pathname == "/user/post" ||
-              location.pathname == "/user"
+              includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}
@@ -98,10 +87,7 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-gear fs-3 pe-2"></i>{" "}
           <span
             className={`${
-              location.pathname == "/results" ||
-              location.pathname == "/user/trade" ||
-              location.pathname == "/user/post" ||
-              location.pathname == "/user"
+              includesPath("/user/") || location.pathname == "/results"
                 ? "d-none"
                 : "d-none d-lg-block"
             }`}

@@ -4,18 +4,15 @@ import { Context } from "../store/appContext";
 
 export const SideProfile = () => {
   const { store, actions } = useContext(Context);
-  const user = store.activeUser;
   let location = useLocation();
-
-  console.log(user);
 
   return (
     <div>
       <div className="d-flex justify-content-center mt-5">
         <img
           src={
-            user[0].profile_picture != null
-              ? user[0].profile_picture
+            store.activeUser[0].profile_picture != null
+              ? store.activeUser[0].profile_picture
               : "https://estaticos.muyinteresante.es/uploads/images/gallery/593938475bafe8ad873c986b/conejo-orejas-caidas-jardin_1.jpg"
           }
           alt="profile_picture"
@@ -23,12 +20,14 @@ export const SideProfile = () => {
         />
       </div>
       <div className="text-secondary text-center mt-3 fw-bold fs-4">
-        {user[0].name + " " + user[0].last_name}
+        {store.activeUser[0].name + " " + store.activeUser[0].last_name}
       </div>
       <Link
-        to="/user"
+        to={`/user/` + store.activeUser[0].id}
         className={`nav-link text-secondary mt-4 text-center ${
-          location.pathname == "/user" ? "fw-bold" : ""
+          location.pathname == "/user/" + store.activeUser[0].id
+            ? "fw-bold"
+            : ""
         }`}
       >
         Información

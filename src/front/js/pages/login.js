@@ -58,7 +58,7 @@ export const Login = () => {
                 } else {
                   let success = await login(email, password);
                   if (success == true) {
-                    return navigate("/user");
+                    return navigate("/user/" + store.activeUser[0].id);
                   }
                   alert("Email o contraseña invalidos");
                 }

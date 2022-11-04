@@ -1,12 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { SideProfile } from "../component/SideProfile";
 import { Context } from "../store/appContext";
 
 export const Profile = () => {
   const { store, actions } = useContext(Context);
-  const user = store.activeUser;
+  const navigate = useNavigate();
+  const params = useParams();
+  const getUser = actions.getUser;
 
-  console.log(user);
+  console.log(store.activeUser);
+
+  useEffect(() => {
+    if (localStorage.getItem("token") == null) {
+      navigate("/login");
+    } else {
+      getUser(params.userid);
+    }
+  }, []);
 
   return (
     <div className="d-flex justify-content-between p-0 col-11 bg-color">
@@ -23,13 +34,13 @@ export const Profile = () => {
             <div>
               <div className="fs-5 text-secondary text-center">Nombre</div>
               <div className="fw-bold text-secondary text-center">
-                {user[0].name + " " + user[0].last_name}
+                {store.activeUser[0].name + " " + store.activeUser[0].last_name}
               </div>
             </div>
             <div>
               <div className="fs-5 text-secondary text-center mt-4">Email</div>
               <div className="fw-bold text-secondary text-center">
-                {user[0].email}
+                {store.activeUser[0].email}
               </div>
             </div>
           </div>
@@ -37,7 +48,7 @@ export const Profile = () => {
             <div>
               <div className="fs-5 text-secondary text-center">Ciudad</div>
               <div className="fw-bold text-secondary text-center">
-                {user[0].city}
+                {store.activeUser[0].city}
               </div>
             </div>
             <div>
@@ -45,7 +56,7 @@ export const Profile = () => {
                 Teléfono
               </div>
               <div className="fw-bold text-secondary text-center">
-                {user[0].phone}
+                {store.activeUser[0].phone}
               </div>
             </div>
           </div>

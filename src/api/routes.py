@@ -40,6 +40,25 @@ def log_user():
 
     return jsonify(response_body), 200
 
+@api.route('/user/<int:userid>')
+@jwt_required()
+def get_user(userid):
+    user = get_jwt_identity()
+    get_user = User.query.get_or_404(userid)
+    print(get_user)
+    
+    response_body = {
+        "id": get_user.id,
+        "name": get_user.name,
+        "phone": get_user.phone,
+        "email": get_user.email,
+        "last_name": get_user.last_name,
+        "city": get_user.city,
+        "profile_picture": get_user.profile_picture,
+    }
+
+    return jsonify(response_body), 200
+
 @api.route('/register', methods=['POST'])
 
 def make_user():

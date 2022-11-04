@@ -27,12 +27,12 @@ const Layout = () => {
       <BrowserRouter basename={basename}>
         <ScrollToTop>
           <Navbar />
-          <div className="row row-list">
+          <div className="container-fluid row row-list">
             <NavbarVertical />
             <Routes>
               <Route element={<Home />} path="/" />
               <Route element={<Login />} path="/login" />
-              <Route element={<Profile />} path="/user" />
+              <Route element={<Profile />} path="/user/:userid" />
               <Route element={<TradingPost />} path="/user/trade" />
               <Route element={<UserPost />} path="/user/post" />
               <Route element={<Results />} path="/results" />
