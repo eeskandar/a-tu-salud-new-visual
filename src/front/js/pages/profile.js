@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SideProfile } from "../component/SideProfile";
 import { Context } from "../store/appContext";
 import swal from "sweetalert";
@@ -7,7 +7,6 @@ import swal from "sweetalert";
 export const Profile = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
-  const params = useParams();
   const getUser = actions.getUser;
   const logout = actions.logout;
 
@@ -23,7 +22,7 @@ export const Profile = () => {
     if (localStorage.getItem("token") == null) {
       navigate("/login");
     } else {
-      getUser(params.userid);
+      getUser(localStorage.getItem("id"));
     }
   }, []);
 
