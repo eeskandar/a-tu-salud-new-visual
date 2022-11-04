@@ -23,6 +23,9 @@ export const App = () => {
 
   console.log(store.activeUser);
 
+  // COMO MANEJAR LOS TOKEN VENCIDOS?
+  // COMO HACER UNA PANTALLA DE CARGA?
+
   useEffect(() => {
     if (localStorage.getItem("token") == null) {
       actions.logout();
