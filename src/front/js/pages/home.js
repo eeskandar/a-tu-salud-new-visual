@@ -1,17 +1,24 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../img/atusalud logo2.png";
 import "../../styles/home.css";
+import { Context } from "../store/appContext";
 
 export const Home = () => {
+  const { store, actions } = useContext(Context);
+  const post = store.activeUser;
+
   const [city, setCity] = useState("");
   const [presentation, setPresentation] = useState("");
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
+  const [typeOf, setTypeOf] = useState("");
   const [busquedaAvanzada, SetBusquedaAvanzada] = useState(false);
+  const navigate = useNavigate();
 
-  const urlParams = new URLSearchParams();
+  const urlParams = new URLSearchParams(window.location.search);
+  console.log(urlParams.get("hola"));
 
   function busquedaFiltro() {
     console.log(busquedaAvanzada);
@@ -19,25 +26,27 @@ export const Home = () => {
     else SetBusquedaAvanzada(false);
   }
 
-  const getPosts = async () => {
-    try {
-      params.append();
-      const res = await fetch(
-        process.env.BACKEND_URL + "/api/posts" + new URLSearchParams(),
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      if (!res.ok) {
-        new Error("Ocurrió un error en la solicitud");
-      }
-      const body = await res.json();
-      console.log(body);
-    } catch (error) {}
-  };
+  async function consultPosts() {
+    if (city.trim() != "") {
+      urlParams.set("city", city);
+    }
+    if (name.trim() != "") {
+      urlParams.set("name", name);
+    }
+    console.log(urlParams.toString());
+    await actions.getPosts(urlParams);
+  }
+
+  async function consultExchangePosts() {
+    if (city.trim() != "") {
+      urlParams.set("city", city);
+    }
+    if (name.trim() != "") {
+      urlParams.set("name", name);
+    }
+    console.log(urlParams.toString());
+    await actions.getPosts(urlParams);
+  }
 
   return (
     <div className="container mt-5 pb-5 col-11 col-lg-10 px-0">
@@ -60,6 +69,7 @@ export const Home = () => {
             Medicamento
           </label>
           <input
+            defaultValue={name}
             onChange={(e) => setName(e.target.value)}
             className="form-control me-2"
             type="search"
@@ -72,6 +82,7 @@ export const Home = () => {
             Ciudad
           </label>
           <input
+            defaultValue={city}
             onChange={(e) => setCity(e.target.value)}
             className="form-control me-2"
             type="search"
@@ -87,14 +98,22 @@ export const Home = () => {
           <select
             class="form-select text-secondary"
             aria-label="Default select example"
+            defaultValue={setTypeOf}
+            onChange={(e) => {}}
           >
-            <option defaultValue="1">Donación</option>
-            <option defaultValue="2">Solicitud</option>
-            <option defaultValue="3">Intercambio</option>
+            <option defaultValue="Donation">Donación</option>
+            <option defaultValue="Request">Solicitud</option>
+            <option defaultValue="Exchange">Intercambio</option>
           </select>
         </div>
-        <Link to="/results" className="btn btn-secondary">
-          Buscar
+        <Link
+          className="btn btn-secondary "
+          onClick={(e) => {
+            consultPosts();
+          }}
+          to="/results"
+        >
+          Search
         </Link>
       </div>
       <div>
@@ -116,6 +135,7 @@ export const Home = () => {
                 Presentación
               </label>
               <input
+                defaultValue={presentation}
                 onChange={(e) => setPresentation(e.target.value)}
                 className="form-control m-2"
                 type="search"
@@ -128,6 +148,7 @@ export const Home = () => {
                 Cantidad
               </label>
               <input
+                defaultValue={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
                 className="form-control m-2"
                 type="search"

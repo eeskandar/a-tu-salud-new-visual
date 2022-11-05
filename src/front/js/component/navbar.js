@@ -8,6 +8,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const activeUser = store.activeUser;
   const logout = actions.logout;
+  const urlParams = new URLSearchParams();
 
   return (
     <div>
