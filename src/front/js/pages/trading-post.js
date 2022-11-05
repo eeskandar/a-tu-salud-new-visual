@@ -274,7 +274,7 @@ export const TradingPost = () => {
                   "Tu solicitud ha sido creada con éxito",
                   "success"
                 );
-                navigate("/user");
+                navigate("/user/" + store.activeUser[0].id);
               }
             }}
           >

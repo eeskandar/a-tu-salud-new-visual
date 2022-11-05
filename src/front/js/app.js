@@ -32,12 +32,12 @@ export const App = () => {
       actions.logout();
       navigate("/login");
     } else {
-      actions.getUser(localStorage.getItem("id"));
-      //   if (store.activeUser[0].msg) {
-      //     swal("¡Ha pasado mucho tiempo!", "Debes iniciar sesión de nuevo");
-      //     logout();
-      //     navigate("/login");
-      //   }
+      let success = actions.getUser(localStorage.getItem("id"));
+      if (success == false) {
+        swal("¡Ha pasado mucho tiempo!", "Debes iniciar sesión de nuevo");
+        logout();
+        navigate("/login");
+      }
     }
   }, []);
 

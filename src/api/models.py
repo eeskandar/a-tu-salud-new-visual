@@ -88,7 +88,7 @@ class Post(db.Model):
                 }) 
 
             
-            new_post = cls(title = body["title"], description = body["description"], presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"])
+            new_post = cls(title = body["title"], description = body["description"], presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"], user_id = body["user_id"], typeof = body["type"], medicine_picture = body.get("medicine_picture"))
 
             if not isinstance(new_post, cls):
                 raise Exception ({

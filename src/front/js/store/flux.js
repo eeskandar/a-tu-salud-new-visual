@@ -28,7 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
       /////////////////////////////// new stuff
-      donations: undefined
+      donations: undefined,
     },
     actions: {
       setActiveUser: (user) => {
@@ -73,11 +73,15 @@ const getState = ({ getStore, getActions, setStore }) => {
               },
             }
           );
-          if (!response.ok) {
+          if (response.status == "401") {
+            getActions().logout();
+            return false;
+          } else if (!response.ok) {
             new Error("Ocurrió un error en la solicitud");
           }
           const body = await response.json();
           getActions().setActiveUser(body);
+          return true;
         } catch (error) {}
       },
       logout: () => {
@@ -93,7 +97,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         presentation,
         active_component,
         expiration_date,
-        quantity
+        quantity,
+        type
       ) => {
         try {
           let medicine;
@@ -104,6 +109,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             active_component: active_component,
             expiration_date: expiration_date,
             quantity: quantity,
+            typeof: type,
+            user_id: getStore().activeUser[0].id, // referencia a la linea 20
           };
           const response = await fetch(
             process.env.BACKEND_URL + "/api/solicitud",
@@ -127,8 +134,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       ////////////////////////////////////////////////// get donations below ////////////////////
       getDonations: async () => {
-          try{
-            const response = await fetch(process.env.BACKEND_URL + "/api/solicitud",
+        try {
+          const response = await fetch(
+            process.env.BACKEND_URL + "/api/solicitud",
             {
               method: "GET",
               headers: {
@@ -136,15 +144,18 @@ const getState = ({ getStore, getActions, setStore }) => {
               },
             }
           );
-            if (!response.ok) throw new Error (`invalid response. Response status: ${response.status}`)
-            const body = await response.json()
-            
-            setStore({ donations: body})
-            console.log(donations)
-          }catch(error){
-            console.log(error)
-          }
-        },
+          if (!response.ok)
+            throw new Error(
+              `invalid response. Response status: ${response.status}`
+            );
+          const body = await response.json();
+
+          setStore({ donations: body });
+          console.log(donations);
+        } catch (error) {
+          console.log(error);
+        }
+      },
       ////////////////////////////////////////////////// trading post below ////////////////////
       trade: async (
         nameA,
@@ -178,6 +189,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             presentA: presentA,
             presentB: presentB,
             description: description,
+            type: "trade",
             userid: user[0].id,
           };
           const response = await fetch(

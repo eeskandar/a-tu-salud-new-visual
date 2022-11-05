@@ -20,7 +20,7 @@ def log_user():
             "msg": "Email or password invalid"
         }), 400
 
-    valid_password = check_password_hash(user.hashed_password, f'{body["password"]}{user.salt}') #esto debería ser user.hashed_password en vez de user.password
+    valid_password = check_password_hash(user.hashed_password, f'{body["password"]}{user.salt}')
     if not valid_password:
         return jsonify({
             "msg": "Email or password invalid"
@@ -34,7 +34,6 @@ def log_user():
         "phone": user.phone,
         "email": user.email,
         "last_name": user.last_name,
-        "city": user.city,
         "profile_picture": user.profile_picture,
     }
 
@@ -189,7 +188,9 @@ def trade_post():
         req_quantity = body["quantityB"],
         req_name = body["nameB"],
         req_medicine_picture = body.get("medicine_picture"),
-        user_id = body["userid"]
+        city = body["city"],
+        user_id = body["userid"],
+        typeof = body["type"]
     )
 
     if not isinstance(new_trade, TradingPost):
