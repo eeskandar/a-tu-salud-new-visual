@@ -34,6 +34,7 @@ def log_user():
         "phone": user.phone,
         "email": user.email,
         "last_name": user.last_name,
+        "city": user.city,
         "profile_picture": user.profile_picture,
     }
 
@@ -188,7 +189,6 @@ def trade_post():
         req_quantity = body["quantityB"],
         req_name = body["nameB"],
         req_medicine_picture = body.get("medicine_picture"),
-        city = body["city"],
         user_id = body["userid"],
         typeof = body["type"]
     )
