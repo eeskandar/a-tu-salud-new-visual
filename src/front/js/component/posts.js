@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import React from "react";
+import { Link } from "react-router-dom";
 
 export const Posts = () => {
-  const { store, actions } = useContext(Context);
-  const user = store.activeUser;
   return (
-    <div className="card">
+    <div className="card m-4">
       <img src="..." className="card-img-top" alt="..."></img>
       <div className="card-body">
         <h5 className="card-title">Card title</h5>
@@ -13,9 +11,9 @@ export const Posts = () => {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </p>
-        <a href="#" className="btn btn-primary">
+        <Link to="/more-info/1" className="btn btn-primary">
           Go somewhere
-        </a>
+        </Link>
       </div>
     </div>
   );

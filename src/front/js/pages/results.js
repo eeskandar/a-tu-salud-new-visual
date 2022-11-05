@@ -112,13 +112,6 @@ export const Results = () => {
           <Posts />
           <Posts />
           <Posts />
-          <Posts />
-          <Posts />
-          <Posts />
-          <Posts />
-          <Posts />
-          <Posts />
-          <Posts />
         </div>
       </div>
     </div>

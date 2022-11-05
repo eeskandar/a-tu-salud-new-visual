@@ -140,19 +140,19 @@ def posts():
                 "msg":"no posts found"
             }), 404
 
-@api.route('/solicitud', methods=['GET', 'POST'])
-def handle_post():
-    if request.method == 'GET':
-        get_post = Post.query.all()
+@api.route('/solicitud', methods=['POST'])
+def handle_solicitud():
+    # if request.method == 'GET':
+    #     get_request = Post_donation.query.all()
 
-        if get_post is None:
-            return jsonify({
-                "msg": "There are no requests yet!"
-            }), 400
+    #     if get_request is None:
+    #         return jsonify({
+    #             "msg": "There are no requests yet!"
+    #         }), 400
 
-        post_list = list(map(lambda requests: requests.serialize(), get_post))
+    #     request_list = list(map(lambda requests: requests.serialize(), get_request))
 
-        return jsonify(post_list), 200
+    #     return jsonify(request_list), 200
 
     body = request.json    
     new_post = Post.create(body)   

@@ -36,7 +36,25 @@ const getState = ({ getStore, getActions, setStore }) => {
           activeUser: [user],
         });
       },
-      /////////////// Log in below ///////////////////
+      getPosts: async (urlParams) => {
+        try {
+          const res = await fetch(
+            process.env.BACKEND_URL + "/api/posts?" + urlParams,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (!res.ok) {
+            new Error("Ocurrió un error en la solicitud");
+          }
+          const body = await res.json();
+          console.log(body);
+        } catch (error) {}
+      },
+
       login: async (email, password) => {
         try {
           let user;

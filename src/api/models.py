@@ -36,6 +36,11 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
+# class Chat(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     description = db.Column(db.String(1200), unique=False, nullable=True)
+
+
 class Post(db.Model):
     #add type of post
     #change the nullable state to true or false depending if it is common or not

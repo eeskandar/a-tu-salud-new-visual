@@ -47,7 +47,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setNameA(event.target.value);
                     }}
-                    value={nameA}
+                    defaultValue={nameA}
                     id="nameAinput"
                   />
                 </div>
@@ -61,7 +61,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setActiveCompA(event.target.value);
                     }}
-                    value={activeCompA}
+                    defaultValue={activeCompA}
                     id="compAinput"
                   />
                 </div>
@@ -75,7 +75,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setPresentA(event.target.value);
                     }}
-                    value={presentA}
+                    defaultValue={presentA}
                     id="presentAinput"
                   />
                 </div>
@@ -89,7 +89,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setQuantityA(event.target.value);
                     }}
-                    value={quantityA}
+                    defaultValue={quantityA}
                     id="quantityAinput"
                   />
                 </div>
@@ -103,7 +103,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setDosisA(event.target.value);
                     }}
-                    value={dosisA}
+                    defaultValue={dosisA}
                     id="dosisAinput"
                   />
                 </div>
@@ -117,7 +117,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setExpDateA(event.target.value);
                     }}
-                    value={expDateA}
+                    defaultValue={expDateA}
                     id="expAinput"
                   />
                 </div>
@@ -139,7 +139,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setNameB(event.target.value);
                     }}
-                    value={nameB}
+                    defaultValue={nameB}
                     id="nameBinput"
                   />
                 </div>
@@ -153,7 +153,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setActiveCompB(event.target.value);
                     }}
-                    value={activeCompB}
+                    defaultValue={activeCompB}
                     id="compBinput"
                   />
                 </div>
@@ -167,7 +167,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setPresentB(event.target.value);
                     }}
-                    value={presentB}
+                    defaultValue={presentB}
                     id="presentBinput"
                   />
                 </div>
@@ -181,7 +181,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setQuantityB(event.target.value);
                     }}
-                    value={quantityB}
+                    defaultValue={quantityB}
                     id="quantityBinput"
                   />
                 </div>
@@ -195,7 +195,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setDosisB(event.target.value);
                     }}
-                    value={dosisB}
+                    defaultValue={dosisB}
                     id="dosisBinput"
                   />
                 </div>
@@ -209,7 +209,7 @@ export const TradingPost = () => {
                     onChange={(event) => {
                       setExpDateB(event.target.value);
                     }}
-                    value={expDateB}
+                    defaultValue={expDateB}
                     id="expBinput"
                   />
                 </div>
@@ -228,7 +228,7 @@ export const TradingPost = () => {
               onChange={(event) => {
                 setDescription(event.target.value);
               }}
-              value={description}
+              defaultValue={description}
               id="description"
             />
           </div>

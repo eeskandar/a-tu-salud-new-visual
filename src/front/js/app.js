@@ -13,6 +13,7 @@ import { Profile } from "./pages/profile";
 import { Results } from "./pages/results";
 import { UserPost } from "./pages/user-post";
 import { UserDonation } from "./pages/user-donation";
+import { MoreInfo } from "./pages/moreInfo";
 import swal from "sweetalert";
 
 //create your first component
@@ -55,6 +56,7 @@ export const App = () => {
             <Route element={<UserPost />} path="/user/post" />
             <Route element={<UserDonation />} path="/user/donation" />
             <Route element={<Results />} path="/results" />
+            <Route element={<MoreInfo />} path="/more-info/:id" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
         </div>
