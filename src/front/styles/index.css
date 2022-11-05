@@ -68,8 +68,25 @@
 
 .side-profile {
   background-color: #b9b9b9;
+  min-height: 83vh;
+  height: auto;
+}
+
+.side-icon {
+  height: 30px;
+  width: 30px;
 }
 
 .cards-width {
   width: 18rem;
 }
+
+.container-request{
+background-color: #D9D9D9;
+width: 70%;
+height: 30%;
+
+border-radius: 10px;
+
+}
+

@@ -2,8 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from flask_socketio import SocketIO, send
-from api.models import db, User, Post
+from api.models import db, User, Post, TradingPost
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
@@ -21,7 +20,7 @@ def log_user():
             "msg": "Email or password invalid"
         }), 400
 
-    valid_password = check_password_hash(user.hashed_password, f'{body["password"]}{user.salt}') #esto debería ser user.hashed_password en vez de user.password
+    valid_password = check_password_hash(user.hashed_password, f'{body["password"]}{user.salt}')
     if not valid_password:
         return jsonify({
             "msg": "Email or password invalid"
@@ -29,12 +28,31 @@ def log_user():
 
     access_token = create_access_token(identity=user.id)
     response_body = {
+        "id": user.id,
         "name": user.name,
         "token": access_token,
         "phone": user.phone,
         "email": user.email,
         "last_name": user.last_name,
-        "city": user.city,
+        "profile_picture": user.profile_picture,
+    }
+
+    return jsonify(response_body), 200
+
+@api.route('/user/<int:userid>')
+@jwt_required()
+def get_user(userid):
+    user = get_jwt_identity()
+    get_user = User.query.get_or_404(userid)
+    
+    response_body = {
+        "id": get_user.id,
+        "name": get_user.name,
+        "phone": get_user.phone,
+        "email": get_user.email,
+        "last_name": get_user.last_name,
+        "city": get_user.city,
+        "profile_picture": get_user.profile_picture,
     }
 
     return jsonify(response_body), 200
@@ -136,15 +154,60 @@ def handle_solicitud():
     #     return jsonify(request_list), 200
 
     body = request.json    
-    new_request = Post_donation.create(body)   
+    new_post = Post.create(body)   
 
-    if type(new_request) == dict:   
+    if type(new_post) == dict:   
         return jsonify({
-            "msg": new_request["msg"]
-        }), new_request["status"]
+            "msg": new_post["msg"]
+        }), new_post["status"]
 
     response_body = {     
-        "user": new_request.serialize()
+        "user": new_post.serialize()
     }
     return jsonify(response_body), 200
 
+########## el atelier de Alejo #########
+@api.route('/user/trade', methods=['POST'])
+def trade_post():
+    body = request.json
+
+    new_trade = TradingPost(
+        title = body["nameA"] + " (" + body["presentA"] + ", " + body["dosisA"] + ") por " + body["nameB"] + " (" + body["presentB"] + ", " + body["dosisB"] + ")",
+        description = body.get("description"),
+        presentation = body["presentA"],
+        active_component = body["activeCompA"],
+        expiration_date = body["expDateA"],
+        dosis = body["dosisA"],
+        quantity = body["quantityA"],
+        name = body["nameA"],
+        medicine_picture = body.get("medicine_picture"),
+        req_presentation =  body["presentB"],
+        req_active_component = body["activeCompB"],
+        req_expiration_date = body["expDateB"],
+        req_dosis = body["dosisB"],
+        req_quantity = body["quantityB"],
+        req_name = body["nameB"],
+        req_medicine_picture = body.get("medicine_picture"),
+        city = body["city"],
+        user_id = body["userid"],
+        typeof = body["type"]
+    )
+
+    if not isinstance(new_trade, TradingPost):
+        return jsonify({
+            "msg": "Server error"
+        }), 500
+
+    saved = new_trade.save_and_commit()
+
+    if saved is False:
+        return jsonify()({
+            "msg": "Data Base error"
+        }), 500
+
+    response_body = {
+        "msg": "New trade created!",
+        "title": new_trade.title
+    }
+
+    return jsonify(response_body), 200

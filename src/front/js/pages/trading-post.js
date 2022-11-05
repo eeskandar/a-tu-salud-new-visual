@@ -19,6 +19,7 @@ export const TradingPost = () => {
   const [presentA, setPresentA] = useState("");
   const [presentB, setPresentB] = useState("");
   const [description, setDescription] = useState("");
+  const trade = actions.trade;
 
   return (
     <div className="d-flex col-11 p-0 overflow-hidden row">
@@ -234,6 +235,48 @@ export const TradingPost = () => {
           <button
             type="submit"
             className="btn form-btn text-center btn-lg rounded-pill ms-4 mb-5"
+            onClick={async (e) => {
+              if (
+                nameA.trim() == "" ||
+                nameB.trim() == "" ||
+                quantityA.trim() == "" ||
+                quantityB.trim() == "" ||
+                dosisA.trim() == "" ||
+                dosisB.trim() == "" ||
+                expDateA.trim() == "" ||
+                expDateB.trim() == "" ||
+                activeCompA.trim() == "" ||
+                activeCompB.trim() == "" ||
+                presentA.trim() == "" ||
+                presentB.trim() == ""
+              ) {
+                swal(
+                  "Debes llenar todos los campos para poder publicar tu solicitud"
+                );
+              } else {
+                await trade(
+                  nameA,
+                  nameB,
+                  quantityA,
+                  quantityB,
+                  dosisA,
+                  dosisB,
+                  expDateA,
+                  expDateB,
+                  activeCompA,
+                  activeCompB,
+                  presentA,
+                  presentB,
+                  description
+                );
+                swal(
+                  "¡Perfecto!",
+                  "Tu solicitud ha sido creada con éxito",
+                  "success"
+                );
+                navigate("/user/" + store.activeUser[0].id);
+              }
+            }}
           >
             Crear solicitud de intercambio
           </button>
