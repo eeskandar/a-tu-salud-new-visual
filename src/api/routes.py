@@ -34,6 +34,7 @@ def log_user():
         "phone": user.phone,
         "email": user.email,
         "last_name": user.last_name,
+        "city": user.city,
         "profile_picture": user.profile_picture,
     }
 

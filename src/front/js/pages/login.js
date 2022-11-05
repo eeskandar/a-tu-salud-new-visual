@@ -23,7 +23,7 @@ export const Login = () => {
               type="email"
               className="form-control form-input border-0"
               onChange={(event) => {
-                setEmail(event.target.defaultValue);
+                setEmail(event.target.value);
               }}
               defaultValue={email}
               id="exampleInputEmail1"
@@ -41,9 +41,9 @@ export const Login = () => {
               type="password"
               className="form-control form-input border-0"
               onChange={(event) => {
-                setPassword(event.target.defaultValue);
+                setPassword(event.target.value);
               }}
-              defaultValue={password}
+              value={password}
               id="exampleInputPassword1"
             />
           </div>
@@ -52,6 +52,7 @@ export const Login = () => {
               type="submit"
               className="btn form-btn text-center btn-lg rounded-pill px-5"
               onClick={async (e) => {
+                console.log(email);
                 if (email.trim() == "") {
                   swal("¡Ups!", "Debes colocar un Email");
                 } else if (password.trim() == "") {
