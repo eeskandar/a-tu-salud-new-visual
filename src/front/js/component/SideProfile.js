@@ -36,7 +36,7 @@ export const SideProfile = () => {
       <Link to="/user/donation" className="nav-link text-secondary mt-2 text-center">
         Donaciones
       </Link>
-      <Link to="" className="nav-link text-secondary mt-2 text-center">
+      <Link to="/user/request" className="nav-link text-secondary mt-2 text-center">
         Solicitudes
       </Link>
       <Link

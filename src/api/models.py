@@ -117,10 +117,7 @@ class Post(db.Model):
                 "status": error.args[0]["status"]
             })
     
-    def __repr__(self):
-        return f'<Medicine {self.title}>'
-# Agregar los atributos del post que queremos serializar para luego mostrar en el frontend
-    def serialize(self):
+    def serializedonations(self):
         return {
             "id": self.id,
             "title": self.title,
@@ -131,7 +128,66 @@ class Post(db.Model):
             "quantity": self.quantity,
             "medicine_picture": self.medicine_picture,
             "typeof": self.typeof,
-            "users": self.users.serialize_post()
+            
+        }
+
+    @classmethod
+    def create_request(cls, body):
+        try:
+            if body.get("title") is None:
+                raise Exception ({
+                    "msg": "Your title can't be empty",
+                    "status": 400
+                })
+            if body.get("presentation") is None:
+                raise Exception ({
+                    "msg": "Your presentation can't be empty",
+                    "status": 400
+                })
+            if body.get("quantity") is None:
+                raise Exception ({
+                    "msg": "Your quantity can't be empty",
+                    "status": 400
+                })
+            
+            
+
+            
+            new_request = cls(title = body["title"], presentation = body["presentation"], quantity = body["quantity"], typeof = "Request", medicine_picture = body.get("medicine_picture"))
+
+            if not isinstance(new_request, cls):
+                raise Exception ({
+                    "msg": "Server Error",
+                    "status": 500
+                })
+            
+            save_instance = new_request.save_and_commit()
+
+            if save_instance is False:
+                raise Exception ({
+                    "msg": "Server Error",
+                    "status": 500
+                })
+
+            return new_request
+            
+        except Exception as error: 
+            return ({
+                "msg": "Error (" + error.args[0]["msg"] + ")",
+                "status": error.args[0]["status"]
+            })
+    
+    def __repr__(self):
+        return f'<Medicine {self.title}>'
+# Agregar los atributos del post que queremos serializar para luego mostrar en el frontend
+    def serializerequest(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "presentation": self.presentation,
+            "quantity": self.quantity,
+            "medicine_picture": self.medicine_picture,
+            "typeof": self.typeof,
             
         }
 

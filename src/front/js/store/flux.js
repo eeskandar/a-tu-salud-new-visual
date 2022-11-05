@@ -29,6 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
       /////////////////////////////// new stuff
       donations: undefined,
+      requests: undefined,
     },
     actions: {
       setActiveUser: (user) => {
@@ -134,7 +135,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             user_id: getStore().activeUser[0].id, // referencia a la linea 20
           };
           const response = await fetch(
-            process.env.BACKEND_URL + "/api/solicitud",
+            process.env.BACKEND_URL + "/api/donation",
             {
               method: "POST",
               body: JSON.stringify(medicine),
@@ -157,7 +158,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       getDonations: async () => {
         try {
           const response = await fetch(
-            process.env.BACKEND_URL + "/api/solicitud",
+            process.env.BACKEND_URL + "/api/donation",
             {
               method: "GET",
               headers: {
@@ -173,6 +174,45 @@ const getState = ({ getStore, getActions, setStore }) => {
 
           setStore({ donations: body });
           console.log(donations);
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      ////////////////////////////////////////////////// post request below ////////////////////
+      requestPost: async (
+        title,
+        presentation,
+        quantity,
+        medicine_picture,
+        type,
+
+      ) => {
+        try {
+          let medicineR;
+          medicineR = {
+            title: title,
+            presentation: presentation,
+            quantity: quantity,
+            type: "Donation",
+            medicine_picture: medicine_picture,
+            user_id: getStore().activeUser[0].id, // referencia a la linea 20
+          };
+          const response = await fetch(
+            process.env.BACKEND_URL + "/api/request",
+            {
+              method: "POST",
+              body: JSON.stringify(medicineR),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (!response.ok)
+            throw new Error(
+              `invalid response. Response status: ${response.status}`
+            );
+          const body = await response.json();
+          medicineR = body;
         } catch (error) {
           console.log(error);
         }

@@ -140,7 +140,7 @@ def posts():
                 "msg":"no posts found"
             }), 404
 
-@api.route('/solicitud', methods=['GET', 'POST'])
+@api.route('/donation', methods=['GET', 'POST'])
 def handle_donations():
     if request.method == 'GET':
         get_donations = Post.query.all()
@@ -150,9 +150,9 @@ def handle_donations():
                 "msg": "There are no requests yet!"
             }), 400
 
-        request_list = list(map(lambda requests: requests.serialize(), get_donations))
+        donations_list = list(map(lambda requests: requests.serializedonations(), get_donations))
 
-        return jsonify(request_list), 200
+        return jsonify(donations_list), 200
 
     body = request.json
     new_post = Post.create_donation(body)
@@ -163,7 +163,35 @@ def handle_donations():
         }), new_post["status"]
 
     response_body = {
-        "donations": new_post.serialize()
+        "donations": new_post.serializedonations()
+
+    }
+    return jsonify(response_body), 200
+
+@api.route('/request', methods=['GET', 'POST'])
+def handle_request():
+    if request.method == 'GET':
+        get_requests = Post.query.all()
+
+        if get_requests is None:
+            return jsonify({
+                "msg": "There are no requests yet!"
+            }), 400
+
+        request_list = list(map(lambda requests: requests.serializerequest(), get_requests))
+
+        return jsonify(request_list), 200
+
+    body = request.json
+    new_request = Post.create_request(body)
+
+    if type(new_request) == dict:
+        return jsonify({
+            "msg": new_request["msg"]
+        }), new_request["status"]
+
+    response_body = {
+        "request": new_request.serializerequest()
 
     }
     return jsonify(response_body), 200
