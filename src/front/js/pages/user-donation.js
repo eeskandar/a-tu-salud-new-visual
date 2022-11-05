@@ -34,7 +34,7 @@ export const UserDonation = () => {
 								
 							}
                     <div>     
-                        <h3 className="text-center text-secondary my-5 mt-5"><Link to="/user/post" className="nav-link text-secondary mb-4"><i class="fa-solid fa-circle-plus"></i> Crear nueva donación</Link> </h3>
+                        <h3 className="text-center text-secondary my-5 mt-5"><Link to="/user/post" className="nav-link text-secondary mb-4"><i className="fa-solid fa-circle-plus"></i> Crear nueva donación</Link> </h3>
                     </div>
                 </div>
 			</div>	

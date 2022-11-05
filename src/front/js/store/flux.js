@@ -116,7 +116,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         active_component,
         expiration_date,
         quantity,
-        type
+        medicine_picture,
+        type,
+
       ) => {
         try {
           let medicine;
@@ -127,7 +129,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             active_component: active_component,
             expiration_date: expiration_date,
             quantity: quantity,
-            typeof: type,
+            type: "Donation",
+            medicine_picture: medicine_picture,
             user_id: getStore().activeUser[0].id, // referencia a la linea 20
           };
           const response = await fetch(
