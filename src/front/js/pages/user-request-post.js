@@ -53,12 +53,16 @@ export const UserPostRequest = () => {
 						presentation.trim() == "" ||
 						quantity.trim() == "" 
 						){
-							alert(
-							"Debes llenar todos los campos para poder publicar tu solicitud"
+							swal(
+								"Debes llenar todos los campos para poder publicar tu solicitud"
 							);
 						} else{
 						await requestPost(title, presentation, quantity);
-						alert("Solicitud creada con éxito");
+						swal(
+							"¡Perfecto!",
+							"Tu solicitud ha sido creada con éxito",
+							"success"
+						);
                 		navigate("/user/request")	
 					}
 				}}>

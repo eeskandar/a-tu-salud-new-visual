@@ -69,12 +69,16 @@ export const UserPost = () => {
 						expiration_date.trim() == "" ||
 						quantity.trim() == "" 
 						){
-							alert(
-							"Debes llenar todos los campos para poder publicar tu solicitud"
+							swal(
+								"Debes llenar todos los campos para poder publicar tu donación"
 							);
 						} else{
 						await post(title, description, presentation, active_component, expiration_date, quantity);
-						alert("Donación creada con éxito");
+						swal(
+							"¡Perfecto!",
+							"Tu donación ha sido creada con éxito",
+							"success"
+						);
                 		navigate("/user/donation")	
 					}
 				}}>
