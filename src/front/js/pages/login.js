@@ -50,7 +50,7 @@ export const Login = () => {
           <div className="d-flex justify-content-center mt-5">
             <button
               type="submit"
-              className="btn form-btn text-center btn-lg rounded-pill px-5"
+              className="btn form-btn text-center text-white btn-lg rounded-pill px-5"
               onClick={async (e) => {
                 if (email.trim() == "") {
                   swal("¡Ups!", "Debes colocar un Email");

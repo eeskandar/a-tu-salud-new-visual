@@ -55,7 +55,35 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log(body);
         } catch (error) {}
       },
-
+      ///////////////////////////////// register below
+      register: async (name, lastName, city, phone, email, password) => {
+        try {
+          let new_user;
+          new_user = {
+            name: name,
+            last_name: lastName,
+            city: city,
+            phone: phone,
+            email: email,
+            password: password,
+          };
+          const response = await fetch(
+            process.env.BACKEND_URL + "/api/register",
+            {
+              method: "POST",
+              body: JSON.stringify(new_user),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (!response.ok) {
+            return false;
+          }
+          return true;
+        } catch (error) {}
+      },
+      ///////////////////////////////// login below
       login: async (email, password) => {
         try {
           let user;
@@ -118,8 +146,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         expiration_date,
         quantity,
         medicine_picture,
-        type,
-
+        type
       ) => {
         try {
           let medicine;
@@ -184,8 +211,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         presentation,
         quantity,
         medicine_picture,
-        type,
-
+        type
       ) => {
         try {
           let medicineR;

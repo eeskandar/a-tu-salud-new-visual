@@ -36,7 +36,7 @@ export const Navbar = () => {
                 <div className="d-flex">
                   <li className="nav-item px-4">
                     <Link
-                      to=""
+                      to="/register"
                       className="nav-link text-white"
                       aria-current="page"
                     >

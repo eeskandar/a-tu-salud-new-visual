@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Loading } from "../component/Loading";
 import { SideProfile } from "../component/SideProfile";
 import { Context } from "../store/appContext";
 
@@ -8,8 +9,8 @@ export const Profile = () => {
   return (
     <div className="col-11 p-0">
       {store.activeUser[0].id == "Guest" ? (
-        <div>
-          <h1>Cargandououououououou</h1>
+        <div className="row">
+          <Loading />
         </div>
       ) : (
         <div className="d-flex justify-content-between bg-color">
