@@ -25,7 +25,7 @@ export const Login = () => {
               onChange={(event) => {
                 setEmail(event.target.value);
               }}
-              defaultValue={email}
+              value={email}
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
             />

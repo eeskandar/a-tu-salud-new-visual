@@ -45,7 +45,7 @@ def log_user():
 def get_user(userid):
     user = get_jwt_identity()
     get_user = User.query.get_or_404(userid)
-    
+
     response_body = {
         "id": get_user.id,
         "name": get_user.name,
@@ -73,12 +73,12 @@ def make_user():
 
         new_user = User(
             email=body['email'],
-            phone=body['phone'], 
-            hashed_password=hashed_password, 
+            phone=body['phone'],
+            hashed_password=hashed_password,
             salt=salt,
-            name=body['name'], 
-            last_name=body['last_name'], 
-            city=body['city'], 
+            name=body['name'],
+            last_name=body['last_name'],
+            city=body['city'],
             profile_picture=body.get('profile_picture')
         )
         print(new_user.serialize())
@@ -99,30 +99,30 @@ def make_user():
 @api.route('/posts', methods=['GET'])
 def posts():
     if request.method == "GET":
-        
-        filters = [                
+
+        filters = [
             ]
-        
+
         # print(db.session.query(Post).join(Post.users).filter(Post.users.city == 'test'))
 
         if request.args.get('name') != None:
             filters.append(Post.name == request.args.get('name'))
-        
+
         if request.args.get('expiration_date') != None:
             filters.append(Post.expiration_date == request.args.get('expiration_date'))
-        
+
         if request.args.get('typeof') != None:
             filters.append(Post.typeof == request.args.get('typeof'))
-        
+
         if request.args.get('presentation') != None:
             filters.append(Post.presentation == request.args.get('presentation'))
-        
+
         if request.args.get('quantity') != None:
             filters.append(Post.quantity == request.args.get('quantity'))
 
         if request.args.get('city') != None:
             filters.append(User.city == request.args.get('city'))
-        
+
         # post = db.session.query()
         try:
             result = db.session.query(Post).join(User).filter(*filters).all()
@@ -140,30 +140,59 @@ def posts():
                 "msg":"no posts found"
             }), 404
 
-@api.route('/solicitud', methods=['POST'])
-def handle_solicitud():
-    # if request.method == 'GET':
-    #     get_request = Post_donation.query.all()
+@api.route('/donation', methods=['GET', 'POST'])
+def handle_donations():
+    if request.method == 'GET':
+        get_donations = Post.query.all()
 
-    #     if get_request is None:
-    #         return jsonify({
-    #             "msg": "There are no requests yet!"
-    #         }), 400
+        if get_donations is None:
+            return jsonify({
+                "msg": "There are no requests yet!"
+            }), 400
 
-    #     request_list = list(map(lambda requests: requests.serialize(), get_request))
+        donations_list = list(map(lambda requests: requests.serializedonations(), get_donations))
 
-    #     return jsonify(request_list), 200
+        return jsonify(donations_list), 200
 
-    body = request.json    
-    new_post = Post.create(body)   
+    body = request.json
+    new_post = Post.create_donation(body)
 
-    if type(new_post) == dict:   
+    if type(new_post) == dict:
         return jsonify({
             "msg": new_post["msg"]
         }), new_post["status"]
 
-    response_body = {     
-        "user": new_post.serialize()
+    response_body = {
+        "donations": new_post.serializedonations()
+
+    }
+    return jsonify(response_body), 200
+
+@api.route('/request', methods=['GET', 'POST'])
+def handle_request():
+    if request.method == 'GET':
+        get_requests = Post.query.all()
+
+        if get_requests is None:
+            return jsonify({
+                "msg": "There are no requests yet!"
+            }), 400
+
+        request_list = list(map(lambda requests: requests.serializerequest(), get_requests))
+
+        return jsonify(request_list), 200
+
+    body = request.json
+    new_request = Post.create_request(body)
+
+    if type(new_request) == dict:
+        return jsonify({
+            "msg": new_request["msg"]
+        }), new_request["status"]
+
+    response_body = {
+        "request": new_request.serializerequest()
+
     }
     return jsonify(response_body), 200
 
@@ -189,7 +218,6 @@ def trade_post():
         req_quantity = body["quantityB"],
         req_name = body["nameB"],
         req_medicine_picture = body.get("medicine_picture"),
-        city = body["city"],
         user_id = body["userid"],
         typeof = body["type"]
     )
