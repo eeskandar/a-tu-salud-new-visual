@@ -185,7 +185,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             return false;
           }
           const body = await response.json();
-          medicine = body;
+          // medicine = body;
           getActions().setImg("");
 
           return true;
