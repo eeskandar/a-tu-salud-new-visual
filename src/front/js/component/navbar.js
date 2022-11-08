@@ -26,7 +26,7 @@ export const Navbar = () => {
               <input
                 className="form-control me-2 nav-input border-0 rounded-pill"
                 type="search"
-                placeholder="Buscar"
+                placeholder="Buscar medicamento"
                 aria-label="Search"
                 // colocar el fetch con el value hacia el endpoint /api/solicitud y cambiar el link to /results
               />

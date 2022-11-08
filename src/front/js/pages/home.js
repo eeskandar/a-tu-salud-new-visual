@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../img/atusalud logo2.png";
+import swal from "sweetalert";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 
@@ -13,12 +14,11 @@ export const Home = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
-  const [typeOf, setTypeOf] = useState("");
+  const [type, setType] = useState("");
   const [busquedaAvanzada, SetBusquedaAvanzada] = useState(false);
   const navigate = useNavigate();
-
+  console.log(type);
   const urlParams = new URLSearchParams(window.location.search);
-  console.log(urlParams.get("hola"));
 
   function busquedaFiltro() {
     console.log(busquedaAvanzada);
@@ -27,25 +27,52 @@ export const Home = () => {
   }
 
   async function consultPosts() {
-    if (city.trim() != "") {
-      urlParams.set("city", city);
-    }
     if (name.trim() != "") {
       urlParams.set("name", name);
-    }
-    console.log(urlParams.toString());
-    await actions.getPosts(urlParams);
+      if (city.trim() != "") {
+        urlParams.set("city", city);
+      }
+      if (type.trim() != "") {
+        urlParams.set("type", type);
+      }
+      if (quantity.trim() != "") {
+        urlParams.set("quantity", quantity);
+      }
+      if (expirationDate.trim() != "") {
+        urlParams.set("expiration_date", expirationDate);
+      }
+      if (presentation.trim() != "") {
+        urlParams.set("presentation", presentation);
+      }
+      console.log(urlParams.toString());
+      let success = await actions.getPosts(urlParams);
+      if (success == false) {
+        swal("¡Ups!", "404");
+      }
+    } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
   }
+  function handleSubmit() {}
 
   async function consultExchangePosts() {
-    if (city.trim() != "") {
-      urlParams.set("city", city);
+    if (type == "Presentation") {
+      if (name.trim() != "") {
+        urlParams.set("name", name);
+        if (city.trim() != "") {
+          urlParams.set("city", city);
+        }
+        if (quantity.trim() != "") {
+          urlParams.set("quantity", quantity);
+        }
+        if (expirationDate.trim() != "") {
+          urlParams.set("expiration_date", expirationDate);
+        }
+        if (presentation.trim() != "") {
+          urlParams.set("presentation", presentation);
+        }
+        console.log(urlParams.toString());
+        await actions.getPosts(urlParams);
+      }
     }
-    if (name.trim() != "") {
-      urlParams.set("name", name);
-    }
-    console.log(urlParams.toString());
-    await actions.getPosts(urlParams);
   }
 
   return (
@@ -98,12 +125,14 @@ export const Home = () => {
           <select
             className="form-select text-secondary"
             aria-label="Default select example"
-            defaultValue={setTypeOf}
-            onChange={(e) => {}}
+            value={type}
+            onChange={(e) => {
+              setType(event.target.value);
+            }}
           >
-            <option defaultValue="Donation">Donación</option>
-            <option defaultValue="Request">Solicitud</option>
-            <option defaultValue="Exchange">Intercambio</option>
+            <option value="Donation">Donación</option>
+            <option value="Request">Solicitud</option>
+            <option value="Exchange">Intercambio</option>
           </select>
         </div>
         <Link
@@ -111,7 +140,7 @@ export const Home = () => {
           onClick={(e) => {
             consultPosts();
           }}
-          to="/results"
+          to="/"
         >
           Search
         </Link>

@@ -103,8 +103,6 @@ def posts():
         filters = [
             ]
 
-        # print(db.session.query(Post).join(Post.users).filter(Post.users.city == 'test'))
-
         if request.args.get('name') != None:
             filters.append(Post.name == request.args.get('name'))
 
@@ -133,7 +131,7 @@ def posts():
         if len(result) > 0:
             return jsonify({
             "msg":"here is the list of posts",
-            "list":[post.serialize() for post in result]
+            "list":[post.serializedonations() for post in result]
         }), 200
         else:
             return jsonify({

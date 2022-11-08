@@ -30,9 +30,8 @@ class User(db.Model):
         }
     def serialize_post(self):
         return {
-            "id": self.id,
-            "email": self.email,
-            "city": self.city
+            "city": self.city,
+            "name": self.name
             # do not serialize the password, its a security breach
         }
 
@@ -55,7 +54,7 @@ class Post(db.Model):
     name = db.Column(db.String(120), unique=False, nullable=True) # ps el nombre
     medicine_picture = db.Column(db.String(500), unique=False, nullable=True) # foto o imagen del medicamento
     typeof = db.Column(db.String(120), unique=False, nullable=True) # especificación del tipo
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True) # relacion con el usuario
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=True) # la cedula del usuario
     users = db.relationship("User", back_populates="posts")
 
     @classmethod
@@ -93,7 +92,7 @@ class Post(db.Model):
                 }) 
 
             
-            new_post = cls(title = body["title"], description = body["description"], presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"], typeof = "Donation", medicine_picture = body.get("medicine_picture"))
+            new_post = cls(title = body["title"], description = body["description"], presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"], typeof = "Donation", medicine_picture = body.get("medicine_picture"), user_id = body["user_id"], dosis = body["dosis"])
 
             if not isinstance(new_post, cls):
                 raise Exception ({
@@ -128,6 +127,7 @@ class Post(db.Model):
             "quantity": self.quantity,
             "medicine_picture": self.medicine_picture,
             "typeof": self.typeof,
+            "user_info": self.users.serialize_post()
             
         }
 

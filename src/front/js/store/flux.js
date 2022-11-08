@@ -55,10 +55,11 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           );
           if (!res.ok) {
-            new Error("Ocurrió un error en la solicitud");
+            return false;
           }
           const body = await res.json();
           console.log(body);
+          return true;
         } catch (error) {}
       },
       ///////////////////////////////// register below
@@ -152,7 +153,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         active_component,
         expiration_date,
         quantity,
-        image
+        image,
+        dosis
       ) => {
         try {
           let medicine;
@@ -166,6 +168,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             type: "donation",
             medicine_picture: image,
             user_id: getStore().activeUser[0].id, // referencia a la linea 20
+            dosis: dosis,
           };
           const response = await fetch(
             process.env.BACKEND_URL + "/api/donation",
