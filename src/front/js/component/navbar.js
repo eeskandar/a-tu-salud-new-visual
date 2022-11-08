@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "./../store/appContext";
-import logo from "../../img/atusalud logo.png";
+import logo from "../../img/logo-claro.png";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -15,13 +15,13 @@ export const Navbar = () => {
       <nav className="navbar navbar-expand-sm py-0 text-white nav-color">
         <div className="container-fluid">
           <Link to="">
-            <img src={logo} className="nav-logo ms-3"></img>
+            <img src={logo} className="nav-logo ms-3 pt-1"></img>
           </Link>
           <div
             className="navbar d-flex justify-content-end"
             id="navbarSupportedContent"
           >
-            <form className="d-flex pe-5" role="search">
+            <form className="d-flex pe-5 mt-2" role="search">
               <i className="fa-solid fa-magnifying-glass fs-2 px-4"></i>
               <input
                 className="form-control me-2 nav-input border-0 rounded-pill"
@@ -31,7 +31,7 @@ export const Navbar = () => {
                 // colocar el fetch con el value hacia el endpoint /api/solicitud y cambiar el link to /results
               />
             </form>
-            <ul className="navbar-nav py-1">
+            <ul className="navbar-nav pt-1">
               {localStorage.getItem("token") == null ? (
                 <div className="d-flex">
                   <li className="nav-item px-4">
