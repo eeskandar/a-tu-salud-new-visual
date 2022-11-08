@@ -22,12 +22,15 @@ export const NavbarVertical = () => {
       }`}
     >
       <div className="p-lg-3">
-        <Link to={localStorage.getItem("token") == null ? "" : "/user/post"}
+        <Link
+          to={localStorage.getItem("token") == null ? "" : "/user/post"}
           onClick={(e) => {
             if (localStorage.getItem("token") == null) {
               swal("¡Debes iniciar sesión para poder donar un medicamento!");
             }
-          }} className="d-flex nav-link text-secondary mb-4">
+          }}
+          className="d-flex nav-link text-secondary mb-4"
+        >
           <i className="fa-solid fa-hand-holding-heart fs-3 side-icon"></i>
           <span
             className={`${
@@ -39,12 +42,17 @@ export const NavbarVertical = () => {
             Nueva Donación
           </span>
         </Link>
-        <Link to={localStorage.getItem("token") == null ? "" : "/user/request-post"}
+        <Link
+          to={localStorage.getItem("token") == null ? "" : "/user/request-post"}
           onClick={(e) => {
             if (localStorage.getItem("token") == null) {
-              swal("¡Debes iniciar sesión para poder solicitar un medicamento!");
+              swal(
+                "¡Debes iniciar sesión para poder solicitar un medicamento!"
+              );
             }
-          }} className="d-flex nav-link text-secondary mb-4">
+          }}
+          className="d-flex nav-link text-secondary mb-4"
+        >
           <i className="fa-regular fa-square-plus fs-3 side-icon"></i>
           <span
             className={`${
@@ -101,7 +109,7 @@ export const NavbarVertical = () => {
           </span>
         </Link>
       </div>
-      <div className="pb-5 mb-5 align-to-bot p-lg-5">
+      {/* <div className="pb-5 mb-5 align-to-bot p-lg-3">
         <Link to="" className="d-flex nav-link text-secondary">
           <i className="fa-solid fa-gear fs-3 side-icon"></i>
           <span
@@ -114,7 +122,7 @@ export const NavbarVertical = () => {
             Configuración
           </span>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

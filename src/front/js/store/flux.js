@@ -15,6 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
       /////////////////////////////// new stuff
+      image: "",
       activeUser: [
         {
           id: "Guest",
@@ -32,6 +33,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       requests: undefined,
     },
     actions: {
+      setImg: (img) => {
+        setStore({
+          image: img,
+        });
+      },
       setActiveUser: (user) => {
         setStore({
           activeUser: [user],
@@ -55,7 +61,36 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log(body);
         } catch (error) {}
       },
-
+      ///////////////////////////////// register below
+      register: async (name, lastName, city, phone, email, password, image) => {
+        try {
+          let new_user;
+          new_user = {
+            name: name,
+            last_name: lastName,
+            city: city,
+            phone: phone,
+            email: email,
+            password: password,
+            profile_picture: image,
+          };
+          const response = await fetch(
+            process.env.BACKEND_URL + "/api/register",
+            {
+              method: "POST",
+              body: JSON.stringify(new_user),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (!response.ok) {
+            return false;
+          }
+          return true;
+        } catch (error) {}
+      },
+      ///////////////////////////////// login below
       login: async (email, password) => {
         try {
           let user;
@@ -117,9 +152,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         active_component,
         expiration_date,
         quantity,
-        medicine_picture,
-        type,
-
+        image
       ) => {
         try {
           let medicine;
@@ -130,8 +163,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             active_component: active_component,
             expiration_date: expiration_date,
             quantity: quantity,
-            type: "Donation",
-            medicine_picture: medicine_picture,
+            type: "donation",
+            medicine_picture: image,
             user_id: getStore().activeUser[0].id, // referencia a la linea 20
           };
           const response = await fetch(
@@ -144,12 +177,12 @@ const getState = ({ getStore, getActions, setStore }) => {
               },
             }
           );
-          if (!response.ok)
-            throw new Error(
-              `invalid response. Response status: ${response.status}`
-            );
+          if (!response.ok) {
+            return false;
+          }
           const body = await response.json();
           medicine = body;
+          return true;
         } catch (error) {
           console.log(error);
         }
@@ -184,8 +217,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         presentation,
         quantity,
         medicine_picture,
-        type,
-
+        type
       ) => {
         try {
           let medicineR;

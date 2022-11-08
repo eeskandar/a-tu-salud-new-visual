@@ -7,6 +7,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
+import { Register } from "./pages/register";
 import { NavbarVertical } from "./component/NavbarVertical";
 import { TradingPost } from "./pages/trading-post";
 import { Profile } from "./pages/profile";
@@ -17,6 +18,7 @@ import { UserRequests } from "./pages/user-requests";
 import { MoreInfo } from "./pages/moreInfo";
 import swal from "sweetalert";
 import { UserPostRequest } from "./pages/user-request-post";
+import { Loading } from "./component/Loading";
 
 //create your first component
 export const App = () => {
@@ -33,7 +35,7 @@ export const App = () => {
   useEffect(() => {
     if (localStorage.getItem("token") == null) {
       actions.logout();
-      navigate("/login");
+      // navigate("/");
     } else {
       let success = actions.getUser(localStorage.getItem("id"));
       if (success == false) {
@@ -53,6 +55,7 @@ export const App = () => {
           <Routes>
             <Route element={<Home />} path="/" />
             <Route element={<Login />} path="/login" />
+            <Route element={<Register />} path="/register" />
             <Route element={<Profile />} path="/user/:userid" />
             <Route element={<TradingPost />} path="/user/trade" />
             <Route element={<UserPost />} path="/user/post" />
