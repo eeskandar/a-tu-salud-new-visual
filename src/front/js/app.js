@@ -19,6 +19,7 @@ import { MoreInfo } from "./pages/moreInfo";
 import swal from "sweetalert";
 import { UserPostRequest } from "./pages/user-request-post";
 import { Loading } from "./component/Loading";
+import { UserTrades } from "./pages/user-trades";
 
 //create your first component
 export const App = () => {
@@ -61,6 +62,7 @@ export const App = () => {
             <Route element={<UserPost />} path="/user/post" />
             <Route element={<UserDonation />} path="/user/donation" />
             <Route element={<UserRequests />} path="/user/request" />
+            <Route element={<UserTrades />} path="/user/trades" />
             <Route element={<UserPostRequest />} path="/user/request-post" />
             <Route element={<Results />} path="/results" />
             <Route element={<MoreInfo />} path="/more-info/:id" />

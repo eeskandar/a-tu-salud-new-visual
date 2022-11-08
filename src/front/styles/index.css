@@ -6,11 +6,11 @@
 }
 
 .nav-logo {
-  height: 50px;
+  height: 60px;
 }
 
 .nav-bottom {
-  background-color: #92dce5;
+  background-image: linear-gradient(#52b0e5, #3c9cd4);
   height: 10px;
 }
 
@@ -50,8 +50,8 @@
   bottom: 4rem;
 }
 
-.padding-a {
-  padding: 5rem;
+.margin-home {
+  margin-left: 7.5rem;
 }
 
 .margin-a {

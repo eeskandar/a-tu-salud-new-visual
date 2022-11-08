@@ -234,7 +234,7 @@ export const TradingPost = () => {
           </div>
           <button
             type="submit"
-            className="btn form-btn text-center btn-lg rounded-pill ms-4 mb-5"
+            className="btn form-btn text-center text-white btn-lg rounded-pill ms-4 mb-5"
             onClick={async (e) => {
               if (
                 nameA.trim() == "" ||

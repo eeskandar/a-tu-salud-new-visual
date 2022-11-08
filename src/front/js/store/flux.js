@@ -88,6 +88,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (!response.ok) {
             return false;
           }
+          getActions().setImg("");
           return true;
         } catch (error) {}
       },
@@ -165,7 +166,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             active_component: active_component,
             expiration_date: expiration_date,
             quantity: quantity,
-            type: "donation",
+            type: "Donation",
             medicine_picture: image,
             user_id: getStore().activeUser[0].id, // referencia a la linea 20
             dosis: dosis,
@@ -218,22 +219,29 @@ const getState = ({ getStore, getActions, setStore }) => {
       //   }
       // },
       ////////////////////////////////////////////////// post request below ////////////////////
-      requestPost: async (
-        title,
+      request: async (
         presentation,
+        dosis,
+        image,
+        active_component,
         quantity,
-        medicine_picture,
-        type
+        name,
+        description,
+        expiration_date
       ) => {
         try {
           let medicineR;
           medicineR = {
-            title: title,
+            name: name,
+            description: description,
             presentation: presentation,
+            active_component: active_component,
+            expiration_date: expiration_date,
             quantity: quantity,
-            type: "Donation",
-            medicine_picture: medicine_picture,
+            type: "Request",
+            medicine_picture: image,
             user_id: getStore().activeUser[0].id, // referencia a la linea 20
+            dosis: dosis,
           };
           const response = await fetch(
             process.env.BACKEND_URL + "/api/request",
@@ -245,12 +253,15 @@ const getState = ({ getStore, getActions, setStore }) => {
               },
             }
           );
-          if (!response.ok)
-            throw new Error(
-              `invalid response. Response status: ${response.status}`
-            );
+          if (!response.ok) {
+            getActions().setImg("");
+            return false;
+          }
           const body = await response.json();
           medicineR = body;
+          getActions().setImg("");
+
+          return true;
         } catch (error) {
           console.log(error);
         }

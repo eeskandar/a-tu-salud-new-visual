@@ -33,14 +33,20 @@ export const SideProfile = () => {
         Información
       </Link>
       {/* this location.pathname stuff has to be done with the other links when they're defined */}
-      <Link to="/user/donation" className="nav-link text-secondary mt-2 text-center">
+      <Link
+        to="/user/donation"
+        className="nav-link text-secondary mt-2 text-center"
+      >
         Donaciones
       </Link>
-      <Link to="/user/request" className="nav-link text-secondary mt-2 text-center">
+      <Link
+        to="/user/request"
+        className="nav-link text-secondary mt-2 text-center"
+      >
         Solicitudes
       </Link>
       <Link
-        to="/user/trade"
+        to="/user/trades"
         className={`nav-link text-secondary mt-2 text-center ${
           location.pathname == "/user/trade" ? "fw-bold" : ""
         }`}

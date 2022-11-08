@@ -136,7 +136,6 @@ export const Register = () => {
                   );
                   if (success == true) {
                     swal("¡Listo!", "Te has registrado con éxito", "success");
-                    actions.setImage("");
                     return navigate("/login");
                   }
                   swal(
