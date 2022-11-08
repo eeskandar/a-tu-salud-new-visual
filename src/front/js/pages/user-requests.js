@@ -7,11 +7,11 @@ import { CardRequest } from "../component/CardRequest";
 
 export const UserRequests = () => {
     const { store, actions } = useContext(Context);
-    const getDonations = actions.getDonations;
+    // const getDonations = actions.getDonations;
     
     
     useEffect(() => {
-        getDonations()
+        // getDonations()
     }, [])
 
     console.log(store.donations)

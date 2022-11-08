@@ -119,7 +119,7 @@ class Post(db.Model):
     def serializedonations(self):
         return {
             "id": self.id,
-            "title": self.title,
+            "name": self.name,
             "description": self.description,
             "presentation": self.presentation,
             "active_component": self.active_component,
@@ -134,9 +134,14 @@ class Post(db.Model):
     @classmethod
     def create_request(cls, body):
         try:
-            if body.get("title") is None:
+            if body.get("name") is None:
                 raise Exception ({
-                    "msg": "Your title can't be empty",
+                    "msg": "Your name can't be empty",
+                    "status": 400
+                })
+            if body.get("description") is None:
+                raise Exception ({
+                    "msg": "Your description can't be empty",
                     "status": 400
                 })
             if body.get("presentation") is None:
@@ -144,16 +149,24 @@ class Post(db.Model):
                     "msg": "Your presentation can't be empty",
                     "status": 400
                 })
+            if body.get("active_component") is None:
+                raise Exception ({
+                    "msg": "Your active_component can't be empty",
+                    "status": 400
+                })
+            if body.get("expiration_date") is None:
+                raise Exception ({
+                    "msg": "Your expiration_date can't be empty",
+                    "status": 400
+                })
             if body.get("quantity") is None:
                 raise Exception ({
                     "msg": "Your quantity can't be empty",
                     "status": 400
-                })
-            
-            
+                }) 
 
             
-            new_request = cls(title = body["title"], presentation = body["presentation"], quantity = body["quantity"], typeof = "Request", medicine_picture = body.get("medicine_picture"))
+            new_request = cls(name = body.get("name"), description = body.get("description"), presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"], typeof = "Request", medicine_picture = body.get("medicine_picture"), user_id = body["user_id"], dosis = body.get("dosis"))
 
             if not isinstance(new_request, cls):
                 raise Exception ({
@@ -177,17 +190,18 @@ class Post(db.Model):
                 "status": error.args[0]["status"]
             })
     
-    def __repr__(self):
-        return f'<Medicine {self.title}>'
-# Agregar los atributos del post que queremos serializar para luego mostrar en el frontend
     def serializerequest(self):
         return {
             "id": self.id,
-            "title": self.title,
+            "name": self.name,
+            "description": self.description,
             "presentation": self.presentation,
+            "active_component": self.active_component,
+            "expiration_date": self.expiration_date,
             "quantity": self.quantity,
             "medicine_picture": self.medicine_picture,
             "typeof": self.typeof,
+            "user_info": self.users.serialize_post()
             
         }
 
