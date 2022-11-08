@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "./../store/appContext";
 import swal from "sweetalert";
+import { UploadImage } from "../component/UploadImage";
 
 export const Register = () => {
   const { store, actions } = useContext(Context);
@@ -103,7 +104,10 @@ export const Register = () => {
               id="exampleInputPassword1"
             />
           </div>
-          <div className="d-flex justify-content-center mt-5">
+          <div className="justify-content-center d-flex">
+            <UploadImage name="Sube tu foto de perfil" />
+          </div>
+          <div className="d-flex justify-content-center mt-3">
             <button
               type="submit"
               className="btn form-btn text-center text-white btn-lg rounded-pill px-5"
@@ -127,10 +131,12 @@ export const Register = () => {
                     city,
                     phone,
                     email,
-                    password
+                    password,
+                    store.image
                   );
                   if (success == true) {
                     swal("¡Listo!", "Te has registrado con éxito", "success");
+                    actions.setImage("");
                     return navigate("/login");
                   }
                   swal(
