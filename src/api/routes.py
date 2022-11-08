@@ -168,17 +168,17 @@ def handle_donations():
 
 @api.route('/request', methods=['GET', 'POST'])
 def handle_request():
-    if request.method == 'GET':
-        get_requests = Post.query.all()
+    # if request.method == 'GET':
+    #     get_requests = Post.query.all()
 
-        if get_requests is None:
-            return jsonify({
-                "msg": "There are no requests yet!"
-            }), 400
+    #     if get_requests is None:
+    #         return jsonify({
+    #             "msg": "There are no requests yet!"
+    #         }), 400
 
-        request_list = list(map(lambda requests: requests.serializerequest(), get_requests))
+    #     request_list = list(map(lambda requests: requests.serializerequest(), get_requests))
 
-        return jsonify(request_list), 200
+    #     return jsonify(request_list), 200
 
     body = request.json
     new_request = Post.create_request(body)

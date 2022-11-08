@@ -60,9 +60,9 @@ class Post(db.Model):
     @classmethod
     def create_donation(cls, body):
         try:
-            if body.get("title") is None:
+            if body.get("name") is None:
                 raise Exception ({
-                    "msg": "Your title can't be empty",
+                    "msg": "Your name can't be empty",
                     "status": 400
                 })
             if body.get("description") is None:
@@ -92,7 +92,7 @@ class Post(db.Model):
                 }) 
 
             
-            new_post = cls(title = body["title"], description = body["description"], presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"], typeof = "Donation", medicine_picture = body.get("medicine_picture"), user_id = body["user_id"], dosis = body["dosis"])
+            new_post = cls(name = body.get("name"), description = body.get("description"), presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"], typeof = "Donation", medicine_picture = body.get("medicine_picture"), user_id = body["user_id"], dosis = body["dosis"])
 
             if not isinstance(new_post, cls):
                 raise Exception ({

@@ -129,7 +129,8 @@ export const UserPost = () => {
             className="btn bg-info bg-opacity-75 btn-lg text-white fw-bold"
             onClick={async (e) => {
               if (
-                title.trim() == "" ||
+                name.trim() == "" ||
+                dosis.trim() == "" ||
                 description.trim() == "" ||
                 presentation.trim() == "" ||
                 active_component.trim() == "" ||
@@ -140,18 +141,20 @@ export const UserPost = () => {
                   "Debes llenar todos los campos para poder publicar tu solicitud"
                 );
               } else {
+                console.log(store.image);
                 let success = await post(
-                  title,
-                  description,
                   presentation,
+                  dosis,
+                  store.image,
                   active_component,
-                  expiration_date,
                   quantity,
-                  store.image
+                  name,
+                  description,
+                  expiration_date
                 );
                 if (success) {
                   swal("¡Listo!", "¡Donación creada con éxito!", "success");
-                  actions.setImage("");
+                  console.log(store.image);
                   return navigate("/user/donation");
                 }
                 swal(

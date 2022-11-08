@@ -147,19 +147,19 @@ const getState = ({ getStore, getActions, setStore }) => {
       ////////////////////////////////////////////////// vista post below ////////////////////
 
       post: async (
-        title,
-        description,
         presentation,
-        active_component,
-        expiration_date,
-        quantity,
+        dosis,
         image,
-        dosis
+        active_component,
+        quantity,
+        name,
+        description,
+        expiration_date
       ) => {
         try {
           let medicine;
           medicine = {
-            title: title,
+            name: name,
             description: description,
             presentation: presentation,
             active_component: active_component,
@@ -181,39 +181,42 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           );
           if (!response.ok) {
+            getActions().setImg("");
             return false;
           }
           const body = await response.json();
           medicine = body;
+          getActions().setImg("");
+
           return true;
         } catch (error) {
           console.log(error);
         }
       },
       ////////////////////////////////////////////////// get donations below ////////////////////
-      getDonations: async () => {
-        try {
-          const response = await fetch(
-            process.env.BACKEND_URL + "/api/donation",
-            {
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
-          if (!response.ok)
-            throw new Error(
-              `invalid response. Response status: ${response.status}`
-            );
-          const body = await response.json();
+      // getDonations: async () => {
+      //   try {
+      //     const response = await fetch(
+      //       process.env.BACKEND_URL + "/api/donation",
+      //       {
+      //         method: "GET",
+      //         headers: {
+      //           "Content-Type": "application/json",
+      //         },
+      //       }
+      //     );
+      //     if (!response.ok)
+      //       throw new Error(
+      //         `invalid response. Response status: ${response.status}`
+      //       );
+      //     const body = await response.json();
 
-          setStore({ donations: body });
-          console.log(donations);
-        } catch (error) {
-          console.log(error);
-        }
-      },
+      //     setStore({ donations: body });
+      //     console.log(donations);
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // },
       ////////////////////////////////////////////////// post request below ////////////////////
       requestPost: async (
         title,
