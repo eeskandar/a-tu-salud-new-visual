@@ -2,13 +2,13 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../img/atusalud logo2.png";
 import swal from "sweetalert";
+import Banner from "../../img/banner-1.png";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const post = store.activeUser;
-
   const [city, setCity] = useState("");
   const [presentation, setPresentation] = useState("");
   const [name, setName] = useState("");
@@ -76,12 +76,9 @@ export const Home = () => {
   }
 
   return (
-    <div className="container mt-5 pb-5 col-11 col-lg-10 px-0">
-      <div
-        className="container d-flex justify-content-center pt-3"
-        style={{ height: "150px" }}
-      >
-        <img src={logo} style={{ height: "150px" }} />
+    <div className="container-fluid mt-3 pb-5 col-11 col-lg-10 px-0">
+      <div className="container d-flex justify-content-center pt-3">
+        <img src={Banner} style={{ height: "350px" }} />
       </div>
       <div className="pt-5 container">
         <h1 className="text-secondary text-center" style={{ fontSize: "2rem" }}>
@@ -90,7 +87,7 @@ export const Home = () => {
           <br /> Intercambia.
         </h1>
       </div>
-      <div className="d-flex justify-content-evenly pt-5">
+      <div className="d-flex justify-content-evenly pt-4">
         <div className="">
           <label htmlFor="" className="form-label text-secondary">
             Medicamento
@@ -135,21 +132,21 @@ export const Home = () => {
             <option value="Exchange">Intercambio</option>
           </select>
         </div>
-        <Link
-          className="btn btn-secondary "
+        <button
+          className="btn form-btn text-center text-white btn-lg rounded-pill mb-5 mt-4 px-5"
           onClick={(e) => {
             consultPosts();
           }}
           to="/"
         >
-          Search
-        </Link>
+          Buscar
+        </button>
       </div>
-      <div>
-        <div className="btn-group py-5">
+      <div className="margin-home">
+        <div className="btn-group pt-0 pb-3 ms-5">
           <button
             type="button"
-            className="btn btn-secondary "
+            className="btn btn-secondary rounded-pill"
             data-bs-toggle=""
             aria-expanded=""
             onClick={(e) => busquedaFiltro()}
@@ -158,7 +155,7 @@ export const Home = () => {
           </button>
         </div>
         {busquedaAvanzada ? (
-          <div className="d-flex py-5 w-100 justify-content-evenly bg-light">
+          <div className="d-flex py-5 justify-content-evenly bg-light rounded-form me-4">
             <div className="">
               <label htmlFor="" className="form-label text-secondary">
                 Presentación

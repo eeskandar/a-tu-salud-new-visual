@@ -21,11 +21,11 @@ export const UserPostRequest = () => {
         <SideProfile />
       </div>
       <div className="col-9">
-        <h3 className="text-center text-secondary my-5 mt-5">Nueva Solicitud</h3>
+        <h1 className="ms-2 ps-5 pb-5 form-title mt-5">Nueva solicitud</h1>
         <div className="d-flex px-5">
           <div className="w-50">
-            <div className="p-2 mx-5 my-2 text-center">
-              <label htmlFor="" className="form-label text-secondary fw-bold">
+            <div className="pb-2 mx-5 my-2 text-center">
+              <label htmlFor="" className="form-label text-secondary">
                 Medicamento
               </label>
               <input
@@ -38,8 +38,8 @@ export const UserPostRequest = () => {
               />
             </div>
 
-            <div className="p-2 mx-5 my-2 text-center">
-              <label htmlFor="" className="form-label text-secondary fw-bold">
+            <div className="pb-2 mx-5 my-2 text-center">
+              <label htmlFor="" className="form-label text-secondary">
                 Dosis
               </label>
               <input
@@ -51,8 +51,8 @@ export const UserPostRequest = () => {
                 }}
               />
             </div>
-            <div className="p-2 mx-5 my-2 text-center">
-              <label htmlFor="" className="form-label text-secondary fw-bold">
+            <div className="pb-2 mx-5 my-2 text-center">
+              <label htmlFor="" className="form-label text-secondary">
                 Componente activo
               </label>
               <input
@@ -66,8 +66,8 @@ export const UserPostRequest = () => {
             </div>
           </div>
           <div className="w-50">
-            <div className="p-2 mx-5 my-2 text-center">
-              <label htmlFor="" className="form-label text-secondary fw-bold">
+            <div className="pb-2 mx-5 my-2 text-center">
+              <label htmlFor="" className="form-label text-secondary">
                 Presentación
               </label>
               <input
@@ -79,8 +79,8 @@ export const UserPostRequest = () => {
                 }}
               />
             </div>
-            <div className="p-2 mx-5 my-2 text-center">
-              <label htmlFor="" className="form-label text-secondary fw-bold">
+            <div className="pb-2 mx-5 my-2 text-center">
+              <label htmlFor="" className="form-label text-secondary">
                 Fecha de vencimiento
               </label>
               <input
@@ -92,8 +92,8 @@ export const UserPostRequest = () => {
                 }}
               />
             </div>
-            <div className="p-2 mx-5 my-2 text-center">
-              <label htmlFor="" className="form-label text-secondary fw-bold">
+            <div className="pb-2 mx-5 my-2 text-center">
+              <label htmlFor="" className="form-label text-secondary">
                 Cantidad
               </label>
               <input
@@ -108,8 +108,8 @@ export const UserPostRequest = () => {
           </div>
         </div>
         <div className="my-3 container text-center">
-          <div className="p-2 mx-5 my-2 text-center">
-            <label htmlFor="" className="form-label text-secondary fw-bold">
+          <div className="p-4 mx-5 my-2 text-center">
+            <label htmlFor="" className="form-label text-secondary">
               Descripción de la donación
             </label>
             <input
@@ -126,7 +126,7 @@ export const UserPostRequest = () => {
         <div className="d-flex justify-content-center my-5">
           <button
             type="button"
-            className="btn bg-info bg-opacity-75 btn-lg text-white fw-bold"
+            className="btn form-btn text-center text-white btn-lg rounded-pill ms-4 mb-5"
             onClick={async (e) => {
               if (
                 name.trim() == "" ||

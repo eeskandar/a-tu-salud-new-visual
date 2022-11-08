@@ -20,16 +20,16 @@ export const UserDonation = () => {
         <SideProfile />
       </div>
       <div className="col-9">
-        <h3 className="text-center text-secondary my-5 mt-5">Donaciones</h3>
+        <h1 className="text-center text-secondary my-5 mt-5">Donaciones</h1>
         <div className="">
           {store.donations ? (
             store.donations.map((donations) => {
               return <CardDonations key={donations.id} donations={donations} />;
             })
           ) : (
-            <h1 className="text-center text-secondary my-5 mt-5">
+            <h3 className="text-center text-secondary my-5 mt-5">
               No ha creado donaciones todavia.
-            </h1>
+            </h3>
           )}
           <div>
             <h3 className="text-center text-secondary my-5 mt-5">

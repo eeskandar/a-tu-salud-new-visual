@@ -88,6 +88,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (!response.ok) {
             return false;
           }
+          getActions().setImg("");
           return true;
         } catch (error) {}
       },
