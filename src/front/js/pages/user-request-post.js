@@ -130,7 +130,6 @@ export const UserPostRequest = () => {
             onClick={async (e) => {
               if (
                 name.trim() == "" ||
-                dosis.trim() == "" ||
                 description.trim() == "" ||
                 presentation.trim() == "" ||
                 active_component.trim() == "" ||

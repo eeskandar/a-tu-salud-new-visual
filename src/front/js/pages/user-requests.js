@@ -8,11 +8,11 @@ export const UserRequests = () => {
   const { store, actions } = useContext(Context);
   // const getDonations = actions.getDonations;
 
-  useEffect(() => {
-    // getDonations()
-  }, []);
+  // useEffect(() => {
+  //   getDonations()
+  // }, []);
 
-  console.log(store.donations);
+  // console.log(store.donations);
 
   return (
     <div className="d-flex justify-content-between p-0 col-11 bg-color">

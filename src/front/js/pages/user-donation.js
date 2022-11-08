@@ -6,13 +6,13 @@ import { CardDonations } from "../component/CardDonations";
 
 export const UserDonation = () => {
   const { store, actions } = useContext(Context);
-  // const getDonations = actions.getDonations;
+  //   const getDonations = actions.getDonations;
 
   // useEffect(() => {
   //     getDonations()
   // }, [])
 
-  console.log(store.donations);
+  // console.log(store.donations);
 
   return (
     <div className="d-flex justify-content-between p-0 col-11 bg-color">
@@ -24,7 +24,7 @@ export const UserDonation = () => {
         <div className="">
           {store.donations ? (
             store.donations.map((donations) => {
-              return <CardDonations key={donations.id} donations={donations} />;
+              return <CardDonations key={donations.id} donations={donations}/>;
             })
           ) : (
             <h3 className="text-center text-secondary my-5 mt-5">
@@ -35,7 +35,7 @@ export const UserDonation = () => {
             <h3 className="text-center text-secondary my-5 mt-5">
               <Link to="/user/post" className="nav-link text-secondary mb-4">
                 <i className="fa-solid fa-circle-plus"></i> Crear nueva donación
-              </Link>{" "}
+              </Link>
             </h3>
           </div>
         </div>
