@@ -98,7 +98,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (!response.ok) {
             return false;
           }
-          getActions().setImg("");
+          getActions().setImg(undefined);
           return true;
         } catch (error) {}
       },
@@ -191,12 +191,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           );
           if (!response.ok) {
-            getActions().setImg("");
+            getActions().setImg(undefined);
             return false;
           }
           const body = await response.json();
           medicine = body;
-          getActions().setImg("");
+          getActions().setImg(undefined);
 
           return true;
         } catch (error) {
@@ -262,12 +262,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           );
           if (!response.ok) {
-            getActions().setImg("");
+            getActions().setImg(undefined);
             return false;
           }
           const body = await response.json();
           medicineR = body;
-          getActions().setImg("");
+          getActions().setImg(undefined);
 
           return true;
         } catch (error) {
