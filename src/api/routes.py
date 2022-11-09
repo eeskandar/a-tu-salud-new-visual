@@ -138,25 +138,29 @@ def posts():
                 "msg":"no posts found"
             }), 404
 
-@api.route('/post/<int:postid>')
+# moreInfo
+@api.route('/post/<int:postid>') 
 def get_post(postid):    
     get_post = Post.query.get_or_404(postid)
     print(get_post)
     return jsonify({"list":get_post.serializedonations()}), 200
 
-@api.route('/donation', methods=['POST'])
+
+
+@api.route('/donation', methods=['GET','POST'])
 def handle_donations():
-    if request.method == 'GET':
-        get_donations = Post.query.all()
-
-        if get_donations is None:
+    if request.method=='GET':
+        
+        result = db.session.query(Post).join(User).filter(User.id == request.args.get('user_id'), Post.typeof == request.args.get('typeof')).all()
+        
+        if len(result) > 0:
             return jsonify({
-                "msg": "There are no requests yet!"
-            }), 400
-
-        donations_list = list(map(lambda requests: requests.serializedonations(), get_donations))
-
-        return jsonify(donations_list), 200
+            "list":[post.serializedonations() for post in result]
+        }), 200
+        else:
+            return jsonify({
+                "msg":"no posts found"
+            }), 404
 
     body = request.json
     new_post = Post.create_donation(body)

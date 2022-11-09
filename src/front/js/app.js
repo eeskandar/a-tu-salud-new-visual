@@ -58,12 +58,12 @@ export const App = () => {
             <Route element={<Login />} path="/login" />
             <Route element={<Register />} path="/register" />
             <Route element={<Profile />} path="/user/:userid" />
-            <Route element={<TradingPost />} path="/user/trade" />
             <Route element={<UserPost />} path="/user/post" />
-            <Route element={<UserDonation />} path="/user/donation" />
-            <Route element={<UserRequests />} path="/user/request" />
-            <Route element={<UserTrades />} path="/user/trades" />
             <Route element={<UserPostRequest />} path="/user/request-post" />
+            <Route element={<TradingPost />} path="/user/trade" />
+            <Route element={<UserDonation />} path="/user/:userid/donation" />
+            <Route element={<UserRequests />} path="/user/:userid/request" />
+            <Route element={<UserTrades />} path="/user/:userid/trades" />
             <Route element={<Results />} path="/results" />
             <Route element={<MoreInfo />} path="/more-info/:id" />
             <Route element={<h1>Not found!</h1>} />

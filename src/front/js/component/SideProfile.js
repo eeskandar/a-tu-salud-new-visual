@@ -34,21 +34,31 @@ export const SideProfile = () => {
       </Link>
       {/* this location.pathname stuff has to be done with the other links when they're defined */}
       <Link
-        to="/user/donation"
-        className="nav-link text-secondary mt-2 text-center"
+        to={`/user/${store.activeUser[0].id}/donation`}
+        className={`nav-link text-secondary mt-2 text-center ${
+          location.pathname == "/user/" + store.activeUser[0].id + "/donation"
+            ? "fw-bold"
+            : ""
+        }`}
       >
         Donaciones
       </Link>
       <Link
-        to="/user/request"
-        className="nav-link text-secondary mt-2 text-center"
+        to={`/user/${store.activeUser[0].id}/request`}
+        className={`nav-link text-secondary mt-2 text-center ${
+          location.pathname == "/user/" + store.activeUser[0].id + "/request"
+            ? "fw-bold"
+            : ""
+        }`}
       >
         Solicitudes
       </Link>
       <Link
-        to="/user/trades"
+        to={`/user/${store.activeUser[0].id}/trades`}
         className={`nav-link text-secondary mt-2 text-center ${
-          location.pathname == "/user/trade" ? "fw-bold" : ""
+          location.pathname == "/user/" + store.activeUser[0].id + "/trades"
+            ? "fw-bold"
+            : ""
         }`}
       >
         Intercambio
