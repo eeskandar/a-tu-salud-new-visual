@@ -96,7 +96,7 @@ export const NavbarVertical = () => {
             Nuevo Intercambio
           </span>
         </Link>
-        <Link
+        {/* <Link
           to=""
           className={`${
             includesPath("/user/") || location.pathname == "/results"
@@ -114,9 +114,9 @@ export const NavbarVertical = () => {
           >
             Mensajes
           </span>
-        </Link>
+        </Link> */}
         <Link
-          to=""
+          to="/about-us"
           className={`${
             includesPath("/user/") || location.pathname == "/results"
               ? "d-flex nav-link text-secondary mb-4 justify-content-center"
