@@ -176,7 +176,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             active_component: active_component,
             expiration_date: expiration_date,
             quantity: quantity,
-            type: "donation",
             medicine_picture: image,
             user_id: getStore().activeUser[0].id, // referencia a la linea 20
             dosis: dosis,
@@ -248,7 +247,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             active_component: active_component,
             expiration_date: expiration_date,
             quantity: quantity,
-            type: "request",
             medicine_picture: image,
             user_id: getStore().activeUser[0].id, // referencia a la linea 20
             dosis: dosis,
@@ -314,7 +312,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             pictureA: pictureA,
             pictureB: pictureB,
             description: description,
-            type: "trade",
+            type: "exchange",
             userid: user[0].id,
           };
           const response = await fetch(

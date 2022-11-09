@@ -53,7 +53,7 @@ export const Home = () => {
     } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
   }
   function handleSubmit() {
-    if (type == "Request" || type == "Donation") {
+    if (type == "request" || type == "donation") {
       consultPosts();
     } else {
       consultExchangePosts();
@@ -61,7 +61,7 @@ export const Home = () => {
   }
 
   async function consultExchangePosts() {
-    if (type == "Exchange") {
+    if (type == "exchange") {
       if (name.trim() != "") {
         urlParams.set("name", name);
         if (city.trim() != "") {
@@ -92,9 +92,8 @@ export const Home = () => {
       </div>
       <div className="pt-5 container">
         <h1 className="text-secondary text-center" style={{ fontSize: "2rem" }}>
-          Dona algún medicamento que no vayas a usar. <br /> Solicita un
-          medicamento que necesites.
-          <br /> Intercambia.
+          Dona algún medicamento que no uses. <br /> Solicita o intercambia tus
+          medicamentos.
         </h1>
       </div>
       <div className="d-flex justify-content-evenly pt-4">
