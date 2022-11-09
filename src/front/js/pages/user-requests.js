@@ -8,7 +8,6 @@ export const UserRequests = () => {
   const { store, actions } = useContext(Context);
   const [requests, setRequests] = useState();
   const urlParams = new URLSearchParams(window.location.search);
-  
 
   useEffect(() => {
     const getRequests = async () => {
@@ -38,7 +37,6 @@ export const UserRequests = () => {
     console.log(requests);
   }
 
-
   return (
     <div className="d-flex justify-content-between p-0 col-11 bg-color">
       <div className="col-3 side-profile p-0">
@@ -47,7 +45,7 @@ export const UserRequests = () => {
       <div className="col-9 row-80 overflow-y-axis">
         <h1 className="text-center text-secondary my-5 mt-5">Solicitudes</h1>
         <div className="">
-        {requests ? (
+          {requests ? (
             requests.map((requests) => {
               return (
                 <CardRequest

@@ -6,23 +6,59 @@ import { CardDonations } from "../component/CardDonations";
 
 export const UserTrades = () => {
   const { store, actions } = useContext(Context);
-  // const getDonations = actions.getDonations;
+  const [trades, setTrades] = useState();
+  const urlParams = new URLSearchParams(window.location.search);
 
-  // useEffect(() => {
-  //     getDonations()
-  // }, [])
+  useEffect(() => {
+    const getTrades = async () => {
+      if (store.activeUser[0].id != "Guest") {
+        urlParams.set("typeof", "trade");
+        urlParams.set("user_id", store.activeUser[0].id);
+        let response = await fetch(
+          process.env.BACKEND_URL + "/api/trades?" + urlParams,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (!response.ok) {
+          return false;
+        }
+        const tradePosts = await response.json();
+        setTrades(tradePosts.list);
+      }
+    };
+    getTrades();
+  }, [store.activeUser[0].id]);
+
+  if (trades) {
+    console.log(trades);
+  }
 
   return (
     <div className="d-flex justify-content-between p-0 col-11 bg-color">
       <div className="col-3 side-profile p-0">
         <SideProfile />
       </div>
-      <div className="col-9">
+      <div className="col-9 overflow-y-axis row-80">
         <h1 className="text-center text-secondary my-5 mt-5">Intercambios</h1>
         <div className="">
-          {store.donations ? (
-            store.donations.map((donations) => {
-              return <CardDonations key={donations.id} donations={donations} />;
+          {trades ? (
+            trades.map((donations) => {
+              return (
+                <CardDonations
+                  key={donations.id}
+                  active_component={donations.active_component}
+                  description={donations.description}
+                  expiration_date={donations.expiration_date}
+                  medicine_picture={donations.medicine_picture}
+                  name={donations.name}
+                  title={donations.title}
+                  quantity={donations.quantity}
+                />
+              );
             })
           ) : (
             <h3 className="text-center text-secondary my-5 mt-5">

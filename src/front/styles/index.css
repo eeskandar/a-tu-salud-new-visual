@@ -110,3 +110,16 @@
 .overflow-y-axis {
   overflow-y: auto;
 }
+
+.img-container {
+  width: 200px;
+  height: 200px;
+}
+
+.med-img {
+  width: 200px;
+  height: 200px;
+  box-sizing: border-box;
+  object-fit: cover;
+  border-radius: 10%;
+}

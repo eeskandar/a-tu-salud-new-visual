@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SideProfile } from "../component/SideProfile";
 import { Context } from "./../store/appContext";
+import { UploadImage } from "../component/UploadImage";
+import { Upload2ndImage } from "../component/Upload2ndImage";
 
 export const TradingPost = () => {
   const { store, actions } = useContext(Context);
@@ -121,6 +123,9 @@ export const TradingPost = () => {
                     id="expAinput"
                   />
                 </div>
+                <dv>
+                  <UploadImage name="Sube la foto del medicamento a intercambiar" />
+                </dv>
               </div>
               <div className="d-flex justify-content-center py-4">
                 <i className="fa-solid fa-arrow-right-arrow-left fs-3 pe-2 m-auto"></i>
@@ -213,6 +218,9 @@ export const TradingPost = () => {
                     id="expBinput"
                   />
                 </div>
+                <dv>
+                  <Upload2ndImage name="Sube la foto del medicamento que buscas" />
+                </dv>
               </div>
             </div>
           </form>
@@ -267,6 +275,8 @@ export const TradingPost = () => {
                   activeCompB,
                   presentA,
                   presentB,
+                  store.image,
+                  store.image2,
                   description
                 );
                 swal(
@@ -274,7 +284,7 @@ export const TradingPost = () => {
                   "Tu solicitud ha sido creada con éxito",
                   "success"
                 );
-                navigate("/user/" + store.activeUser[0].id);
+                navigate("/user/" + store.activeUser[0].id + "/trades");
               }
             }}
           >

@@ -48,6 +48,7 @@ export const Home = () => {
       let success = await actions.getPosts(urlParams);
       if (success == false) {
         swal("¡Ups!", "404");
+        navigate("/");
       }
     } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
   }
@@ -60,7 +61,7 @@ export const Home = () => {
   }
 
   async function consultExchangePosts() {
-    if (type == "Presentation") {
+    if (type == "Exchange") {
       if (name.trim() != "") {
         urlParams.set("name", name);
         if (city.trim() != "") {

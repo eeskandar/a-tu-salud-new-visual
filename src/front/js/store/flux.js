@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ],
       /////////////////////////////// new stuff
       image: "",
+      image2: "",
       activeUser: [
         {
           id: "Guest",
@@ -36,6 +37,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       setImg: (img) => {
         setStore({
           image: img,
+        });
+      },
+      set2ndImg: (img) => {
+        setStore({
+          image2: img,
         });
       },
       setActiveUser: (user) => {
@@ -270,6 +276,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log(error);
         }
       },
+      get_request: (userid) => {},
       ////////////////////////////////////////////////// trading post below ////////////////////
       trade: async (
         nameA,
@@ -284,6 +291,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         activeCompB,
         presentA,
         presentB,
+        pictureA,
+        pictureB,
         description
       ) => {
         try {
@@ -302,6 +311,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             activeCompB: activeCompB,
             presentA: presentA,
             presentB: presentB,
+            pictureA: pictureA,
+            pictureB: pictureB,
             description: description,
             type: "trade",
             userid: user[0].id,
@@ -317,8 +328,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           );
           if (!response.ok) {
+            getActions().setImg("");
+            getActions().set2ndImg("");
             new Error("Ocurrió un error en la solicitud");
           }
+          getActions().setImg("");
+          getActions().set2ndImg("");
         } catch (error) {}
       },
 

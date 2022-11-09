@@ -218,14 +218,14 @@ def trade_post():
         dosis = body["dosisA"],
         quantity = body["quantityA"],
         name = body["nameA"],
-        medicine_picture = body.get("medicine_picture"),
+        medicine_picture = body.get("pictureA"),
         req_presentation =  body["presentB"],
         req_active_component = body["activeCompB"],
         req_expiration_date = body["expDateB"],
         req_dosis = body["dosisB"],
         req_quantity = body["quantityB"],
         req_name = body["nameB"],
-        req_medicine_picture = body.get("medicine_picture"),
+        req_medicine_picture = body.get("pictureB"),
         user_id = body["userid"],
         typeof = body["type"]
     )
@@ -248,3 +248,16 @@ def trade_post():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/trades', methods=['GET'])
+def get_trades():
+    result = db.session.query(TradingPost).join(User).filter(User.id == request.args.get('user_id'), TradingPost.typeof == request.args.get('typeof')).all()
+    
+    if len(result) > 0:
+        return jsonify({
+        "list":[post.serialize_trade() for post in result]
+    }), 200
+    else:
+        return jsonify({
+            "msg":"no posts found"
+        }), 404
