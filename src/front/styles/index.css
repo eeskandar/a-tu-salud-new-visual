@@ -6,7 +6,7 @@
 }
 
 .nav-logo {
-  height: 60px;
+  height: 65px;
 }
 
 .nav-bottom {
@@ -122,4 +122,8 @@
   box-sizing: border-box;
   object-fit: cover;
   border-radius: 10%;
+}
+
+.primeralinea {
+  text-indent: 40px;
 }

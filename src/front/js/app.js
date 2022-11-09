@@ -20,6 +20,7 @@ import swal from "sweetalert";
 import { UserPostRequest } from "./pages/user-request-post";
 import { Loading } from "./component/Loading";
 import { UserTrades } from "./pages/user-trades";
+import { AboutUs } from "./pages/aboutUs";
 
 //create your first component
 export const App = () => {
@@ -66,6 +67,7 @@ export const App = () => {
             <Route element={<UserTrades />} path="/user/:userid/trades" />
             <Route element={<Results />} path="/results" />
             <Route element={<MoreInfo />} path="/more-info/:id" />
+            <Route element={<AboutUs />} path="/about-us" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
         </div>

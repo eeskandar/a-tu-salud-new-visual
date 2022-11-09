@@ -63,9 +63,6 @@ export const SideProfile = () => {
       >
         Intercambio
       </Link>
-      <Link to="" className="nav-link text-secondary mt-2 mb-5 text-center">
-        Mensajes
-      </Link>
     </div>
   );
 };
