@@ -17,8 +17,8 @@ export const NavbarVertical = () => {
     <div
       className={`${
         includesPath("/user/") || location.pathname == "/results"
-          ? "col-1 bg-light view-display p-2"
-          : "col-1 col-lg-2 bg-light view-display p-2"
+          ? "col-1 bg-light view-display p-2 pt-5"
+          : "col-1 col-lg-2 bg-light view-display p-2 pt-5"
       }`}
     >
       <div className="p-lg-3">

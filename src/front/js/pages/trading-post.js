@@ -123,9 +123,9 @@ export const TradingPost = () => {
                     id="expAinput"
                   />
                 </div>
-                <dv>
+                <div>
                   <UploadImage name="Sube la foto del medicamento a intercambiar" />
-                </dv>
+                </div>
               </div>
               <div className="d-flex justify-content-center py-4">
                 <i className="fa-solid fa-arrow-right-arrow-left fs-3 pe-2 m-auto"></i>

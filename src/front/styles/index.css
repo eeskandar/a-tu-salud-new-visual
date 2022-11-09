@@ -20,7 +20,7 @@
 
 .rounded-form {
   border-radius: 50px;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
 }
 
 .form-title {
@@ -126,4 +126,16 @@
 
 .primeralinea {
   text-indent: 40px;
+}
+
+.m_title {
+  text-transform: capitalize;
+}
+
+.m_phara {
+  display: block;
+}
+
+.m_phara:first-letter {
+  text-transform: uppercase;
 }

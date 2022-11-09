@@ -15,8 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
       /////////////////////////////// new stuff
-      image: "",
-      image2: "",
+      image: undefined,
+      image2: undefined,
       activeUser: [
         {
           id: "Guest",
@@ -355,12 +355,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             }
           );
           if (!response.ok) {
-            getActions().setImg("");
-            getActions().set2ndImg("");
+            getActions().setImg(undefined);
+            getActions().set2ndImg(undefined);
             new Error("Ocurrió un error en la solicitud");
           }
-          getActions().setImg("");
-          getActions().set2ndImg("");
+          getActions().setImg(undefined);
+          getActions().set2ndImg(undefined);
         } catch (error) {}
       },
 
