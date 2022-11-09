@@ -41,7 +41,7 @@ export const Navbar = () => {
                   consultPosts();
                 }}
               >
-                <i className="fa-solid fa-magnifying-glass fs-2 px-4"></i>
+                <i className="fa-solid fa-magnifying-glass text-white fs-2 px-4"></i>
               </Link>
               <input
                 value={name}

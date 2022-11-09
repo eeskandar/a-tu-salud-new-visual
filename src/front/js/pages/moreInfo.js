@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Loading } from "../component/Loading";
+import { MedPlaceholder } from "../../img/med-03.png";
 
 export const MoreInfo = () => {
   const { id } = useParams();
@@ -26,20 +27,20 @@ export const MoreInfo = () => {
   console.log(post);
 
   return (
-    <div className="col-11 col-lg-10">
+    <div className="col-11 col-lg-10 p-0">
       {post ? (
         <div>
           {/* CARDS DE USER Y POST */}
           <div className=" d-flex justify-content-around py-3">
             {/* POST */}
             <div>
-              <div className="bg-light">
-                <div className="m-auto p-2 d-flex">
+              <h3 className="text-secondary text-center">Medicamento</h3>
+              <div className="">
+                <div className="m-auto pt-4 d-flex img-container">
                   <object
                     data={post.list.medicine_picture}
-                    className="card-img-top"
+                    className="card-pic"
                     type="image/jpg"
-                    style={{ maxWidth: "10rem" }}
                   >
                     <img
                       src="https://via.placeholder.com/400x400.png?text=Image+Not+Found"
@@ -48,28 +49,43 @@ export const MoreInfo = () => {
                     />
                   </object>
                 </div>
-                <div className="ps-2">
-                  <h6 className="mt-2 text-secondary">{post.list.name}</h6>
-                  <h6 className="text-secondary">{post.list.presentation}</h6>
-                  <h6 className="text-secondary">
-                    {post.list.active_component}
-                  </h6>
-                  <h6 className="text-secondary">
-                    {post.list.expiration_date}
-                  </h6>
-                  <h6 className="text-secondary">{post.list.quantity}</h6>
+                <div className="p-5 pt-3 d-flex">
+                  <div className="mt-2 me-4">
+                    <h6 className="text-secondary mb-0">Medicamento</h6>
+                    <p className="text-secondary">{post.list.name}</p>
+                    <h6 className="text-secondary mb-0">Componente activo</h6>
+                    <p className="text-secondary">
+                      {post.list.active_component}
+                    </p>
+                    <h6 className="text-secondary mb-0">Presentación</h6>
+                    <p className="text-secondary mb-0">
+                      {post.list.presentation}
+                    </p>
+                  </div>
+                  <div className="mt-2 ms-4">
+                    <h6 className="text-secondary mb-0">Dosis</h6>
+                    <p className="text-secondary">{post.list.dosis}</p>
+                    <h6 className="text-secondary mb-0">
+                      Fecha de vencimiento
+                    </h6>
+                    <p className="text-secondary">
+                      {post.list.expiration_date}
+                    </p>
+                    <h6 className="text-secondary mb-0">Cantidad</h6>
+                    <p className="text-secondary mb-0">{post.list.quantity}</p>
+                  </div>
                 </div>
               </div>
             </div>
             {/* USER */}
             <div>
-              <div className="bg-light">
-                <div className="m-auto p-2 d-flex">
+              <h3 className="text-secondary text-center">Donante</h3>
+              <div className="bg-light p-4">
+                <div className="m-auto img-container">
                   <object
                     data={post.list.user_info.profile_picture}
-                    className="card-img-top"
+                    className="card-pic"
                     type="image/jpg"
-                    style={{ maxWidth: "10rem" }}
                   >
                     <img
                       src="https://via.placeholder.com/400x400.png?text=Image+Not+Found"
@@ -78,22 +94,42 @@ export const MoreInfo = () => {
                     />
                   </object>
                 </div>
-                <div className="ps-2">
-                  <h6 className="mt-2 text-secondary">
-                    {post.list.user_info.name}
-                  </h6>
-                  <h6 className="text-secondary">{post.list.user_info.city}</h6>
-                  <button className="btn btn-info text-white fw-bold m-1">
-                    {/* onClick revela el número */}
-                    {post.list.user_info.phone}
-                  </button>
+                <div className="p-2">
+                  <h6 className="mt-2 text-secondary mb-0">Nombre</h6>
+                  <p className="text-secondary">{post.list.user_info.name}</p>
+                  <h6 className="text-secondary mb-0">Ciudad</h6>
+                  <p className="text-secondary">{post.list.user_info.city}</p>
+                  <div className="dropdown d-flex justify-content-center">
+                    <button
+                      className="btn btn-secondary dropdown-toggle"
+                      type="button"
+                      id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Número de contacto
+                    </button>
+                    <ul
+                      className="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton1"
+                    >
+                      <li className="text-center">
+                        {post.list.user_info.phone}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           {/* VIEW DE LA DESCRIPCION */}
-          <div className="justify-content-center d-flex">
-            <div>{post.list.description}</div>
+          <div className="loading-bg rounded mx-5 p-3">
+            <h6 className="mt-2 text-secondary text-center mb-3">
+              Descripción
+            </h6>
+            <div className="text-center text-secondary">
+              {post.list.description}
+            </div>
           </div>
         </div>
       ) : (

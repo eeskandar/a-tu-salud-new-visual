@@ -126,6 +126,7 @@ class Post(db.Model):
             "description": self.description,
             "presentation": self.presentation,
             "active_component": self.active_component,
+            "dosis": self.dosis,
             "expiration_date": self.expiration_date,
             "quantity": self.quantity,
             "medicine_picture": self.medicine_picture,
@@ -205,6 +206,7 @@ class Post(db.Model):
             "expiration_date": self.expiration_date,
             "quantity": self.quantity,
             "medicine_picture": self.medicine_picture,
+            "dosis": self.dosis,
             "typeof": self.typeof,
             "user_id":self.user_id,
             "user_info": self.users.serialize_post()
@@ -249,6 +251,29 @@ class TradingPost(db.Model):
             "id": self.id,
             "name": self.name,
             "req_name": self.req_name,
+        }
+    def serialize_trade(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "name": self.name,
+            "presentation": self.presentation,
+            "active_component": self.active_component,
+            "expiration_date": self.expiration_date,
+            "quantity": self.quantity,
+            "dosis": self.dosis,
+            "medicine_picture": self.medicine_picture,
+            "req_name": self.req_name,
+            "req_presentation": self.req_presentation,
+            "req_active_component": self.req_active_component,
+            "req_expiration_date": self.req_expiration_date,
+            "req_quantity": self.req_quantity,
+            "req_dosis": self.req_dosis,
+            "req_medicine_picture": self.req_medicine_picture,
+            "description": self.description,
+            "typeof": self.typeof,
+            "user_id":self.user_id,
+            "user_info": self.users.serialize_post()
         }
 
     def save_and_commit(self):

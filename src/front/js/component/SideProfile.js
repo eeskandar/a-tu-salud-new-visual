@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 export const SideProfile = () => {
   const { store, actions } = useContext(Context);
   let location = useLocation();
-
+  ///////////////////////fix the img display in case there's an error
   return (
     <div>
       <div className="d-flex justify-content-center mt-5">
