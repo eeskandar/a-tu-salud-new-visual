@@ -11,8 +11,8 @@ export const Login = () => {
   const login = actions.login;
 
   return (
-    <div className="col-10">
-      <div className="col-6 m-auto margin-a p-4 pb-5 rounded-form">
+    <div className="col-11 col-lg-10 row-80 overflow-y-axis">
+      <div className="col-8 col-lg-6 m-auto margin-a p-4 pb-5 rounded-form">
         <h1 className="text-center form-title">Iniciar sesión</h1>
         <form className="col-11 m-auto" onSubmit={(e) => e.preventDefault()}>
           <div className="mb-3">

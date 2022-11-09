@@ -17,7 +17,7 @@ export const Profile = () => {
           <div className="col-3 side-profile p-0">
             <SideProfile />
           </div>
-          <div className="col-9">
+          <div className="col-9 row-80 overflow-y-axis">
             {/* info */}
             <h1 className="text-center mt-4 text-secondary">
               Información de usuario

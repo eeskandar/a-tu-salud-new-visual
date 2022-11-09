@@ -9,11 +9,10 @@ export const UserDonation = () => {
   const [donations, setDonations] = useState();
   const urlParams = new URLSearchParams(window.location.search);
 
-
   useEffect(() => {
     const getDonations = async () => {
       if (store.activeUser[0].id != "Guest") {
-        urlParams.set("typeof", "Donation");
+        urlParams.set("typeof", "donation");
         urlParams.set("user_id", store.activeUser[0].id);
         let response = await fetch(
           process.env.BACKEND_URL + "/api/donation?" + urlParams,

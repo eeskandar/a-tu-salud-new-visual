@@ -12,7 +12,7 @@ export const UserTrades = () => {
   useEffect(() => {
     const getTrades = async () => {
       if (store.activeUser[0].id != "Guest") {
-        urlParams.set("typeof", "trade");
+        urlParams.set("typeof", "exchange");
         urlParams.set("user_id", store.activeUser[0].id);
         let response = await fetch(
           process.env.BACKEND_URL + "/api/trades?" + urlParams,

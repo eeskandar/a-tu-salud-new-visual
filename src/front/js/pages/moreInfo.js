@@ -27,7 +27,7 @@ export const MoreInfo = () => {
   console.log(post);
 
   return (
-    <div className="col-11 col-lg-10 p-0">
+    <div className="col-11 col-lg-10 p-0 row-80 overflow-y-axis">
       {post ? (
         <div>
           {/* CARDS DE USER Y POST */}

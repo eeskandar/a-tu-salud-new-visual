@@ -6,6 +6,10 @@ export const Posts = (props) => {
   const upperActiveComponent =
     activeComponent.charAt(0).toUpperCase() + activeComponent.slice(1);
   console.log(upperActiveComponent);
+
+  const title = props.title;
+  const upperTitle = title.charAt(0).toUpperCase() + title.slice(1);
+
   return (
     <div className="d-flex justify-content-center">
       <div className="container-request d-flex justify-content-between m-2">
@@ -23,8 +27,8 @@ export const Posts = (props) => {
             />
           </object>
           <div className="ps-3">
-            <h5 className="mt-2 text-secondary">{props.title}</h5>
-            <h6 className="text-secondary">{props.active_component}</h6>
+            <h5 className="mt-2 text-secondary">{upperTitle}</h5>
+            <h6 className="text-secondary">{upperActiveComponent}</h6>
           </div>
         </div>
         <div className="m-auto w-25 p-2">
