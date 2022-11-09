@@ -56,11 +56,13 @@ export const Home = () => {
     if (type == "request" || type == "donation") {
       consultPosts();
     } else {
+      console.log("consulting exchange table");
       consultExchangePosts();
     }
   }
 
   async function consultExchangePosts() {
+    console.log("trying to consult");
     if (type == "exchange") {
       if (name.trim() != "") {
         urlParams.set("name", name);
@@ -142,7 +144,7 @@ export const Home = () => {
           </select>
         </div>
         <Link
-          className="btn form-btn text-center text-white btn-lg rounded-pill mb-5 mt-4 px-5"
+          className="btn form-btn text-center text-white btn-lg rounded mb-5 mt-4 px-5"
           onClick={(e) => {
             handleSubmit();
           }}
@@ -155,7 +157,7 @@ export const Home = () => {
         <div className="btn-group pt-0 pb-3 ms-5">
           <button
             type="button"
-            className="btn btn-secondary rounded-pill"
+            className="btn btn-secondary rounded"
             data-bs-toggle=""
             aria-expanded=""
             onClick={(e) => busquedaFiltro()}

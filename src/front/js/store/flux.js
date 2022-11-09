@@ -50,27 +50,56 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
       },
       getPosts: async (urlParams) => {
-        try {
-          const res = await fetch(
-            process.env.BACKEND_URL + "/api/posts?" + urlParams,
-            {
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json",
-              },
+        if (
+          urlParams.get("typeof") == "donation" ||
+          urlParams.get("typeof") == "request"
+        ) {
+          try {
+            const res = await fetch(
+              process.env.BACKEND_URL + "/api/posts?" + urlParams,
+              {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+            if (!res.ok) {
+              return false;
             }
-          );
-          if (!res.ok) {
-            return false;
-          }
-          const body = await res.json();
-          console.log(body);
-          setStore({
-            posts: body.list,
-          });
-          console.log(getStore().posts);
-          return true;
-        } catch (error) {}
+            const body = await res.json();
+            console.log(body);
+            setStore({
+              posts: body.list,
+            });
+            console.log(getStore().posts);
+            return true;
+          } catch (error) {}
+        } else {
+          console.log("in flux trying to consult exchange");
+          try {
+            const res = await fetch(
+              process.env.BACKEND_URL + "/api/trades-filter?" + urlParams,
+              {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+            console.log("after fetch");
+            if (!res.ok) {
+              return false;
+            }
+            const body = await res.json();
+            console.log(body);
+            setStore({
+              posts: body.list,
+            });
+            console.log(getStore().posts);
+            return true;
+          } catch (error) {}
+        }
       },
       ///////////////////////////////// register below
       register: async (name, lastName, city, phone, email, password, image) => {
