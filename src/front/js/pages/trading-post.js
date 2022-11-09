@@ -45,7 +45,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setNameA(event.target.value);
+                      setNameA(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={nameA}
                     id="nameAinput"
@@ -59,7 +59,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setActiveCompA(event.target.value);
+                      setActiveCompA(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={activeCompA}
                     id="compAinput"
@@ -73,7 +73,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setPresentA(event.target.value);
+                      setPresentA(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={presentA}
                     id="presentAinput"
@@ -87,7 +87,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setQuantityA(event.target.value);
+                      setQuantityA(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={quantityA}
                     id="quantityAinput"
@@ -101,7 +101,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setDosisA(event.target.value);
+                      setDosisA(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={dosisA}
                     id="dosisAinput"
@@ -115,7 +115,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setExpDateA(event.target.value);
+                      setExpDateA(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={expDateA}
                     id="expAinput"
@@ -137,7 +137,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setNameB(event.target.value);
+                      setNameB(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={nameB}
                     id="nameBinput"
@@ -151,7 +151,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setActiveCompB(event.target.value);
+                      setActiveCompB(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={activeCompB}
                     id="compBinput"
@@ -165,7 +165,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setPresentB(event.target.value);
+                      setPresentB(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={presentB}
                     id="presentBinput"
@@ -179,7 +179,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setQuantityB(event.target.value);
+                      setQuantityB(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={quantityB}
                     id="quantityBinput"
@@ -193,7 +193,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setDosisB(event.target.value);
+                      setDosisB(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={dosisB}
                     id="dosisBinput"
@@ -207,7 +207,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setExpDateB(event.target.value);
+                      setExpDateB(event.target.value.toLocaleLowerCase());
                     }}
                     defaultValue={expDateB}
                     id="expBinput"
@@ -226,7 +226,7 @@ export const TradingPost = () => {
               type="string"
               className="form-control form-input border-0"
               onChange={(event) => {
-                setDescription(event.target.value);
+                setDescription(event.target.value.toLocaleLowerCase());
               }}
               defaultValue={description}
               id="description"

@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Posts = (props) => {
+  const activeComponent = props.active_component;
+  const upperActiveComponent =
+    activeComponent.charAt(0).toUpperCase() + activeComponent.slice(1);
+  console.log(upperActiveComponent);
   return (
     <div className="d-flex justify-content-center">
       <div className="container-request d-flex justify-content-between m-2">

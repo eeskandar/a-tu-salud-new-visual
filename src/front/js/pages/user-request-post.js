@@ -20,7 +20,7 @@ export const UserPostRequest = () => {
       <div className="col-3 side-profile p-0">
         <SideProfile />
       </div>
-      <div className="col-9">
+      <div className="col-9 row-80 overflow-y-axis">
         <h1 className="ms-2 ps-5 pb-5 form-title mt-5">Nueva solicitud</h1>
         <div className="d-flex px-5">
           <div className="w-50">
@@ -33,7 +33,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setName(event.target.value);
+                  setName(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -47,7 +47,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setDosis(event.target.value);
+                  setDosis(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -60,7 +60,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setActive_component(event.target.value);
+                  setActive_component(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -75,7 +75,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setPresentation(event.target.value);
+                  setPresentation(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -88,7 +88,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setExpiration_date(event.target.value);
+                  setExpiration_date(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -101,7 +101,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setQuantity(event.target.value);
+                  setQuantity(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -117,7 +117,7 @@ export const UserPostRequest = () => {
               type="text"
               aria-label="readonly input example"
               onChange={(event) => {
-                setDescription(event.target.value);
+                setDescription(event.target.value.toLocaleLowerCase());
               }}
             />
           </div>

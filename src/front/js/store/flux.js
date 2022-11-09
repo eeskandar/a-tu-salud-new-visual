@@ -303,7 +303,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             presentA: presentA,
             presentB: presentB,
             description: description,
-            type: "trade",
+            type: "exchange",
             userid: user[0].id,
           };
           const response = await fetch(

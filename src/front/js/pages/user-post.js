@@ -20,7 +20,7 @@ export const UserPost = () => {
       <div className="col-3 side-profile p-0">
         <SideProfile />
       </div>
-      <div className="col-9">
+      <div className="col-9 row-80 overflow-y-axis">
         <h1 className="ms-2 ps-5 pb-5 form-title mt-5">Nueva donación</h1>
         <div className="d-flex px-5">
           <div className="w-50">
