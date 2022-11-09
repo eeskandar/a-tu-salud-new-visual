@@ -127,3 +127,15 @@
 .primeralinea {
   text-indent: 40px;
 }
+
+.m_title {
+  text-transform: capitalize;
+}
+
+.m_phara {
+  display: block;
+}
+
+.m_phara:first-letter {
+  text-transform: uppercase;
+}
