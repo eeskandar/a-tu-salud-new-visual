@@ -14,10 +14,10 @@ export const Home = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
-  const [type, setType] = useState("Donation");
+  const [type, setType] = useState("donation");
   const [busquedaAvanzada, SetBusquedaAvanzada] = useState(false);
   const navigate = useNavigate();
-  console.log(type);
+  console.log(name);
   const urlParams = new URLSearchParams(window.location.search);
 
   function busquedaFiltro() {
@@ -66,6 +66,9 @@ export const Home = () => {
         if (city.trim() != "") {
           urlParams.set("city", city);
         }
+        if (type.trim() != "") {
+          urlParams.set("typeof", type);
+        }
         if (quantity.trim() != "") {
           urlParams.set("quantity", quantity);
         }
@@ -100,7 +103,7 @@ export const Home = () => {
           </label>
           <input
             defaultValue={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value.toLocaleLowerCase())}
             className="form-control me-2"
             type="search"
             placeholder=""
@@ -113,7 +116,7 @@ export const Home = () => {
           </label>
           <input
             defaultValue={city}
-            onChange={(e) => setCity(e.target.value)}
+            onChange={(e) => setCity(e.target.value.toLocaleLowerCase())}
             className="form-control me-2"
             type="search"
             placeholder=""
@@ -133,9 +136,9 @@ export const Home = () => {
               setType(e.target.value);
             }}
           >
-            <option value="Donation">Donación</option>
-            <option value="Request">Solicitud</option>
-            <option value="Exchange">Intercambio</option>
+            <option value="donation">Donación</option>
+            <option value="request">Solicitud</option>
+            <option value="exchange">Intercambio</option>
           </select>
         </div>
         <Link
@@ -168,7 +171,9 @@ export const Home = () => {
               </label>
               <input
                 defaultValue={presentation}
-                onChange={(e) => setPresentation(e.target.value)}
+                onChange={(e) =>
+                  setPresentation(e.target.value.toLocaleLowerCase())
+                }
                 className="form-control m-2"
                 type="search"
                 placeholder=""
@@ -181,7 +186,9 @@ export const Home = () => {
               </label>
               <input
                 defaultValue={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                onChange={(e) =>
+                  setQuantity(e.target.value.toLocaleLowerCase())
+                }
                 className="form-control m-2"
                 type="search"
                 placeholder=""
@@ -194,7 +201,9 @@ export const Home = () => {
               </label>
               <input
                 defaultValue={expirationDate}
-                onChange={(e) => setExpirationDate(e.target.value)}
+                onChange={(e) =>
+                  setExpirationDate(e.target.value.toLocaleLowerCase())
+                }
                 className="form-control m-2"
                 type="search"
                 placeholder=""
