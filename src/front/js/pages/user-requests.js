@@ -1,34 +1,71 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "./../store/appContext";
 import { SideProfile } from "../component/SideProfile";
 import { CardRequest } from "../component/CardRequest";
 
 export const UserRequests = () => {
   const { store, actions } = useContext(Context);
-  // const getDonations = actions.getDonations;
+  const [requests, setRequests] = useState();
+  const urlParams = new URLSearchParams(window.location.search);
+  
 
-  // useEffect(() => {
-  //   getDonations()
-  // }, []);
+  useEffect(() => {
+    const getRequests = async () => {
+      if (store.activeUser[0].id != "Guest") {
+        urlParams.set("typeof", "Request");
+        urlParams.set("user_id", store.activeUser[0].id);
+        let response = await fetch(
+          process.env.BACKEND_URL + "/api/request?" + urlParams,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (!response.ok) {
+          return false;
+        }
+        const requestPost = await response.json();
+        setRequests(requestPost.list);
+      }
+    };
+    getRequests();
+  }, [store.activeUser[0].id]);
 
-  // console.log(store.donations);
+  if (requests) {
+    console.log(requests);
+  }
+
 
   return (
     <div className="d-flex justify-content-between p-0 col-11 bg-color">
       <div className="col-3 side-profile p-0">
         <SideProfile />
       </div>
-      <div className="col-9">
+      <div className="col-9 row-80 overflow-y-axis">
         <h1 className="text-center text-secondary my-5 mt-5">Solicitudes</h1>
         <div className="">
-          {store.donations ? (
-            store.donations.map((donations) => {
-              return <CardRequest key={donations.id} donations={donations} />;
+        {requests ? (
+            requests.map((requests) => {
+              return (
+                <CardRequest
+                  key={requests.id}
+                  active_component={requests.active_component}
+                  description={requests.description}
+                  expiration_date={requests.expiration_date}
+                  medicine_picture={requests.medicine_picture}
+                  name={requests.name}
+                  title={requests.title}
+                  quantity={requests.quantity}
+                  presentation={requests.presentation}
+                />
+              );
             })
           ) : (
             <h3 className="text-center text-secondary my-5 mt-5">
-              No ha creado solicitud todavia.
+              No ha creado donaciones todavia.
             </h3>
           )}
           <div>

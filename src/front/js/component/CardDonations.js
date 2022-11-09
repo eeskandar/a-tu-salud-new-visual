@@ -24,7 +24,7 @@ export const CardDonations = (props) => {
           </div>
           <div className="w-50 m-1">
             <h6 className="text-secondary">Cantidad</h6>
-            <p className="text-secondary">{propTypes.quantity}</p>
+            <p className="text-secondary">{props.quantity}</p>
             <h6 className="text-secondary">Fecha de vencimiento</h6>
             <p className="text-secondary">{props.expiration_date}</p>
           </div>

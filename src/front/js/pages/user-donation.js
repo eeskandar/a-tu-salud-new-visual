@@ -7,9 +7,8 @@ import { CardDonations } from "../component/CardDonations";
 export const UserDonation = () => {
   const { store, actions } = useContext(Context);
   const [donations, setDonations] = useState();
-  const [donationsPosts, setDonationsPosts] = useState();
   const urlParams = new URLSearchParams(window.location.search);
-  //   const getDonations = actions.getDonations;
+
 
   useEffect(() => {
     const getDonations = async () => {
@@ -55,9 +54,10 @@ export const UserDonation = () => {
                   active_component={donations.active_component}
                   description={donations.description}
                   expiration_date={donations.expiration_date}
-                  medicine_pciture={donations.medicine_pciture}
+                  medicine_picture={donations.medicine_picture}
                   name={donations.name}
                   title={donations.title}
+                  quantity={donations.quantity}
                 />
               );
             })

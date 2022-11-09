@@ -154,7 +154,7 @@ export const UserPost = () => {
                 if (success) {
                   swal("¡Listo!", "¡Donación creada con éxito!", "success");
                   console.log(store.image);
-                  return navigate("/user/donation");
+                  return navigate(`/user/${store.activeUser[0].id}/donation`);
                 }
                 swal(
                   "¡Parece haber un error con tus datos!",
