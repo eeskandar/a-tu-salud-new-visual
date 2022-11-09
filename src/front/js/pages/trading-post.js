@@ -26,7 +26,7 @@ export const TradingPost = () => {
       <div className="col-3 side-profile p-0">
         <SideProfile />
       </div>
-      <div className="col-9">
+      <div className="col-9 row-80 overflow-y-axis">
         <div className="mt-5">
           <h1 className="ms-2 ps-5 pb-5 form-title">
             Intercambio de medicamentos

@@ -36,8 +36,8 @@
 }
 
 .view-display {
-  min-height: 83vh;
-  height: auto;
+  min-height: 84vh;
+  height: 84vh;
 }
 
 .side-nav {
@@ -68,8 +68,8 @@
 
 .side-profile {
   background-color: #b9b9b9;
-  min-height: 83vh;
-  height: auto;
+  min-height: 84vh;
+  height: 84vh;
 }
 
 .side-icon {
@@ -98,5 +98,15 @@
 
 .loading-bg {
   background-color: #f1f2f3;
-  min-height: 85vh;
+}
+
+.row-10 {
+  height: 8vh;
+}
+
+.row-80 {
+  height: 84vh;
+}
+.overflow-y-axis {
+  overflow-y: auto;
 }

@@ -51,7 +51,7 @@ export const App = () => {
     <div>
       <ScrollToTop>
         <Navbar />
-        <div className="container-fluid row row-list p-0">
+        <div className="row container-fluid p-0 m-0 row-list ">
           <NavbarVertical />
           <Routes>
             <Route element={<Home />} path="/" />

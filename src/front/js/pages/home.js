@@ -14,7 +14,7 @@ export const Home = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Donation");
   const [busquedaAvanzada, SetBusquedaAvanzada] = useState(false);
   const navigate = useNavigate();
   console.log(type);
@@ -33,7 +33,7 @@ export const Home = () => {
         urlParams.set("city", city);
       }
       if (type.trim() != "") {
-        urlParams.set("type", type);
+        urlParams.set("typeof", type);
       }
       if (quantity.trim() != "") {
         urlParams.set("quantity", quantity);
@@ -51,7 +51,13 @@ export const Home = () => {
       }
     } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
   }
-  function handleSubmit() {}
+  function handleSubmit() {
+    if (type == "Request" || type == "Donation") {
+      consultPosts();
+    } else {
+      consultExchangePosts();
+    }
+  }
 
   async function consultExchangePosts() {
     if (type == "Presentation") {
@@ -76,7 +82,7 @@ export const Home = () => {
   }
 
   return (
-    <div className="container-fluid mt-3 pb-5 col-11 col-lg-10 px-0">
+    <div className="row-80 overflow-y-axis container-fluid col-11 col-lg-10 px-0 ">
       <div className="container d-flex justify-content-center pt-3">
         <img src={Banner} style={{ height: "350px" }} />
       </div>
@@ -124,7 +130,7 @@ export const Home = () => {
             aria-label="Default select example"
             value={type}
             onChange={(e) => {
-              setType(event.target.value);
+              setType(e.target.value);
             }}
           >
             <option value="Donation">Donación</option>
@@ -132,15 +138,15 @@ export const Home = () => {
             <option value="Exchange">Intercambio</option>
           </select>
         </div>
-        <button
+        <Link
           className="btn form-btn text-center text-white btn-lg rounded-pill mb-5 mt-4 px-5"
           onClick={(e) => {
-            consultPosts();
+            handleSubmit();
           }}
-          to="/"
+          to="/results"
         >
           Buscar
-        </button>
+        </Link>
       </div>
       <div className="margin-home">
         <div className="btn-group pt-0 pb-3 ms-5">
@@ -155,7 +161,7 @@ export const Home = () => {
           </button>
         </div>
         {busquedaAvanzada ? (
-          <div className="d-flex py-5 justify-content-evenly bg-light rounded-form me-4">
+          <div className="overflow-y-axis d-flex py-5 justify-content-evenly bg-light rounded-form me-4">
             <div className="">
               <label htmlFor="" className="form-label text-secondary">
                 Presentación

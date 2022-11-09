@@ -12,7 +12,7 @@ export const Navbar = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-sm py-0 text-white nav-color">
+      <nav className="navbar pt-0 navbar-expand-sm row-10 text-white nav-color">
         <div className="container-fluid">
           <Link to="">
             <img src={logo} className="nav-logo ms-3 pt-1"></img>
@@ -53,7 +53,7 @@ export const Navbar = () => {
                 <div className="d-flex">
                   <li className="nav-item px-4">
                     <Link
-                      to="/user"
+                      to={`/user/` + store.activeUser[0].id}
                       className="nav-link text-white"
                       aria-current="page"
                     >
@@ -78,7 +78,7 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
-      <div className="nav-bottom"></div>
+      {/* <div className="nav-bottom"></div> */}
     </div>
   );
 };

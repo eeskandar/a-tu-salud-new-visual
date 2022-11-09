@@ -1,19 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Posts = () => {
+export const Posts = (props) => {
   return (
-    <div className="card m-4">
-      <img src="..." className="card-img-top" alt="..."></img>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <Link to="/more-info/1" className="btn btn-primary">
-          Go somewhere
-        </Link>
+    <div className="d-flex justify-content-center">
+      <div className="container-request d-flex justify-content-between m-2">
+        <div className="m-auto w-75 p-2 d-flex">
+          <object
+            data={props.image}
+            className="card-img-top"
+            type="image/jpg"
+            style={{ maxWidth: "10rem" }}
+          >
+            <img
+              src="https://via.placeholder.com/400x400.png?text=Image+Not+Found"
+              className="card-img-top"
+              alt="stock picture"
+            />
+          </object>
+          <div className="ps-3">
+            <h5 className="mt-2 text-secondary">{props.title}</h5>
+            <h6 className="text-secondary">{props.active_component}</h6>
+          </div>
+        </div>
+        <div className="m-auto w-25 p-2">
+          <Link
+            className="btn btn-info text-white fw-bold m-1"
+            to={"/more-info/" + props.id}
+          >
+            Más información
+          </Link>
+
+          <div>
+            <h6 className="text-secondary">Ciudad</h6>
+            <p className="text-secondary">{props.city}</p>
+            <h6 className="text-secondary">Fecha de vencimiento</h6>
+            <p className="text-secondary">{props.expiration_date}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

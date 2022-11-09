@@ -138,6 +138,12 @@ def posts():
                 "msg":"no posts found"
             }), 404
 
+@api.route('/post/<int:postid>')
+def get_post(postid):    
+    get_post = Post.query.get_or_404(postid)
+    print(get_post)
+    return jsonify({"list":get_post.serializedonations()}), 200
+
 @api.route('/donation', methods=['POST'])
 def handle_donations():
     # if request.method == 'GET':

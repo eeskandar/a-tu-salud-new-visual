@@ -31,7 +31,9 @@ class User(db.Model):
     def serialize_post(self):
         return {
             "city": self.city,
-            "name": self.name
+            "name": self.name,
+            "profile_picture": self.profile_picture,
+            "phone": self.phone
             # do not serialize the password, its a security breach
         }
 
@@ -92,7 +94,7 @@ class Post(db.Model):
                 }) 
 
             
-            new_post = cls(name = body.get("name"), description = body.get("description"), presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"], typeof = "Donation", medicine_picture = body.get("medicine_picture"), user_id = body["user_id"], dosis = body["dosis"])
+            new_post = cls(title= body["name"] + " (" + body["presentation"] + ", " + body["dosis"]+")" ,name = body.get("name"), description = body.get("description"), presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"], typeof = "Donation", medicine_picture = body.get("medicine_picture"), user_id = body["user_id"], dosis = body["dosis"])
 
             if not isinstance(new_post, cls):
                 raise Exception ({
@@ -119,6 +121,7 @@ class Post(db.Model):
     def serializedonations(self):
         return {
             "id": self.id,
+            "title": self.title,
             "name": self.name,
             "description": self.description,
             "presentation": self.presentation,

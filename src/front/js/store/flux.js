@@ -29,7 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
       ],
       /////////////////////////////// new stuff
-      donations: undefined,
+      posts: undefined,
       requests: undefined,
     },
     actions: {
@@ -59,6 +59,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
           const body = await res.json();
           console.log(body);
+          setStore({
+            posts: body.list,
+          });
+          console.log(getStore().posts);
           return true;
         } catch (error) {}
       },
@@ -166,7 +170,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             active_component: active_component,
             expiration_date: expiration_date,
             quantity: quantity,
-            type: "Donation",
+            type: "donation",
             medicine_picture: image,
             user_id: getStore().activeUser[0].id, // referencia a la linea 20
             dosis: dosis,
@@ -238,7 +242,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             active_component: active_component,
             expiration_date: expiration_date,
             quantity: quantity,
-            type: "Request",
+            type: "request",
             medicine_picture: image,
             user_id: getStore().activeUser[0].id, // referencia a la linea 20
             dosis: dosis,

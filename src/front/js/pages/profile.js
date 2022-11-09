@@ -9,7 +9,7 @@ export const Profile = () => {
   return (
     <div className="col-11 p-0">
       {store.activeUser[0].id == "Guest" ? (
-        <div className="row">
+        <div className="row container-fluid p-0 m-0">
           <Loading />
         </div>
       ) : (

@@ -29,7 +29,11 @@ export const NavbarVertical = () => {
               swal("¡Debes iniciar sesión para poder donar un medicamento!");
             }
           }}
-          className="d-flex nav-link text-secondary mb-4"
+          className={`${
+            includesPath("/user/") || location.pathname == "/results"
+              ? "d-flex nav-link text-secondary mb-4 justify-content-center"
+              : "d-flex nav-link text-secondary mb-4"
+          }`}
         >
           <i className="fa-solid fa-hand-holding-heart fs-3 side-icon"></i>
           <span
@@ -51,7 +55,11 @@ export const NavbarVertical = () => {
               );
             }
           }}
-          className="d-flex nav-link text-secondary mb-4"
+          className={`${
+            includesPath("/user/") || location.pathname == "/results"
+              ? "d-flex nav-link text-secondary mb-4 justify-content-center"
+              : "d-flex nav-link text-secondary mb-4"
+          }`}
         >
           <i className="fa-regular fa-square-plus fs-3 side-icon"></i>
           <span
@@ -71,7 +79,11 @@ export const NavbarVertical = () => {
               swal("¡Debes iniciar sesión para poder publicar!");
             }
           }}
-          className="d-flex nav-link text-secondary mb-4"
+          className={`${
+            includesPath("/user/") || location.pathname == "/results"
+              ? "d-flex nav-link text-secondary mb-4 justify-content-center"
+              : "d-flex nav-link text-secondary mb-4"
+          }`}
         >
           <i className="fa-solid fa-arrow-right-arrow-left fs-3 side-icon"></i>
           <span
@@ -84,7 +96,14 @@ export const NavbarVertical = () => {
             Nuevo Intercambio
           </span>
         </Link>
-        <Link to="" className="d-flex nav-link text-secondary mb-4">
+        <Link
+          to=""
+          className={`${
+            includesPath("/user/") || location.pathname == "/results"
+              ? "d-flex nav-link text-secondary mb-4 justify-content-center"
+              : "d-flex nav-link text-secondary mb-4"
+          }`}
+        >
           <i className="fa-solid fa-envelope fs-3 side-icon"></i>
           <span
             className={`${
@@ -96,7 +115,14 @@ export const NavbarVertical = () => {
             Mensajes
           </span>
         </Link>
-        <Link to="" className="d-flex nav-link text-secondary mb-4">
+        <Link
+          to=""
+          className={`${
+            includesPath("/user/") || location.pathname == "/results"
+              ? "d-flex nav-link text-secondary mb-4 justify-content-center"
+              : "d-flex nav-link text-secondary mb-4"
+          }`}
+        >
           <i className="fa-solid fa-circle-question fs-3 side-icon"></i>
           <span
             className={`${
