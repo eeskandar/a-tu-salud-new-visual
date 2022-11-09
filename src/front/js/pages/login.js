@@ -12,7 +12,7 @@ export const Login = () => {
 
   return (
     <div className="col-10">
-      <div className="col-6 m-auto margin-a p-4 pb-5 rounded-form">
+      <div className="col-6 m-auto margin-a p-4 pb-5 shadow bg-body rounded-form">
         <h1 className="text-center form-title">Iniciar sesión</h1>
         <form className="col-11 m-auto" onSubmit={(e) => e.preventDefault()}>
           <div className="mb-3">

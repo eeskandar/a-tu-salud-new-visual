@@ -126,7 +126,7 @@ export const UserPost = () => {
         <div className="d-flex justify-content-center my-5">
           <button
             type="button"
-            className="btn form-btn text-center text-white btn-lg rounded-pill ms-4 mb-5"
+            className="btn form-btn text-center text-white btn-lg rounded-pill mb-5"
             onClick={async (e) => {
               if (
                 name.trim() == "" ||
