@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Loading } from "../component/Loading";
-import { MedPlaceholder } from "../../img/med-03.png";
+import medPlaceholder from "../../img/med-03.png";
 
 export const MoreInfo = () => {
   const { id } = useParams();
@@ -37,17 +37,18 @@ export const MoreInfo = () => {
               <h3 className="text-secondary text-center">Medicamento</h3>
               <div className="">
                 <div className="m-auto pt-4 d-flex img-container">
-                  <object
-                    data={post.list.medicine_picture}
-                    className="card-pic"
-                    type="image/jpg"
-                  >
+                  {post.list.medicine_picture != null ? (
                     <img
-                      src="https://via.placeholder.com/400x400.png?text=Image+Not+Found"
-                      className="card-img-top"
-                      alt="stock picture"
+                      className="p-2 card-pic"
+                      src={post.list.medicine_picture}
+                      onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; //evitar looping
+                        currentTarget.src = { medPlaceholder };
+                      }}
                     />
-                  </object>
+                  ) : (
+                    <img className="p-2 card-pic" src={medPlaceholder} />
+                  )}
                 </div>
                 <div className="p-5 pt-3 d-flex">
                   <div className="mt-2 me-4">
