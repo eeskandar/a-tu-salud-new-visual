@@ -33,7 +33,7 @@ export const UserPost = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setName(event.target.value);
+                  setName(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -47,7 +47,7 @@ export const UserPost = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setDosis(event.target.value);
+                  setDosis(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -60,7 +60,7 @@ export const UserPost = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setActive_component(event.target.value);
+                  setActive_component(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -75,7 +75,7 @@ export const UserPost = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setPresentation(event.target.value);
+                  setPresentation(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -88,7 +88,7 @@ export const UserPost = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setExpiration_date(event.target.value);
+                  setExpiration_date(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
@@ -101,7 +101,7 @@ export const UserPost = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setQuantity(event.target.value);
+                  setQuantity(event.target.value.toLocaleLowerCase());
                 }}
               />
             </div>
