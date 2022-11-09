@@ -283,7 +283,7 @@ def get_trades_filter():
     if len(result) > 0:
         return jsonify({
         "msg":"here is the list of posts",
-        "list":[post.serializedonations() for post in result]
+        "list":[post.serialize_trade() for post in result]
     }), 200
     else:
         return jsonify({
