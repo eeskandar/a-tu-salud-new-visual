@@ -1,5 +1,4 @@
-import propTypes from "prop-types";
-import React, { Component } from "react";
+import React from "react";
 import medPlaceholder from "../../img/med-03.png";
 
 export const CardDonations = (props) => {

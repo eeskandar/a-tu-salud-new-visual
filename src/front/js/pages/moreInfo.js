@@ -52,19 +52,21 @@ export const MoreInfo = () => {
                 <div className="p-5 pt-3 d-flex">
                   <div className="mt-2 me-4">
                     <h6 className="text-secondary mb-0">Medicamento</h6>
-                    <p className="text-secondary">{post.list.name}</p>
+                    <p className="text-secondary m_title">{post.list.name}</p>
                     <h6 className="text-secondary mb-0">Componente activo</h6>
-                    <p className="text-secondary">
+                    <p className="text-secondary m_title">
                       {post.list.active_component}
                     </p>
                     <h6 className="text-secondary mb-0">Presentación</h6>
-                    <p className="text-secondary mb-0">
+                    <p className="text-secondary mb-0 m_title">
                       {post.list.presentation}
                     </p>
                   </div>
                   <div className="mt-2 ms-4">
                     <h6 className="text-secondary mb-0">Dosis</h6>
-                    <p className="text-secondary">{post.list.dosis}</p>
+                    <p className="text-secondary m_title m_title">
+                      {post.list.dosis}
+                    </p>
                     <h6 className="text-secondary mb-0">
                       Fecha de vencimiento
                     </h6>
@@ -72,7 +74,9 @@ export const MoreInfo = () => {
                       {post.list.expiration_date}
                     </p>
                     <h6 className="text-secondary mb-0">Cantidad</h6>
-                    <p className="text-secondary mb-0">{post.list.quantity}</p>
+                    <p className="text-secondary mb-0 m_title">
+                      {post.list.quantity}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -106,6 +110,7 @@ export const MoreInfo = () => {
                       id="dropdownMenuButton1"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
+                      data-bs-auto-close="outside"
                     >
                       Número de contacto
                     </button>
