@@ -130,6 +130,7 @@ class Post(db.Model):
             "quantity": self.quantity,
             "medicine_picture": self.medicine_picture,
             "typeof": self.typeof,
+            "user_id":self.user_id,
             "user_info": self.users.serialize_post()
             
         }
@@ -169,7 +170,7 @@ class Post(db.Model):
                 }) 
 
             
-            new_request = cls(name = body.get("name"), description = body.get("description"), presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"], typeof = "Request", medicine_picture = body.get("medicine_picture"), user_id = body["user_id"], dosis = body.get("dosis"))
+            new_request = cls(name = body.get("name"), description = body.get("description"), presentation = body["presentation"], active_component = body["active_component"], expiration_date = body["expiration_date"], quantity = body["quantity"], typeof = "Request", medicine_picture = body.get("medicine_picture"), user_id = body["user_id"], dosis = body["dosis"])
 
             if not isinstance(new_request, cls):
                 raise Exception ({
@@ -204,6 +205,7 @@ class Post(db.Model):
             "quantity": self.quantity,
             "medicine_picture": self.medicine_picture,
             "typeof": self.typeof,
+            "user_id": self.user_id,
             "user_info": self.users.serialize_post()
             
         }

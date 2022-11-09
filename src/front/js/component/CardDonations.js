@@ -11,12 +11,12 @@ export const CardDonations = (props) => {
             }}/>
                 </div>
                 <div className="m-auto w-50 p-2 d-flex">
-                    <div>
+                    <div className="w-50 m-1">
                         <h5 className="mt-2 text-secondary">{props.donations.title}</h5>
                         <h6 className="text-secondary">{props.donations.active_component}</h6>
                         <p className="text-secondary">{props.donations.description}</p>
                     </div>
-                    <div>
+                    <div className="w-50 m-1">
                         <h6 className="text-secondary">Cantidad</h6>
                         <p className="text-secondary">{props.donations.quantity}</p>
                         <h6 className="text-secondary">Fecha de vencimiento</h6>
