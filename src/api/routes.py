@@ -251,11 +251,39 @@ def trade_post():
 
 @api.route('/trades', methods=['GET'])
 def get_trades():
-    result = db.session.query(TradingPost).join(User).filter(User.id == request.args.get('user_id'), TradingPost.typeof == request.args.get('typeof')).all()
-    
+    if request.args.get('user_id') != None:
+        result = db.session.query(TradingPost).join(User).filter(User.id == request.args.get('user_id')).all()
+        
+        if len(result) > 0:
+            return jsonify({
+            "list":[post.serialize_trade() for post in result]
+        }), 200
+        else:
+            return jsonify({
+                "msg":"no posts found"
+            }), 404
+
+        
+
+@api.route('/trades-filter', methods=['GET'])
+def get_trades_filter():
+    filters = [
+        ]
+
+    if request.args.get('name') != None:
+        filters.append(TradingPost.name == request.args.get('name'))
+
+    # post = db.session.query()
+    try:
+        result = db.session.query(TradingPost).join(User).filter(*filters).all()
+    except Error:
+        return jsonify({
+            "msg":"something unexpected happened"
+        }), 500
     if len(result) > 0:
         return jsonify({
-        "list":[post.serialize_trade() for post in result]
+        "msg":"here is the list of posts",
+        "list":[post.serializedonations() for post in result]
     }), 200
     else:
         return jsonify({
