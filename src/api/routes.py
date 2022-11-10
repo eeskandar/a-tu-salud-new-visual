@@ -123,7 +123,7 @@ def posts():
 
         # post = db.session.query()
         try:
-            result = db.session.query(Post).join(User).filter(*filters).all()
+            result = db.session.query(Post).join(User).filter(*filters).all()            
         except Error:
             return jsonify({
                 "msg":"something unexpected happened"

@@ -26,7 +26,7 @@ export const Profile = () => {
               <div>
                 <div>
                   <div className="fs-5 text-secondary text-center">Nombre</div>
-                  <div className="fw-bold text-secondary text-center">
+                  <div className="fw-bold text-secondary text-center m_title">
                     {store.activeUser[0].name +
                       " " +
                       store.activeUser[0].last_name}
@@ -44,7 +44,7 @@ export const Profile = () => {
               <div>
                 <div>
                   <div className="fs-5 text-secondary text-center">Ciudad</div>
-                  <div className="fw-bold text-secondary text-center">
+                  <div className="fw-bold text-secondary text-center m_title">
                     {store.activeUser[0].city}
                   </div>
                 </div>

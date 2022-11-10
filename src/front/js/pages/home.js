@@ -82,7 +82,7 @@ export const Home = () => {
           urlParams.set("presentation", presentation);
         }
         console.log(urlParams.toString());
-        await actions.getPosts(urlParams);
+        await actions.getPostsTrade(urlParams);
       }
     }
   }

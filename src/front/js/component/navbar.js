@@ -16,9 +16,6 @@ export const Navbar = () => {
       urlParams.set("name", name);
       console.log(urlParams.toString());
       let success = await actions.getPosts(urlParams);
-      if (success == false) {
-        swal("¡Ups!", "404");
-      }
       setName("");
     } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
   }
