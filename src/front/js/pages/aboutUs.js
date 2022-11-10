@@ -1,4 +1,7 @@
 import React from "react";
+import python3 from "../../img/python.png";
+import html5 from "../../img/html5.png";
+import postgre from "../../img/postgre.png";
 
 export const AboutUs = () => {
   return (
@@ -27,9 +30,52 @@ export const AboutUs = () => {
           necesitados sin fines de lucro.
         </dd>
       </p>
+      <div>
+        <h2 className="ms-2 mt-5 ps-5 pb-5 text-secondary text-center">
+          Sobre las tecnologías aplicadas
+        </h2>
+        <img src={html5} />
+        <img src={python3} />
+        <img src={postgre} />
+      </div>
       <h2 className="ms-2 mt-5 ps-5 pb-5 text-secondary text-center">
         Sobre nuestro equipo
       </h2>
+      <div className="d-flex flex-column justify-content-center m-auto">
+        <div className="ms-5 mt-4 d-flex justify-content-center">
+          <div className="img-container">
+            <img className="card-pic" src={postgre} />
+          </div>
+          <div className="text-secondary ms-3">
+            <h3>Manuel Acosta</h3>
+            <p>
+              Tipazo, apasionado por aprender cómo funcionan las cosas y siempre
+              alegre.
+            </p>
+          </div>
+        </div>
+        <div className="ms-5 mt-4 d-flex justify-content-center">
+          <div className="img-container">
+            <img className="card-pic" src={postgre} />
+          </div>
+          <div className="text-secondary ms-3">
+            <h3>Alejandro Escalante</h3>
+            <p>
+              Tipazo, apasionado por aprender cómo funcionan las cosas y siempre
+              alegre.
+            </p>
+          </div>
+        </div>
+        <div className="ms-5 mt-4 d-flex justify-content-center">
+          <div className="img-container">
+            <img className="card-pic" src={postgre} />
+          </div>
+          <div className="text-secondary ms-3">
+            <h3>Luis Rosal</h3>
+            <p>Más disperso que los chinos en el mundo</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
