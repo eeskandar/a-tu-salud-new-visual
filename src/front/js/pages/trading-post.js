@@ -47,7 +47,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setNameA(event.target.value.toLocaleLowerCase());
+                      setNameA(event.target.value);
                     }}
                     defaultValue={nameA}
                     id="nameAinput"
@@ -61,7 +61,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setActiveCompA(event.target.value.toLocaleLowerCase());
+                      setActiveCompA(event.target.value);
                     }}
                     defaultValue={activeCompA}
                     id="compAinput"
@@ -75,7 +75,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setPresentA(event.target.value.toLocaleLowerCase());
+                      setPresentA(event.target.value);
                     }}
                     defaultValue={presentA}
                     id="presentAinput"
@@ -89,7 +89,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setQuantityA(event.target.value.toLocaleLowerCase());
+                      setQuantityA(event.target.value);
                     }}
                     defaultValue={quantityA}
                     id="quantityAinput"
@@ -103,7 +103,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setDosisA(event.target.value.toLocaleLowerCase());
+                      setDosisA(event.target.value);
                     }}
                     defaultValue={dosisA}
                     id="dosisAinput"
@@ -117,7 +117,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setExpDateA(event.target.value.toLocaleLowerCase());
+                      setExpDateA(event.target.value);
                     }}
                     defaultValue={expDateA}
                     id="expAinput"
@@ -142,7 +142,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setNameB(event.target.value.toLocaleLowerCase());
+                      setNameB(event.target.value);
                     }}
                     defaultValue={nameB}
                     id="nameBinput"
@@ -156,7 +156,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setActiveCompB(event.target.value.toLocaleLowerCase());
+                      setActiveCompB(event.target.value);
                     }}
                     defaultValue={activeCompB}
                     id="compBinput"
@@ -170,7 +170,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setPresentB(event.target.value.toLocaleLowerCase());
+                      setPresentB(event.target.value);
                     }}
                     defaultValue={presentB}
                     id="presentBinput"
@@ -184,7 +184,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setQuantityB(event.target.value.toLocaleLowerCase());
+                      setQuantityB(event.target.value);
                     }}
                     defaultValue={quantityB}
                     id="quantityBinput"
@@ -198,7 +198,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setDosisB(event.target.value.toLocaleLowerCase());
+                      setDosisB(event.target.value);
                     }}
                     defaultValue={dosisB}
                     id="dosisBinput"
@@ -212,7 +212,7 @@ export const TradingPost = () => {
                     type="string"
                     className="form-control form-input border-0"
                     onChange={(event) => {
-                      setExpDateB(event.target.value.toLocaleLowerCase());
+                      setExpDateB(event.target.value);
                     }}
                     defaultValue={expDateB}
                     id="expBinput"
@@ -234,7 +234,7 @@ export const TradingPost = () => {
               type="string"
               className="form-control form-input border-0"
               onChange={(event) => {
-                setDescription(event.target.value.toLocaleLowerCase());
+                setDescription(event.target.value);
               }}
               defaultValue={description}
               id="description"
@@ -263,18 +263,18 @@ export const TradingPost = () => {
                 );
               } else {
                 await trade(
-                  nameA,
-                  nameB,
-                  quantityA,
-                  quantityB,
-                  dosisA,
-                  dosisB,
-                  expDateA,
-                  expDateB,
-                  activeCompA,
-                  activeCompB,
-                  presentA,
-                  presentB,
+                  nameA.toLowerCase(),
+                  nameB.toLowerCase(),
+                  quantityA.toLowerCase(),
+                  quantityB.toLowerCase(),
+                  dosisA.toLowerCase(),
+                  dosisB.toLowerCase(),
+                  expDateA.toLowerCase(),
+                  expDateB.toLowerCase(),
+                  activeCompA.toLowerCase(),
+                  activeCompB.toLowerCase(),
+                  presentA.toLowerCase(),
+                  presentB.toLowerCase(),
                   store.image,
                   store.image2,
                   description
