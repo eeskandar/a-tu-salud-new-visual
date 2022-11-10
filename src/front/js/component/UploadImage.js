@@ -23,8 +23,11 @@ export const UploadImage = (props) => {
     );
   }, []);
   return (
-    <button className="btn form-btn " onClick={() => widgetRef.current.open()}>
-      {props.name}
+    <button
+      className="btn form-btn text-white"
+      onClick={() => widgetRef.current.open()}
+    >
+      <i class="fa-solid fa-camera"></i> {props.name}
     </button>
   );
 };

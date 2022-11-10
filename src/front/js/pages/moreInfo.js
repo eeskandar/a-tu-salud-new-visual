@@ -50,9 +50,11 @@ export const MoreInfo = () => {
                     <img className="p-2 card-pic" src={medPlaceholder} />
                   )}
                 </div>
-                <div className="p-5 pt-3 d-flex">
+                <div className="px-5 py-3 d-flex shadow bg-body rounded-form">
                   <div className="mt-2 me-4">
-                    <h6 className="text-secondary mb-0">Medicamento</h6>
+                    <h6 className="text-secondary mb-0">
+                      <i className="fa-solid fa-pills"></i> Medicamento
+                    </h6>
                     <p className="text-secondary m_title">{post.list.name}</p>
                     <h6 className="text-secondary mb-0">Componente activo</h6>
                     <p className="text-secondary m_title">
@@ -64,15 +66,16 @@ export const MoreInfo = () => {
                     </p>
                   </div>
                   <div className="mt-2 ms-4">
-                    <h6 className="text-secondary mb-0">Dosis</h6>
-                    <p className="text-secondary m_title m_title">
-                      {post.list.dosis}
-                    </p>
                     <h6 className="text-secondary mb-0">
-                      Fecha de vencimiento
+                      <i className="fa-solid fa-calendar-xmark"></i> Fecha de
+                      vencimiento
                     </h6>
                     <p className="text-secondary">
                       {post.list.expiration_date}
+                    </p>
+                    <h6 className="text-secondary mb-0">Dosis</h6>
+                    <p className="text-secondary m_title m_title">
+                      {post.list.dosis}
                     </p>
                     <h6 className="text-secondary mb-0">Cantidad</h6>
                     <p className="text-secondary mb-0 m_title">
@@ -102,7 +105,9 @@ export const MoreInfo = () => {
                 <div className="p-2">
                   <h6 className="mt-2 text-secondary mb-0">Nombre</h6>
                   <p className="text-secondary">{post.list.user_info.name}</p>
-                  <h6 className="text-secondary mb-0">Ciudad</h6>
+                  <h6 className="text-secondary mb-0">
+                    <i className="fa-solid fa-location-dot"></i> Ciudad
+                  </h6>
                   <p className="text-secondary">{post.list.user_info.city}</p>
                   <div className="dropdown d-flex justify-content-center">
                     <button
@@ -113,7 +118,7 @@ export const MoreInfo = () => {
                       aria-expanded="false"
                       data-bs-auto-close="outside"
                     >
-                      Número de contacto
+                      <i className="fa-solid fa-phone"></i> Número de contacto
                     </button>
                     <ul
                       className="dropdown-menu"
@@ -129,7 +134,7 @@ export const MoreInfo = () => {
             </div>
           </div>
           {/* VIEW DE LA DESCRIPCION */}
-          <div className="loading-bg rounded mx-5 p-3">
+          <div className="loading-bg rounded mx-5 mt-5 p-3">
             <h6 className="mt-2 text-secondary text-center mb-3">
               Descripción
             </h6>

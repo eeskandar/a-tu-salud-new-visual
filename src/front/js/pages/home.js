@@ -162,11 +162,12 @@ export const Home = () => {
             aria-expanded=""
             onClick={(e) => busquedaFiltro()}
           >
-            Busqueda avanzada...
+            <i className="fa-solid fa-magnifying-glass"></i> Busqueda
+            avanzada...
           </button>
         </div>
         {busquedaAvanzada ? (
-          <div className="overflow-y-axis d-flex py-5 justify-content-evenly bg-light rounded-form me-4">
+          <div className="overflow-y-axis d-flex py-5 justify-content-evenly bg-light rounded-form my-4">
             <div className="">
               <label htmlFor="" className="form-label text-secondary">
                 Presentación
