@@ -145,6 +145,12 @@ def get_post(postid):
     print(get_post)
     return jsonify({"list":get_post.serializedonations()}), 200
 
+# moreInfo
+@api.route('/trade/<int:postid>') 
+def get_exchange_post(postid):    
+    get_exchange_post = TradingPost.query.get_or_404(postid)
+    print(get_exchange_post)
+    return jsonify({"list":get_exchange_post.serialize_trade()}), 200
 
 
 @api.route('/donation', methods=['GET','POST'])

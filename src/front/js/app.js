@@ -21,6 +21,7 @@ import { UserPostRequest } from "./pages/user-request-post";
 import { Loading } from "./component/Loading";
 import { UserTrades } from "./pages/user-trades";
 import { AboutUs } from "./pages/aboutUs";
+import { MoreInfoTrade } from "./pages/moreInfoTrade";
 
 //create your first component
 export const App = () => {
@@ -66,7 +67,8 @@ export const App = () => {
             <Route element={<UserRequests />} path="/user/:userid/request" />
             <Route element={<UserTrades />} path="/user/:userid/trades" />
             <Route element={<Results />} path="/results" />
-            <Route element={<MoreInfo />} path="/more-info/:id" />
+            <Route element={<MoreInfoTrade />} path="/more-info-trade/:id" />
+            <Route element={<MoreInfoTrade />} path="/more-info/:id" />
             <Route element={<AboutUs />} path="/about-us" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
