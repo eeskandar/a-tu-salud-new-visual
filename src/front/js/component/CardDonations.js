@@ -20,14 +20,17 @@ export const CardDonations = (props) => {
           )}
         </div>
         <div className="m-auto w-50 p-2">
-          <h5 className="mt-2 text-secondary m_title">{props.title}</h5>
+          <h5 className="mt-2 mb-4 text-secondary m_title">{props.title}</h5>
           <div className="m-1 d-flex justify-content-between">
             <div>
               <h6 className="text-secondary mb-0">Cantidad</h6>
               <p className="text-secondary mb-0 m_title">{props.quantity}</p>
             </div>
             <div>
-              <h6 className="text-secondary mb-0">Fecha de vencimiento</h6>
+              <h6 className="text-secondary mb-0">
+                <i className="fa-solid fa-calendar-xmark"></i> Fecha de
+                vencimiento
+              </h6>
               <p className="text-secondary mb-0 m_title">
                 {props.expiration_date}
               </p>

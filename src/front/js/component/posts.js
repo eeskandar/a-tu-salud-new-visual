@@ -25,11 +25,16 @@ export const Posts = (props) => {
           <h6 className="text-secondary m_title">{props.active_component}</h6>
           <div className="d-flex justify-content-between mt-4">
             <div>
-              <h6 className="text-secondary">Ciudad</h6>
+              <h6 className="text-secondary">
+                <i className="fa-solid fa-location-dot"></i> Ciudad
+              </h6>
               <p className="text-secondary m_title">{props.city}</p>
             </div>
             <div>
-              <h6 className="text-secondary">Fecha de vencimiento</h6>
+              <h6 className="text-secondary">
+                <i className="fa-solid fa-calendar-xmark"></i> Fecha de
+                vencimiento
+              </h6>
               <p className="text-secondary m_title">{props.expiration_date}</p>
             </div>
           </div>

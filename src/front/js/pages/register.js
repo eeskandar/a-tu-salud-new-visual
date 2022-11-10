@@ -13,6 +13,7 @@ export const Register = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
+  const [acepted, setAcepted] = useState(false);
   const register = actions.register;
 
   return (
@@ -48,7 +49,7 @@ export const Register = () => {
               aria-describedby="last-name"
             />
             <label htmlFor="phone" className="form-label">
-              Teléfono
+              <i className="fa-solid fa-phone"></i> Teléfono
             </label>
             <input
               type="string"
@@ -61,7 +62,7 @@ export const Register = () => {
               aria-describedby="phone"
             />
             <label htmlFor="city" className="form-label">
-              Ciudad
+              <i className="fa-solid fa-location-dot"></i> Ciudad
             </label>
             <input
               type="string"
@@ -74,7 +75,7 @@ export const Register = () => {
               aria-describedby="city"
             />
             <label htmlFor="exampleInputEmail1" className="form-label">
-              Correo electrónico
+              <i className="fa-solid fa-at"></i> Correo electrónico
             </label>
             <input
               type="email"
@@ -107,6 +108,20 @@ export const Register = () => {
           <div className="justify-content-center d-flex">
             <UploadImage name="Sube tu foto de perfil" />
           </div>
+          <div className="form-check my-4">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              value={acepted}
+              onChange={(e) => {
+                setAcepted((prev) => !prev);
+              }}
+              id="flexCheckDefault"
+            />
+            <label className="form-check-label" for="flexCheckDefault">
+              Haz leído y aceptas los <strong>Terminos y Condiciones</strong>
+            </label>
+          </div>
           <div className="d-flex justify-content-center mt-3">
             <button
               type="submit"
@@ -124,6 +139,8 @@ export const Register = () => {
                   swal("¡Ups!", "Debes colocar un Email");
                 } else if (password.trim() == "") {
                   swal("¡Ups!", "Debes colocar tu contraseña");
+                } else if (acepted == false) {
+                  swal("¡Ups!", "Debes aceptar los Terminos y Condiciones");
                 } else {
                   let success = await register(
                     name,
