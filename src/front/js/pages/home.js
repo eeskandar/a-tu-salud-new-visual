@@ -47,7 +47,7 @@ export const Home = () => {
       console.log(urlParams.toString());
       let success = await actions.getPosts(urlParams);
       if (success == false) {
-        swal("¡Ups!", "404");
+        swal("¡Ups!", "No encontramos coincidencias para tu busqueda");
         navigate("/");
       }
     } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
@@ -104,6 +104,12 @@ export const Home = () => {
             Medicamento
           </label>
           <input
+            onKeyDown={(e) => {
+              if (e.key == "Enter") {
+                consultPosts();
+                navigate("/results");
+              }
+            }}
             defaultValue={name}
             onChange={(e) => setName(e.target.value.toLocaleLowerCase())}
             className="form-control me-2"
@@ -117,6 +123,12 @@ export const Home = () => {
             Ciudad
           </label>
           <input
+            onKeyDown={(e) => {
+              if (e.key == "Enter") {
+                consultPosts();
+                navigate("/results");
+              }
+            }}
             defaultValue={city}
             onChange={(e) => setCity(e.target.value.toLocaleLowerCase())}
             className="form-control me-2"
@@ -154,7 +166,7 @@ export const Home = () => {
         </Link>
       </div>
       <div className="margin-home">
-        <div className="btn-group pt-0 pb-3 ms-5">
+        <div className="btn-group pt-0 pb-3">
           <button
             type="button"
             className="btn btn-secondary rounded-pill"
@@ -169,10 +181,19 @@ export const Home = () => {
         {busquedaAvanzada ? (
           <div className="overflow-y-axis d-flex py-5 justify-content-evenly bg-light rounded-form my-4">
             <div className="">
-              <label htmlFor="" className="form-label text-secondary">
+              <label
+                htmlFor=""
+                className="m-2 d-flex justify-items-center form-label text-secondary"
+              >
                 Presentación
               </label>
               <input
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") {
+                    consultPosts();
+                    navigate("/results");
+                  }
+                }}
                 defaultValue={presentation}
                 onChange={(e) =>
                   setPresentation(e.target.value.toLocaleLowerCase())
@@ -184,10 +205,19 @@ export const Home = () => {
               />
             </div>
             <div>
-              <label htmlFor="" className="form-label text-secondary">
+              <label
+                htmlFor=""
+                className="m-2 d-flex justify-items-center form-label text-secondary"
+              >
                 Cantidad
               </label>
               <input
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") {
+                    consultPosts();
+                    navigate("/results");
+                  }
+                }}
                 defaultValue={quantity}
                 onChange={(e) =>
                   setQuantity(e.target.value.toLocaleLowerCase())
@@ -199,10 +229,19 @@ export const Home = () => {
               />
             </div>
             <div>
-              <label htmlFor="" className="form-label text-secondary">
+              <label
+                htmlFor=""
+                className="m-2 d-flex justify-items-center form-label text-secondary"
+              >
                 Fecha de vencimiento
               </label>
               <input
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") {
+                    consultPosts();
+                    navigate("/results");
+                  }
+                }}
                 defaultValue={expirationDate}
                 onChange={(e) =>
                   setExpirationDate(e.target.value.toLocaleLowerCase())

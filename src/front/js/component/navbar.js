@@ -14,9 +14,14 @@ export const Navbar = () => {
   async function consultPosts() {
     if (name.trim() != "") {
       urlParams.set("name", name);
+      urlParams.set("typeof", "donation");
       console.log(urlParams.toString());
       let success = await actions.getPosts(urlParams);
       setName("");
+      if (success == false) {
+        swal("¡Ups!", "No encontramos coincidencias para tu busqueda");
+        navigate("/");
+      }
     } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
   }
 

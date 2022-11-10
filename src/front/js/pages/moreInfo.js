@@ -90,17 +90,18 @@ export const MoreInfo = () => {
               <h3 className="text-secondary text-center">Donante</h3>
               <div className="bg-light p-4">
                 <div className="m-auto img-container">
-                  <object
-                    data={post.list.user_info.profile_picture}
-                    className="card-pic"
-                    type="image/jpg"
-                  >
+                  {post.list.user_info.profile_picture != null ? (
                     <img
-                      src="https://via.placeholder.com/400x400.png?text=Image+Not+Found"
-                      className="card-img-top"
-                      alt="stock picture"
+                      className="p-2 card-pic"
+                      src={post.list.user_info.profile_picture}
+                      onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; //evitar looping
+                        currentTarget.src = { medPlaceholder };
+                      }}
                     />
-                  </object>
+                  ) : (
+                    <img className="p-2 card-pic" src={medPlaceholder} />
+                  )}
                 </div>
                 <div className="p-2">
                   <h6 className="mt-2 text-secondary mb-0">Nombre</h6>
