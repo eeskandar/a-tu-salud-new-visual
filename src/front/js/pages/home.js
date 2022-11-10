@@ -90,7 +90,7 @@ export const Home = () => {
   return (
     <div className="row-80 overflow-y-axis container-fluid col-11 col-lg-10 px-0 ">
       <div className="container d-flex justify-content-center pt-3">
-        <img src={Banner} style={{ height: "350px" }} />
+        <img src={Banner} className="banner" style={{ height: "350px" }} />
       </div>
       <div className="pt-5 container">
         <h1 className="text-secondary text-center" style={{ fontSize: "2rem" }}>
