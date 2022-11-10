@@ -19,7 +19,7 @@ export const SideProfile = () => {
           className="prof-pic"
         />
       </div>
-      <div className="text-secondary text-center mt-3 fw-bold fs-4">
+      <div className="text-secondary text-center mt-3 fw-bold fs-4 m_title">
         {store.activeUser[0].name + " " + store.activeUser[0].last_name}
       </div>
       <Link
