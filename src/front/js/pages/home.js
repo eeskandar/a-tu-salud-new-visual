@@ -165,88 +165,85 @@ export const Home = () => {
           Buscar
         </Link>
       </div>
-      <div className="margin-home">
-        <div className="btn-group pt-0 pb-3">
-          <button
-            type="button"
-            className="btn btn-secondary rounded-pill"
-            data-bs-toggle=""
-            aria-expanded=""
-            onClick={(e) => busquedaFiltro()}
-          >
-            <i className="fa-solid fa-magnifying-glass"></i> Busqueda
-            avanzada...
-          </button>
-        </div>
-        {busquedaAvanzada ? (
-          <div className="overflow-y-axis d-flex py-5 justify-content-evenly bg-light rounded-form my-4">
-            <div className="d-flex flex-column text-center justify-items-center">
-              <label htmlFor="" className="m-2 form-label text-secondary">
-                Presentación
-              </label>
-              <input
-                onKeyDown={(e) => {
-                  if (e.key == "Enter") {
-                    consultPosts();
-                    navigate("/results");
-                  }
-                }}
-                defaultValue={presentation}
-                onChange={(e) =>
-                  setPresentation(e.target.value.toLocaleLowerCase())
+      <div className="btn-group pt-0 pb-3 margin-home">
+        <button
+          type="button"
+          className="btn btn-secondary rounded-pill"
+          data-bs-toggle=""
+          aria-expanded=""
+          onClick={(e) => busquedaFiltro()}
+        >
+          <i className="fa-solid fa-magnifying-glass"></i> Busqueda avanzada...
+        </button>
+      </div>
+      <div
+        className={`home-advanced-search margin-home ${
+          busquedaAvanzada === true ? "cool-class" : ""
+        }`}
+      >
+        <div className=" overflow-y-axis d-flex py-5 justify-content-evenly dark-bg rounded-form my-4">
+          <div className="d-flex flex-column text-center justify-items-center">
+            <label htmlFor="" className="m-2 mt-0 form-label text-secondary">
+              Presentación
+            </label>
+            <input
+              onKeyDown={(e) => {
+                if (e.key == "Enter") {
+                  consultPosts();
+                  navigate("/results");
                 }
-                className="form-control m-2"
-                type="search"
-                placeholder=""
-                aria-label="Search"
-              />
-            </div>
-            <div className="d-flex flex-column text-center justify-items-center">
-              <label htmlFor="" className="m-2 form-label text-secondary">
-                Cantidad
-              </label>
-              <input
-                onKeyDown={(e) => {
-                  if (e.key == "Enter") {
-                    consultPosts();
-                    navigate("/results");
-                  }
-                }}
-                defaultValue={quantity}
-                onChange={(e) =>
-                  setQuantity(e.target.value.toLocaleLowerCase())
-                }
-                className="form-control m-2"
-                type="search"
-                placeholder=""
-                aria-label="Search"
-              />
-            </div>
-            <div className="d-flex flex-column text-center justify-items-center">
-              <label htmlFor="" className="m-2 form-label text-secondary">
-                Fecha de vencimiento
-              </label>
-              <input
-                onKeyDown={(e) => {
-                  if (e.key == "Enter") {
-                    consultPosts();
-                    navigate("/results");
-                  }
-                }}
-                defaultValue={expirationDate}
-                onChange={(e) =>
-                  setExpirationDate(e.target.value.toLocaleLowerCase())
-                }
-                className="form-control m-2"
-                type="search"
-                placeholder=""
-                aria-label="Search"
-              />
-            </div>
+              }}
+              defaultValue={presentation}
+              onChange={(e) =>
+                setPresentation(e.target.value.toLocaleLowerCase())
+              }
+              className="form-control m-2"
+              type="search"
+              placeholder=""
+              aria-label="Search"
+            />
           </div>
-        ) : (
-          ""
-        )}
+          <div className="d-flex flex-column text-center justify-items-center">
+            <label htmlFor="" className="m-2 mt-0 form-label text-secondary">
+              Cantidad
+            </label>
+            <input
+              onKeyDown={(e) => {
+                if (e.key == "Enter") {
+                  consultPosts();
+                  navigate("/results");
+                }
+              }}
+              defaultValue={quantity}
+              onChange={(e) => setQuantity(e.target.value.toLocaleLowerCase())}
+              className="form-control m-2"
+              type="search"
+              placeholder=""
+              aria-label="Search"
+            />
+          </div>
+          <div className="d-flex flex-column text-center justify-items-center">
+            <label htmlFor="" className="m-2 mt-0 form-label text-secondary">
+              Fecha de vencimiento
+            </label>
+            <input
+              onKeyDown={(e) => {
+                if (e.key == "Enter") {
+                  consultPosts();
+                  navigate("/results");
+                }
+              }}
+              defaultValue={expirationDate}
+              onChange={(e) =>
+                setExpirationDate(e.target.value.toLocaleLowerCase())
+              }
+              className="form-control m-2"
+              type="search"
+              placeholder=""
+              aria-label="Search"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
