@@ -33,7 +33,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setName(event.target.value.toLocaleLowerCase());
+                  setName(event.target.value);
                 }}
               />
             </div>
@@ -47,7 +47,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setDosis(event.target.value.toLocaleLowerCase());
+                  setDosis(event.target.value);
                 }}
               />
             </div>
@@ -60,7 +60,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setActive_component(event.target.value.toLocaleLowerCase());
+                  setActive_component(event.target.value);
                 }}
               />
             </div>
@@ -75,7 +75,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setPresentation(event.target.value.toLocaleLowerCase());
+                  setPresentation(event.target.value);
                 }}
               />
             </div>
@@ -88,7 +88,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setExpiration_date(event.target.value.toLocaleLowerCase());
+                  setExpiration_date(event.target.value);
                 }}
               />
             </div>
@@ -101,7 +101,7 @@ export const UserPostRequest = () => {
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
-                  setQuantity(event.target.value.toLocaleLowerCase());
+                  setQuantity(event.target.value);
                 }}
               />
             </div>
@@ -117,7 +117,7 @@ export const UserPostRequest = () => {
               type="text"
               aria-label="readonly input example"
               onChange={(event) => {
-                setDescription(event.target.value.toLocaleLowerCase());
+                setDescription(event.target.value);
               }}
             />
           </div>
@@ -142,14 +142,14 @@ export const UserPostRequest = () => {
               } else {
                 console.log(store.image);
                 let success = await request(
-                  presentation,
-                  dosis,
+                  presentation.toLowerCase(),
+                  dosis.toLowerCase(),
                   store.image,
-                  active_component,
-                  quantity,
-                  name,
+                  active_component.toLowerCase(),
+                  quantity.toLowerCase(),
+                  name.toLowerCase(),
                   description,
-                  expiration_date
+                  expiration_date.toLowerCase()
                 );
                 if (success) {
                   swal("¡Listo!", "¡Donación creada con éxito!", "success");
