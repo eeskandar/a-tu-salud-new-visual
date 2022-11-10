@@ -56,7 +56,7 @@ export const Navbar = () => {
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
-                className="form-control me-2 nav-input border-0 rounded-pill"
+                className="form-control me-2 border-0 rounded-pill"
                 placeholder="Buscar medicamento"
                 aria-label="Search"
                 // colocar el fetch con el value hacia el endpoint /api/solicitud y cambiar el link to /results

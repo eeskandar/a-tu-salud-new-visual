@@ -16,7 +16,7 @@ export const NavbarVertical = () => {
   return (
     <div
       className={`${
-        includesPath("/user/") || location.pathname == "/results"
+        includesPath("/user/")
           ? "col-1 bg-light view-display p-2 pt-5"
           : "col-1 col-lg-2 bg-light view-display p-2 pt-5"
       }`}
@@ -30,7 +30,7 @@ export const NavbarVertical = () => {
             }
           }}
           className={`${
-            includesPath("/user/") || location.pathname == "/results"
+            includesPath("/user/")
               ? "d-flex nav-link text-secondary mb-4 justify-content-center"
               : "d-flex nav-link text-secondary mb-4"
           }`}
@@ -38,9 +38,7 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-hand-holding-heart fs-3 side-icon"></i>
           <span
             className={`${
-              includesPath("/user/") || location.pathname == "/results"
-                ? "d-none"
-                : "d-none d-lg-block ps-2"
+              includesPath("/user/") ? "d-none" : "d-none d-lg-block ps-2"
             }`}
           >
             Nueva Donación
@@ -56,7 +54,7 @@ export const NavbarVertical = () => {
             }
           }}
           className={`${
-            includesPath("/user/") || location.pathname == "/results"
+            includesPath("/user/")
               ? "d-flex nav-link text-secondary mb-4 justify-content-center"
               : "d-flex nav-link text-secondary mb-4"
           }`}
@@ -64,9 +62,7 @@ export const NavbarVertical = () => {
           <i className="fa-regular fa-square-plus fs-3 side-icon"></i>
           <span
             className={`${
-              includesPath("/user/") || location.pathname == "/results"
-                ? "d-none"
-                : "d-none d-lg-block ps-2"
+              includesPath("/user/") ? "d-none" : "d-none d-lg-block ps-2"
             }`}
           >
             Nueva Petición
@@ -80,7 +76,7 @@ export const NavbarVertical = () => {
             }
           }}
           className={`${
-            includesPath("/user/") || location.pathname == "/results"
+            includesPath("/user/")
               ? "d-flex nav-link text-secondary mb-4 justify-content-center"
               : "d-flex nav-link text-secondary mb-4"
           }`}
@@ -88,9 +84,7 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-arrow-right-arrow-left fs-3 side-icon"></i>
           <span
             className={`${
-              includesPath("/user/") || location.pathname == "/results"
-                ? "d-none"
-                : "d-none d-lg-block ps-2"
+              includesPath("/user/") ? "d-none" : "d-none d-lg-block ps-2"
             }`}
           >
             Nuevo Intercambio
@@ -99,7 +93,7 @@ export const NavbarVertical = () => {
         {/* <Link
           to=""
           className={`${
-            includesPath("/user/") || location.pathname == "/results"
+            includesPath("/user/")
               ? "d-flex nav-link text-secondary mb-4 justify-content-center"
               : "d-flex nav-link text-secondary mb-4"
           }`}
@@ -107,7 +101,7 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-envelope fs-3 side-icon"></i>
           <span
             className={`${
-              includesPath("/user/") || location.pathname == "/results"
+              includesPath("/user/")
                 ? "d-none"
                 : "d-none d-lg-block ps-2"
             }`}
@@ -118,7 +112,7 @@ export const NavbarVertical = () => {
         <Link
           to="/about-us"
           className={`${
-            includesPath("/user/") || location.pathname == "/results"
+            includesPath("/user/")
               ? "d-flex nav-link text-secondary mb-4 justify-content-center"
               : "d-flex nav-link text-secondary mb-4"
           }`}
@@ -126,9 +120,7 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-circle-question fs-3 side-icon"></i>
           <span
             className={`${
-              includesPath("/user/") || location.pathname == "/results"
-                ? "d-none"
-                : "d-none d-lg-block ps-2"
+              includesPath("/user/") ? "d-none" : "d-none d-lg-block ps-2"
             }`}
           >
             Sobre Nosotros
@@ -140,7 +132,7 @@ export const NavbarVertical = () => {
           <i className="fa-solid fa-gear fs-3 side-icon"></i>
           <span
             className={`${
-              includesPath("/user/") || location.pathname == "/results"
+              includesPath("/user/")
                 ? "d-none"
                 : "d-none d-lg-block ps-2"
             }`}
