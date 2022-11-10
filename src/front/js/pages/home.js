@@ -99,7 +99,7 @@ export const Home = () => {
         </h1>
       </div>
       <div className="d-flex justify-content-evenly pt-4">
-        <div className="">
+        <div className="d-flex flex-column text-center justify-items-center">
           <label htmlFor="" className="form-label text-secondary">
             Medicamento
           </label>
@@ -118,7 +118,7 @@ export const Home = () => {
             aria-label="Search"
           />
         </div>
-        <div>
+        <div className="d-flex flex-column text-center justify-items-center">
           <label htmlFor="" className="form-label text-secondary">
             Ciudad
           </label>
@@ -180,11 +180,8 @@ export const Home = () => {
         </div>
         {busquedaAvanzada ? (
           <div className="overflow-y-axis d-flex py-5 justify-content-evenly bg-light rounded-form my-4">
-            <div className="">
-              <label
-                htmlFor=""
-                className="m-2 d-flex justify-items-center form-label text-secondary"
-              >
+            <div className="d-flex flex-column text-center justify-items-center">
+              <label htmlFor="" className="m-2 form-label text-secondary">
                 Presentación
               </label>
               <input
@@ -204,11 +201,8 @@ export const Home = () => {
                 aria-label="Search"
               />
             </div>
-            <div>
-              <label
-                htmlFor=""
-                className="m-2 d-flex justify-items-center form-label text-secondary"
-              >
+            <div className="d-flex flex-column text-center justify-items-center">
+              <label htmlFor="" className="m-2 form-label text-secondary">
                 Cantidad
               </label>
               <input
@@ -228,11 +222,8 @@ export const Home = () => {
                 aria-label="Search"
               />
             </div>
-            <div>
-              <label
-                htmlFor=""
-                className="m-2 d-flex justify-items-center form-label text-secondary"
-              >
+            <div className="d-flex flex-column text-center justify-items-center">
+              <label htmlFor="" className="m-2 form-label text-secondary">
                 Fecha de vencimiento
               </label>
               <input
