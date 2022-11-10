@@ -85,6 +85,7 @@ export const UserPost = () => {
               </label>
               <input
                 className="form-control form-input "
+                placeholder="dd/mm/aa"
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {

@@ -86,6 +86,7 @@ export const UserPostRequest = () => {
               <input
                 className="form-control form-input "
                 type="text"
+                placeholder="dd/mm/aa"
                 aria-label="readonly input example"
                 onChange={(event) => {
                   setExpiration_date(event.target.value);
