@@ -239,7 +239,7 @@ export const Home = () => {
               }
               className="form-control m-2"
               type="search"
-              placeholder="dd/mm/aa"
+              placeholder="dd/mm/aaaa"
               aria-label="Search"
             />
           </div>
