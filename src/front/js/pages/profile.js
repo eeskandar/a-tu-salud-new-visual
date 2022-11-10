@@ -38,7 +38,7 @@ export const Profile = () => {
                   <div className="fs-5 text-secondary text-center mt-4">
                     <i className="fa-solid fa-at"></i> Email
                   </div>
-                  <div className="fw-bold text-secondary text-center m_title">
+                  <div className="fw-bold text-secondary text-center">
                     {store.activeUser[0].email}
                   </div>
                 </div>

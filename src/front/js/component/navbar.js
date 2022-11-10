@@ -14,9 +14,14 @@ export const Navbar = () => {
   async function consultPosts() {
     if (name.trim() != "") {
       urlParams.set("name", name);
+      urlParams.set("typeof", "donation");
       console.log(urlParams.toString());
       let success = await actions.getPosts(urlParams);
       setName("");
+      if (success == false) {
+        swal("¡Ups!", "No encontramos coincidencias para tu busqueda");
+        navigate("/");
+      }
     } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
   }
 
@@ -31,7 +36,7 @@ export const Navbar = () => {
             className="navbar d-flex justify-content-end"
             id="navbarSupportedContent"
           >
-            <form className="d-flex pe-5 mt-2" role="search">
+            <div className="d-flex pe-5 mt-2">
               <Link
                 to="/results"
                 onClick={(e) => {
@@ -41,16 +46,22 @@ export const Navbar = () => {
                 <i className="fa-solid fa-magnifying-glass text-white fs-2 px-4"></i>
               </Link>
               <input
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") {
+                    consultPosts();
+                    navigate("/results");
+                  }
+                }}
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
-                className="form-control me-2 nav-input border-0 rounded-pill"
+                className="form-control me-2 border-0 rounded-pill"
                 placeholder="Buscar medicamento"
                 aria-label="Search"
                 // colocar el fetch con el value hacia el endpoint /api/solicitud y cambiar el link to /results
               />
-            </form>
+            </div>
             <ul className="navbar-nav pt-1">
               {localStorage.getItem("token") == null ? (
                 <div className="d-flex">

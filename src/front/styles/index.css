@@ -24,15 +24,15 @@
 }
 
 .form-title {
-  color: #52dee5;
+  color: #52b0e5;
 }
 
 .form-input {
-  background-color: #c8e5e7;
+  background-color: #52b0e55c;
 }
 
 .form-btn {
-  background-color: #52dee5;
+  background-color: #52b0e5;
 }
 
 .view-display {
@@ -51,7 +51,8 @@
 }
 
 .margin-home {
-  margin-left: 7.5rem;
+  margin-left: 10.75rem;
+  margin-right: 10.75rem;
 }
 
 .margin-a {
@@ -112,7 +113,7 @@
 }
 
 .img-container {
-  width: 200px;
+  width: 250px;
   height: 200px;
 }
 

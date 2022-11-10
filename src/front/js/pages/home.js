@@ -47,7 +47,7 @@ export const Home = () => {
       console.log(urlParams.toString());
       let success = await actions.getPosts(urlParams);
       if (success == false) {
-        swal("¡Ups!", "404");
+        swal("¡Ups!", "No encontramos coincidencias para tu busqueda");
         navigate("/");
       }
     } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
@@ -99,11 +99,17 @@ export const Home = () => {
         </h1>
       </div>
       <div className="d-flex justify-content-evenly pt-4">
-        <div className="">
+        <div className="d-flex flex-column text-center justify-items-center">
           <label htmlFor="" className="form-label text-secondary">
             Medicamento
           </label>
           <input
+            onKeyDown={(e) => {
+              if (e.key == "Enter") {
+                consultPosts();
+                navigate("/results");
+              }
+            }}
             defaultValue={name}
             onChange={(e) => setName(e.target.value.toLocaleLowerCase())}
             className="form-control me-2"
@@ -112,11 +118,17 @@ export const Home = () => {
             aria-label="Search"
           />
         </div>
-        <div>
+        <div className="d-flex flex-column text-center justify-items-center">
           <label htmlFor="" className="form-label text-secondary">
             Ciudad
           </label>
           <input
+            onKeyDown={(e) => {
+              if (e.key == "Enter") {
+                consultPosts();
+                navigate("/results");
+              }
+            }}
             defaultValue={city}
             onChange={(e) => setCity(e.target.value.toLocaleLowerCase())}
             className="form-control me-2"
@@ -154,7 +166,7 @@ export const Home = () => {
         </Link>
       </div>
       <div className="margin-home">
-        <div className="btn-group pt-0 pb-3 ms-5">
+        <div className="btn-group pt-0 pb-3">
           <button
             type="button"
             className="btn btn-secondary rounded-pill"
@@ -168,11 +180,17 @@ export const Home = () => {
         </div>
         {busquedaAvanzada ? (
           <div className="overflow-y-axis d-flex py-5 justify-content-evenly bg-light rounded-form my-4">
-            <div className="">
-              <label htmlFor="" className="form-label text-secondary">
+            <div className="d-flex flex-column text-center justify-items-center">
+              <label htmlFor="" className="m-2 form-label text-secondary">
                 Presentación
               </label>
               <input
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") {
+                    consultPosts();
+                    navigate("/results");
+                  }
+                }}
                 defaultValue={presentation}
                 onChange={(e) =>
                   setPresentation(e.target.value.toLocaleLowerCase())
@@ -183,11 +201,17 @@ export const Home = () => {
                 aria-label="Search"
               />
             </div>
-            <div>
-              <label htmlFor="" className="form-label text-secondary">
+            <div className="d-flex flex-column text-center justify-items-center">
+              <label htmlFor="" className="m-2 form-label text-secondary">
                 Cantidad
               </label>
               <input
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") {
+                    consultPosts();
+                    navigate("/results");
+                  }
+                }}
                 defaultValue={quantity}
                 onChange={(e) =>
                   setQuantity(e.target.value.toLocaleLowerCase())
@@ -198,18 +222,24 @@ export const Home = () => {
                 aria-label="Search"
               />
             </div>
-            <div>
-              <label htmlFor="" className="form-label text-secondary">
+            <div className="d-flex flex-column text-center justify-items-center">
+              <label htmlFor="" className="m-2 form-label text-secondary">
                 Fecha de vencimiento
               </label>
               <input
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") {
+                    consultPosts();
+                    navigate("/results");
+                  }
+                }}
                 defaultValue={expirationDate}
                 onChange={(e) =>
                   setExpirationDate(e.target.value.toLocaleLowerCase())
                 }
                 className="form-control m-2"
                 type="search"
-                placeholder=""
+                placeholder="dd/mm/aa"
                 aria-label="Search"
               />
             </div>

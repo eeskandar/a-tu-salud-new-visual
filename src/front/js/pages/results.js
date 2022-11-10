@@ -19,100 +19,12 @@ export const Results = () => {
 
   console.log(store.posts);
   return (
-    <div className="col-11 col-lg-11">
+    <div className="col-10">
       {/* side bar with filters */}
       <div className="row">
-        <div className="overflow-y-axis row-80 col-4 col-lg-2 side-profile d-flex flex-column justify-content-between">
-          <div>
-            <span>
-              Nombre
-              <select
-                className="form-select"
-                aria-label="Default select example"
-              >
-                <option value>Open this select menu</option>
-                <option defaultValue="1">One</option>
-                <option defaultValue="2">Two</option>
-                <option defaultValue="3">Three</option>
-              </select>
-            </span>
-            <span>
-              Tipo
-              <select
-                className="form-select"
-                aria-label="Default select example"
-              >
-                <option value>Open this select menu</option>
-                <option defaultValue="1">One</option>
-                <option defaultValue="2">Two</option>
-                <option defaultValue="3">Three</option>
-              </select>
-            </span>
-            <span>
-              Presentación
-              <select
-                className="form-select"
-                aria-label="Default select example"
-              >
-                <option value>Open this select menu</option>
-                <option defaultValue="1">One</option>
-                <option defaultValue="2">Two</option>
-                <option defaultValue="3">Three</option>
-              </select>
-            </span>
-            <span>
-              Componente Activo
-              <select
-                className="form-select"
-                aria-label="Default select example"
-              >
-                <option value>Open this select menu</option>
-                <option defaultValue="1">One</option>
-                <option defaultValue="2">Two</option>
-                <option defaultValue="3">Three</option>
-              </select>
-            </span>
-            <span>
-              Dosis
-              <select
-                className="form-select"
-                aria-label="Default select example"
-              >
-                <option value>Open this select menu</option>
-                <option defaultValue="1">One</option>
-                <option defaultValue="2">Two</option>
-                <option defaultValue="3">Three</option>
-              </select>
-            </span>
-            <span>
-              Cantidad
-              <select
-                className="form-select"
-                aria-label="Default select example"
-              >
-                <option value>Open this select menu</option>
-                <option defaultValue="1">One</option>
-                <option defaultValue="2">Two</option>
-                <option defaultValue="3">Three</option>
-              </select>
-            </span>
-            <span>
-              Fecha de Vencimiento
-              <select
-                className="form-select"
-                aria-label="Default select example"
-              >
-                <option value>Open this select menu</option>
-                <option defaultValue="1">One</option>
-                <option defaultValue="2">Two</option>
-                <option defaultValue="3">Three</option>
-              </select>
-            </span>
-          </div>
-          <div className="py-4"></div>
-        </div>
+        <div className="col-2"></div>
         {/* results */}
-        <div className="overflow-y-axis row-80 col-8 col-lg-10 px-0">
+        <div className="overflow-y-axis row-80 col-8 col-lg-12 px-0">
           <div>
             {store.posts ? (
               store.posts.map((posts) => {

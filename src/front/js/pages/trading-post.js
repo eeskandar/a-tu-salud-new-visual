@@ -116,6 +116,7 @@ export const TradingPost = () => {
                   <input
                     type="string"
                     className="form-control form-input border-0"
+                    placeholder="dd/mm/aa"
                     onChange={(event) => {
                       setExpDateA(event.target.value);
                     }}
@@ -211,6 +212,7 @@ export const TradingPost = () => {
                   <input
                     type="string"
                     className="form-control form-input border-0"
+                    placeholder="dd/mm/aa"
                     onChange={(event) => {
                       setExpDateB(event.target.value);
                     }}

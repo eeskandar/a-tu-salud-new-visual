@@ -295,3 +295,21 @@ def get_trades_filter():
         return jsonify({
             "msg":"no posts found"
         }), 404
+@api.route('/delete-posts<int:postid>', methods=['DELETE'])
+def delete_posts(postid):
+    try:
+        result = Post.query.filter_by(Post.id == postid).one_or_none()
+        if result != None:
+            db.session.delete(result)
+            db.session.commit()
+            return jsonify({
+                "msg":"Post deleted succesfully"
+            }), 200
+        else:
+            return jsonify({
+                "msg":"something unexpected happened"
+            }),400
+        
+    except Exception as error:
+        db.session.rollback()
+    

@@ -68,7 +68,7 @@ export const App = () => {
             <Route element={<UserTrades />} path="/user/:userid/trades" />
             <Route element={<Results />} path="/results" />
             <Route element={<MoreInfoTrade />} path="/more-info-trade/:id" />
-            <Route element={<MoreInfoTrade />} path="/more-info/:id" />
+            <Route element={<MoreInfo />} path="/more-info/:id" />
             <Route element={<AboutUs />} path="/about-us" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>

@@ -6,7 +6,7 @@ export const Posts = (props) => {
   return (
     <div className="d-flex justify-content-center">
       <div className="container-request d-flex justify-content-between m-2">
-        <div className="m-auto w-25 p-2 img-container">
+        <div className="m-auto p-2 img-container">
           {props.image != null ? (
             <img
               className="p-2 card-pic"

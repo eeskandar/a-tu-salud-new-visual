@@ -101,9 +101,9 @@ export const MoreInfoTrade = () => {
                 </div>
                 <div className="p-2">
                   <h6 className="mt-2 text-secondary mb-0">Nombre</h6>
-                  <p className="text-secondary">{post.list.user_info.name}</p>
+                  <p className="text-secondary m_title">{post.list.user_info.name}</p>
                   <h6 className="text-secondary mb-0">Ciudad</h6>
-                  <p className="text-secondary">{post.list.user_info.city}</p>
+                  <p className="text-secondary m_title">{post.list.user_info.city}</p>
                   <div className="dropdown d-flex justify-content-center">
                     <button
                       className="btn btn-secondary dropdown-toggle"
