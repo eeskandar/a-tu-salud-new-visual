@@ -29,7 +29,7 @@ export const Register = () => {
               type="string"
               className="form-control form-input border-0 mb-3"
               onChange={(event) => {
-                setName(event.target.value);
+                setName(event.target.value.toLocaleLowerCase());
               }}
               value={name}
               id="name"
@@ -42,7 +42,7 @@ export const Register = () => {
               type="string"
               className="form-control form-input border-0 mb-3"
               onChange={(event) => {
-                setLastName(event.target.value);
+                setLastName(event.target.value.toLocaleLowerCase());
               }}
               value={lastName}
               id="last-name"
@@ -55,7 +55,7 @@ export const Register = () => {
               type="string"
               className="form-control form-input col-5 border-0 mb-3"
               onChange={(event) => {
-                setPhone(event.target.value);
+                setPhone(event.target.value.toLocaleLowerCase());
               }}
               value={phone}
               id="phone"
@@ -67,10 +67,10 @@ export const Register = () => {
             <input
               type="string"
               className="form-control form-input col-5 border-0 mb-3"
-              onChange={(event) => {
-                setCity(event.target.value);
-              }}
               value={city}
+              onChange={(event) => {
+                setCity(event.target.value.toLocaleLowerCase());
+              }}
               id="city"
               aria-describedby="city"
             />
@@ -81,10 +81,10 @@ export const Register = () => {
               type="email"
               className="form-control form-input border-0"
               onChange={(event) => {
-                setEmail(event.target.value);
+                setEmail(event.target.value.toLocaleLowerCase());
               }}
               value={email}
-              id="exampleInputEmail1"
+              id="exampvalueleInputEmail1"
               aria-describedby="emailHelp"
             />
             <div id="emailHelp" className="form-text mb-3">

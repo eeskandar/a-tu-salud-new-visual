@@ -76,10 +76,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             return true;
           } catch (error) {}
         } else {
-          console.log("in flux trying to consult exchange");
           try {
             const res = await fetch(
-              process.env.BACKEND_URL + "/api/trades-filter?" + urlParams,
+              process.env.BACKEND_URL + "/api/posts?" + urlParams,
               {
                 method: "GET",
                 headers: {
@@ -87,7 +86,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 },
               }
             );
-            console.log("after fetch");
             if (!res.ok) {
               return false;
             }
@@ -100,6 +98,30 @@ const getState = ({ getStore, getActions, setStore }) => {
             return true;
           } catch (error) {}
         }
+      },
+      getPostsTrade: async (urlParams) => {
+        try {
+          const res = await fetch(
+            process.env.BACKEND_URL + "/api/trades-filter?" + urlParams,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          console.log("after fetch");
+          if (!res.ok) {
+            return false;
+          }
+          const body = await res.json();
+          console.log(body);
+          setStore({
+            posts: body.list,
+          });
+          console.log(getStore().posts);
+          return true;
+        } catch (error) {}
       },
       ///////////////////////////////// register below
       register: async (name, lastName, city, phone, email, password, image) => {
