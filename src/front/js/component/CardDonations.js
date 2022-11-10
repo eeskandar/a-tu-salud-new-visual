@@ -40,7 +40,7 @@ export const CardDonations = (props) => {
             <p className="text-secondary my-2 m_phara">{props.description}</p>
           </div>
         </div>
-        <div className="m-auto p-2">
+        <div className="m-auto p-2 invisible">
           <button type="button" className="btn btn-info text-white fw-bold m-1">
             Realizada
           </button>

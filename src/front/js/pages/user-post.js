@@ -85,6 +85,7 @@ export const UserPost = () => {
               </label>
               <input
                 className="form-control form-input "
+                placeholder="dd/mm/aa"
                 type="text"
                 aria-label="readonly input example"
                 onChange={(event) => {
@@ -136,9 +137,7 @@ export const UserPost = () => {
                 expiration_date.trim() == "" ||
                 quantity.trim() == ""
               ) {
-                alert(
-                  "Debes llenar todos los campos para poder publicar tu solicitud"
-                );
+                swal("Debes llenar todos los campos para poder publicar tu solicitud.");
               } else {
                 console.log(store.image);
                 let success = await post(

@@ -86,6 +86,7 @@ export const UserPostRequest = () => {
               <input
                 className="form-control form-input "
                 type="text"
+                placeholder="dd/mm/aa"
                 aria-label="readonly input example"
                 onChange={(event) => {
                   setExpiration_date(event.target.value);
@@ -136,9 +137,7 @@ export const UserPostRequest = () => {
                 expiration_date.trim() == "" ||
                 quantity.trim() == ""
               ) {
-                alert(
-                  "Debes llenar todos los campos para poder publicar tu solicitud"
-                );
+                swal("Debes llenar todos los campos para poder publicar tu solicitud.");
               } else {
                 console.log(store.image);
                 let success = await request(
@@ -152,7 +151,7 @@ export const UserPostRequest = () => {
                   expiration_date.toLowerCase()
                 );
                 if (success) {
-                  swal("¡Listo!", "¡Donación creada con éxito!", "success");
+                  swal("¡Listo!", "¡Solicitud creada con éxito!", "success");
                   console.log(store.image);
                   return navigate(`/user/${store.activeUser[0].id}/request`);
                 }

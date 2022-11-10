@@ -223,7 +223,7 @@ export const Home = () => {
             />
           </div>
           <div className="d-flex flex-column text-center justify-items-center">
-            <label htmlFor="" className="m-2 mt-0 form-label text-secondary">
+            <label htmlFor="" className="m-2 form-label text-secondary">
               Fecha de vencimiento
             </label>
             <input
@@ -239,7 +239,7 @@ export const Home = () => {
               }
               className="form-control m-2"
               type="search"
-              placeholder=""
+              placeholder="dd/mm/aa"
               aria-label="Search"
             />
           </div>

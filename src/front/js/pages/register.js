@@ -11,6 +11,7 @@ export const Register = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [veriPassword, setVeriPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
   const [acepted, setAcepted] = useState(false);
@@ -105,6 +106,20 @@ export const Register = () => {
               id="exampleInputPassword1"
             />
           </div>
+          <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">
+              Verifica tu Contraseña
+            </label>
+            <input
+              type="password"
+              className="form-control form-input border-0"
+              onChange={(event) => {
+                setVeriPassword(event.target.value);
+              }}
+              value={veriPassword}
+              id="exampleInputPassword1"
+            />
+          </div>
           <div className="justify-content-center d-flex">
             <UploadImage name="Sube tu foto de perfil" />
           </div>
@@ -139,6 +154,12 @@ export const Register = () => {
                   swal("¡Ups!", "Debes colocar un Email");
                 } else if (password.trim() == "") {
                   swal("¡Ups!", "Debes colocar tu contraseña");
+                } else if (veriPassword.trim() == "") {
+                  swal("¡Ups!", "Debes verificar tu contraseña");
+                } else if (password != veriPassword) {
+                  swal("¡Ups!", "Ingresa de nuevo tu contraseña");
+                  setPassword("");
+                  setVeriPassword("");
                 } else if (acepted == false) {
                   swal("¡Ups!", "Debes aceptar los Terminos y Condiciones");
                 } else {
@@ -157,7 +178,7 @@ export const Register = () => {
                   }
                   swal(
                     "¡Parece haber un error con tus datos!",
-                    "Por favor, intenta de nuevo",
+                    "Por favor, intenta con otro correo electrónico",
                     "error"
                   );
                 }
