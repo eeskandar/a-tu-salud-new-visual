@@ -29,7 +29,7 @@ export const Register = () => {
               type="string"
               className="form-control form-input border-0 mb-3"
               onChange={(event) => {
-                setName(event.target.value.toLocaleLowerCase());
+                setName(event.target.value);
               }}
               value={name}
               id="name"
@@ -42,7 +42,7 @@ export const Register = () => {
               type="string"
               className="form-control form-input border-0 mb-3"
               onChange={(event) => {
-                setLastName(event.target.value.toLocaleLowerCase());
+                setLastName(event.target.value);
               }}
               value={lastName}
               id="last-name"
@@ -55,7 +55,7 @@ export const Register = () => {
               type="string"
               className="form-control form-input col-5 border-0 mb-3"
               onChange={(event) => {
-                setPhone(event.target.value.toLocaleLowerCase());
+                setPhone(event.target.value);
               }}
               value={phone}
               id="phone"
@@ -69,7 +69,7 @@ export const Register = () => {
               className="form-control form-input col-5 border-0 mb-3"
               value={city}
               onChange={(event) => {
-                setCity(event.target.value.toLocaleLowerCase());
+                setCity(event.target.value);
               }}
               id="city"
               aria-describedby="city"
@@ -81,7 +81,7 @@ export const Register = () => {
               type="email"
               className="form-control form-input border-0"
               onChange={(event) => {
-                setEmail(event.target.value.toLocaleLowerCase());
+                setEmail(event.target.value);
               }}
               value={email}
               id="exampvalueleInputEmail1"
@@ -143,12 +143,12 @@ export const Register = () => {
                   swal("¡Ups!", "Debes aceptar los Terminos y Condiciones");
                 } else {
                   let success = await register(
-                    name,
-                    lastName,
-                    city,
-                    phone,
-                    email,
-                    password,
+                    name.toLowerCase(),
+                    lastName.toLowerCase(),
+                    city.toLowerCase(),
+                    phone.toLowerCase(),
+                    email.toLowerCase(),
+                    password.toLowerCase(),
                     store.image
                   );
                   if (success == true) {
