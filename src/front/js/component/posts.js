@@ -37,7 +37,16 @@ export const Posts = (props) => {
         <div className="m-auto p-2">
           <Link
             className="btn btn-info text-white fw-bold m-1"
-            to={"/more-info/" + props.id}
+            to={
+              localStorage.getItem("token") == null
+                ? ""
+                : "/more-info/" + props.id
+            }
+            onClick={(e) => {
+              if (localStorage.getItem("token") == null) {
+                swal("¡Debes iniciar sesión para poder ver más información!");
+              }
+            }}
           >
             Más información
           </Link>
