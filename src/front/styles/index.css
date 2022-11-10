@@ -151,3 +151,15 @@
 .dark-bg {
   background-color: #e8eaec;
 }
+
+.banner {
+  border-radius: 30px;
+}
+
+.text-limit {
+  display: block;
+  width: 25vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

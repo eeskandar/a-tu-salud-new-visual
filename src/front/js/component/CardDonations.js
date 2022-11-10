@@ -37,7 +37,9 @@ export const CardDonations = (props) => {
             </div>
           </div>
           <div className="m-1">
-            <p className="text-secondary my-2 m_phara">{props.description}</p>
+            <p className="text-secondary my-2 m_phara text-limit">
+              {props.description}
+            </p>
           </div>
         </div>
         <div className="m-auto p-2 invisible">
