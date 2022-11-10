@@ -31,7 +31,7 @@ export const Navbar = () => {
             className="navbar d-flex justify-content-end"
             id="navbarSupportedContent"
           >
-            <form className="d-flex pe-5 mt-2" role="search">
+            <div className="d-flex pe-5 mt-2">
               <Link
                 to="/results"
                 onClick={(e) => {
@@ -41,6 +41,12 @@ export const Navbar = () => {
                 <i className="fa-solid fa-magnifying-glass text-white fs-2 px-4"></i>
               </Link>
               <input
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") {
+                    consultPosts();
+                    navigate("/results");
+                  }
+                }}
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value);
@@ -50,7 +56,7 @@ export const Navbar = () => {
                 aria-label="Search"
                 // colocar el fetch con el value hacia el endpoint /api/solicitud y cambiar el link to /results
               />
-            </form>
+            </div>
             <ul className="navbar-nav pt-1">
               {localStorage.getItem("token") == null ? (
                 <div className="d-flex">
