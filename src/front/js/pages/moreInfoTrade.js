@@ -34,7 +34,7 @@ export const MoreInfoTrade = () => {
           <div className=" d-flex justify-content-around py-3">
             {/* POST */}
             <div>
-              <h3 className="text-secondary text-center">Poseo</h3>
+              <h3 className="text-secondary text-center">Posee</h3>
               <div className="">
                 <div className="m-auto pt-4 d-flex img-container">
                   {post.list.medicine_picture != null ? (

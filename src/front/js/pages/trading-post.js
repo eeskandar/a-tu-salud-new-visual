@@ -30,7 +30,7 @@ export const TradingPost = () => {
       </div>
       <div className="col-9 row-80 overflow-y-axis">
         <div className="mt-5">
-          <h1 className="ms-2 ps-5 pb-5 form-title">
+          <h1 className="pb-5 form-title text-center">
             Intercambio de medicamentos
           </h1>
           <form className="m-auto" onSubmit={(e) => e.preventDefault()}>

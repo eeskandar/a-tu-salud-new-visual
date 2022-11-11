@@ -21,7 +21,7 @@ export const UserPostRequest = () => {
         <SideProfile />
       </div>
       <div className="col-9 row-80 overflow-y-axis">
-        <h1 className="ms-2 ps-5 pb-5 form-title mt-5">Nueva solicitud</h1>
+        <h1 className="pb-5 form-title mt-5 text-center">Nueva solicitud</h1>
         <div className="d-flex px-5">
           <div className="w-50">
             <div className="pb-2 mx-5 my-2 text-center">
@@ -137,7 +137,9 @@ export const UserPostRequest = () => {
                 expiration_date.trim() == "" ||
                 quantity.trim() == ""
               ) {
-                swal("Debes llenar todos los campos para poder publicar tu solicitud.");
+                swal(
+                  "Debes llenar todos los campos para poder publicar tu solicitud."
+                );
               } else {
                 console.log(store.image);
                 let success = await request(
