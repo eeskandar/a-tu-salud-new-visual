@@ -94,7 +94,7 @@ export const Register = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="exampleInputPassword1" className="form-label">
-              Contraseña
+              <i className="fa-solid fa-key"></i> Contraseña
             </label>
             <input
               type="password"
