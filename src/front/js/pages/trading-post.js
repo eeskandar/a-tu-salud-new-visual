@@ -116,7 +116,7 @@ export const TradingPost = () => {
                   <input
                     type="string"
                     className="form-control form-input border-0"
-                    placeholder="dd/mm/aa"
+                    placeholder="dd/mm/aaaa"
                     onChange={(event) => {
                       setExpDateA(event.target.value);
                     }}
@@ -124,7 +124,7 @@ export const TradingPost = () => {
                     id="expAinput"
                   />
                 </div>
-                <div>
+                <div className="mt-2 d-flex justify-content-center">
                   <UploadImage name="Sube la foto del medicamento a intercambiar" />
                 </div>
               </div>
@@ -212,7 +212,7 @@ export const TradingPost = () => {
                   <input
                     type="string"
                     className="form-control form-input border-0"
-                    placeholder="dd/mm/aa"
+                    placeholder="dd/mm/aaaa"
                     onChange={(event) => {
                       setExpDateB(event.target.value);
                     }}
@@ -220,9 +220,9 @@ export const TradingPost = () => {
                     id="expBinput"
                   />
                 </div>
-                <dv>
+                <div className="mt-2 d-flex justify-content-center">
                   <Upload2ndImage name="Sube la foto del medicamento que buscas" />
-                </dv>
+                </div>
               </div>
             </div>
           </form>

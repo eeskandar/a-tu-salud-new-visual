@@ -84,7 +84,7 @@ export const Home = () => {
           urlParams.set("presentation", presentation);
         }
         console.log(urlParams.toString());
-        await actions.getPostsTrade(urlParams);
+        let success = await actions.getPostsTrade(urlParams);
         if (success) {
           navigate("/results");
         }
@@ -111,7 +111,7 @@ export const Home = () => {
           <input
             onKeyDown={(e) => {
               if (e.key == "Enter") {
-                consultPosts();
+                handleSubmit();
               }
             }}
             defaultValue={name}
@@ -129,7 +129,7 @@ export const Home = () => {
           <input
             onKeyDown={(e) => {
               if (e.key == "Enter") {
-                consultPosts();
+                handleSubmit();
               }
             }}
             defaultValue={city}
@@ -191,7 +191,7 @@ export const Home = () => {
             <input
               onKeyDown={(e) => {
                 if (e.key == "Enter") {
-                  consultPosts();
+                  handleSubmit();
                 }
               }}
               defaultValue={presentation}
@@ -211,7 +211,7 @@ export const Home = () => {
             <input
               onKeyDown={(e) => {
                 if (e.key == "Enter") {
-                  consultPosts();
+                  handleSubmit();
                 }
               }}
               defaultValue={quantity}
@@ -229,7 +229,7 @@ export const Home = () => {
             <input
               onKeyDown={(e) => {
                 if (e.key == "Enter") {
-                  consultPosts();
+                  handleSubmit();
                 }
               }}
               defaultValue={expirationDate}

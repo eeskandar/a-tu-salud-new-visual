@@ -28,7 +28,7 @@ export const CardRequest = (props) => {
             </div>
           </div>
         </div>
-        <div className="m-auto w-25 p-2">
+        <div className="m-auto w-25 p-2 invisible">
           <button
             type="button"
             className="btn btn-secondary text-white fw-bold "
