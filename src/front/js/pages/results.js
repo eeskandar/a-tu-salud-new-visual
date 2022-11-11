@@ -25,6 +25,9 @@ export const Results = () => {
         <div className="col-2"></div>
         {/* results */}
         <div className="overflow-y-axis row-80 col-8 col-lg-12 px-0">
+          <div className="d-flex justify-content-center text-secondary mt-2">
+            <h1>Resultados de busqueda</h1>
+          </div>
           <div>
             {store.posts ? (
               store.posts.map((posts) => {
@@ -47,6 +50,35 @@ export const Results = () => {
               <Loading />
             )}
           </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center mt-2">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">
+                  Anterior
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  1
+                </a>
+              </li>
+              {/* <li class="page-item">
+                <a class="page-link" href="#">
+                  2
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">
+                  3
+                </a>
+              </li> */}
+              <li class="page-item disabled">
+                <a class="page-link" href="#">
+                  Siguiente
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
