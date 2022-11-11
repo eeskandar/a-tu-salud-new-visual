@@ -18,9 +18,11 @@ export const Navbar = () => {
       console.log(urlParams.toString());
       let success = await actions.getPosts(urlParams);
       setName("");
+
       if (success == false) {
         swal("¡Ups!", "No encontramos coincidencias para tu busqueda");
-        navigate("/");
+      } else if (success) {
+        navigate("/results");
       }
     } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
   }
@@ -37,19 +39,17 @@ export const Navbar = () => {
             id="navbarSupportedContent"
           >
             <div className="d-flex pe-5 mt-2">
-              <Link
-                to="/results"
+              <div
                 onClick={(e) => {
                   consultPosts();
                 }}
               >
                 <i className="fa-solid fa-magnifying-glass text-white fs-2 px-4"></i>
-              </Link>
+              </div>
               <input
                 onKeyDown={(e) => {
                   if (e.key == "Enter") {
                     consultPosts();
-                    navigate("/results");
                   }
                 }}
                 value={name}
