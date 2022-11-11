@@ -71,12 +71,14 @@ export const Navbar = () => {
                       className="nav-link text-white"
                       aria-current="page"
                     >
-                      Registrarse
+                      <i className="fa-solid fa-address-card"></i>
+                      <span className="ms-2">Registrarse</span>
                     </Link>
                   </li>
                   <li className="nav-item px-4">
                     <Link to="/login" className="nav-link text-white">
-                      Iniciar Sesión
+                      <i className="fa-solid fa-right-to-bracket"></i>
+                      <span className="ms-2">Iniciar Sesión</span>
                     </Link>
                   </li>
                 </div>
@@ -101,7 +103,8 @@ export const Navbar = () => {
                         navigate("/");
                       }}
                     >
-                      Cerrar sesión
+                      <i className="fa-solid fa-right-from-bracket"></i>
+                      <span className="ms-2">Cerrar sesión</span>
                     </Link>
                   </li>
                 </div>

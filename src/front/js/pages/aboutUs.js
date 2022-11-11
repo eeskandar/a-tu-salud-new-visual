@@ -4,6 +4,7 @@ import html5 from "../../img/html5.png";
 import postgre from "../../img/postgre.png";
 import fotoManuel from "../../img/fotoManuel.jpg";
 import fotoLuis from "../../img/fotoLuis.png";
+import fotoAlejo from "../../img/fotoAlejo.jpeg";
 
 export const AboutUs = () => {
   return (
@@ -68,24 +69,19 @@ export const AboutUs = () => {
             <div className="">
               <img
                 className="card-pic"
-                src={postgre}
+                src={fotoAlejo}
                 style={{ width: 209, height: 209 }}
               />
             </div>
             <div className="text-secondary ms-3">
               <h3>Alejandro Escalante</h3>
-              <p className="primeralinea">
+              <p>
                 <dd>
-                  Actualmente encargado del departamento de Atención al Cliente
-                  en una empresa de telecomunicaciones. Me gusta entender la
-                  lógica detras de las cosas y aprender de ellas. <br></br>
-                </dd>
-                <dd>
-                  Empecé este curso con la meta de seguir creciendo
-                  profesionalmente y entender aunque sea una pequeña parte del
-                  gran mundo de la programación. Solo me queda agradecer a mis
-                  profesores por la paciencia sabiendo que este no es el fin del
-                  viaje, sino el inicio de toda una aventura.
+                  Customer Services- Empecé este curso con la meta de seguir
+                  creciendo profesionalmente y entender aunque sea una pequeña
+                  parte del gran mundo de la programación. Solo me queda
+                  agradecer a mis profesores por la paciencia sabiendo que este
+                  no es el fin del viaje, sino el inicio de toda una aventura.
                 </dd>
               </p>
             </div>
