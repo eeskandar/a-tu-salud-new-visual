@@ -5,6 +5,14 @@ import postgre from "../../img/postgre.png";
 import fotoManuel from "../../img/fotoManuel.jpg";
 import fotoLuis from "../../img/fotoLuis.png";
 import fotoAlejo from "../../img/fotoAlejo.jpeg";
+import css from "../../img/css.png";
+import bootstrap from "../../img/bootstrap.png";
+import javascript from "../../img/javascript.png";
+import flaskImg from "../../img/flaskImg.png";
+import reactRouter from "../../img/reactRouter.png";
+import reactImg from "../../img/reactImg.png";
+import sweetalert2Img from "../../img/sweetalert2Img.png";
+import flasksqlalchemyImg from "../../img/flasksqlalchemyImg.png";
 
 export const AboutUs = () => {
   return (
@@ -37,14 +45,24 @@ export const AboutUs = () => {
         <h2 className="ms-2 mt-5 ps-5 pb-5 text-secondary text-center">
           Sobre las tecnologías Front-end
         </h2>
-        <img src={html5} style={{ width: 209, height: 209 }} />
+        <div className="d-flex justify-content-center">
+          <img className="ms-2" src={html5} style={{ height: 209 }} />
+          <img className="ms-2" src={bootstrap} style={{ height: 209 }} />
+          <img className="ms-2" src={css} style={{ height: 209 }} />
+          <img className="ms-2" src={javascript} style={{ height: 209 }} />
+          <img className="ms-2" src={reactImg} style={{ height: 209 }} />
+          <img className="ms-2" src={reactRouter} style={{ height: 209 }} />
+        </div>
       </div>
       <div>
         <h2 className="ms-2 mt-5 ps-5 pb-5 text-secondary text-center">
           Sobre las tecnologías aplicadas Back-end
         </h2>
-        <img src={python3} style={{ width: 209, height: 209 }} />
-        <img src={postgre} style={{ width: 209, height: 209 }} />
+        <div className="d-flex justify-content-center">
+          <img className="ms-2" src={python3} style={{ height: 209 }} />
+          <img className="ms-2" src={postgre} style={{ height: 209 }} />
+          <img className="ms-2" src={flaskImg} style={{ height: 209 }} />
+        </div>
       </div>
       <h2 className="ms-2 mt-5 ps-5 pb-5 text-secondary text-center">
         Sobre nuestro equipo
@@ -65,7 +83,7 @@ export const AboutUs = () => {
               </p>
             </div>
           </div>
-          <div className="ms-5 mt-4 d-flex">
+          <div className="ms-5 my-4 d-flex">
             <div className="">
               <img
                 className="card-pic"
@@ -86,7 +104,7 @@ export const AboutUs = () => {
               </p>
             </div>
           </div>
-          <div className="ms-5 my-4 d-flex">
+          <div className="ms-5 mb-4 d-flex">
             <div className="">
               <img
                 className="card-pic"
@@ -94,12 +112,14 @@ export const AboutUs = () => {
                 style={{ width: 209, height: 209 }}
               />
             </div>
-            <div className="text-secondary m-3">
+            <div className="text-secondary ms-3">
               <h3>Luis Rosal</h3>
               <p>
                 Freelancer - Desde pequeño siempre estuve atraído a la
                 tecnología, me encanta esta area ya que puedo alimentar mi
-                curiosidad y mis ganas de aprender.
+                curiosidad y mis ganas de aprender. En este curso he aprendido
+                que se aprende mucho más de los errores que de las victorias, y
+                a no darme por vencido a la primera.
               </p>
             </div>
           </div>
