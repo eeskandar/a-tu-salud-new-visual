@@ -34,11 +34,16 @@ export const AboutUs = () => {
       </p>
       <div>
         <h2 className="ms-2 mt-5 ps-5 pb-5 text-secondary text-center">
-          Sobre las tecnologías aplicadas
+          Sobre las tecnologías Front-end
         </h2>
-        <img src={html5} />
-        <img src={python3} />
-        <img src={postgre} />
+        <img src={html5} style={{ width: 209, height: 209 }} />
+      </div>
+      <div>
+        <h2 className="ms-2 mt-5 ps-5 pb-5 text-secondary text-center">
+          Sobre las tecnologías aplicadas Back-end
+        </h2>
+        <img src={python3} style={{ width: 209, height: 209 }} />
+        <img src={postgre} style={{ width: 209, height: 209 }} />
       </div>
       <h2 className="ms-2 mt-5 ps-5 pb-5 text-secondary text-center">
         Sobre nuestro equipo

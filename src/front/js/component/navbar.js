@@ -13,7 +13,7 @@ export const Navbar = () => {
 
   async function consultPosts() {
     if (name.trim() != "") {
-      urlParams.set("name", name);
+      urlParams.set("name", name.toLocaleLowerCase());
       urlParams.set("typeof", "donation");
       console.log(urlParams.toString());
       let success = await actions.getPosts(urlParams);
