@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../img/atusalud logo2.png";
 import swal from "sweetalert";
 import Banner from "../../img/banner-1.png";
 import "../../styles/home.css";
@@ -46,9 +45,12 @@ export const Home = () => {
       }
       console.log(urlParams.toString());
       let success = await actions.getPosts(urlParams);
+
       if (success == false) {
         swal("¡Ups!", "No encontramos coincidencias para tu busqueda");
         navigate("/");
+      } else if (success) {
+        navigate("/results");
       }
     } else swal("¡Ups!", "Ingresa un medicamento para hacer la busqueda.");
   }
@@ -83,6 +85,9 @@ export const Home = () => {
         }
         console.log(urlParams.toString());
         await actions.getPostsTrade(urlParams);
+        if (success) {
+          navigate("/results");
+        }
       }
     }
   }
@@ -107,7 +112,6 @@ export const Home = () => {
             onKeyDown={(e) => {
               if (e.key == "Enter") {
                 consultPosts();
-                navigate("/results");
               }
             }}
             defaultValue={name}
@@ -126,7 +130,6 @@ export const Home = () => {
             onKeyDown={(e) => {
               if (e.key == "Enter") {
                 consultPosts();
-                navigate("/results");
               }
             }}
             defaultValue={city}
@@ -155,20 +158,19 @@ export const Home = () => {
             <option value="exchange">Intercambio</option>
           </select>
         </div>
-        <Link
-          className="btn form-btn text-center text-white btn-lg rounded-pill mb-5 mt-4 px-5"
+        <button
+          className="btn form-btn text-center text-white btn-lg banner mb-5 mt-4 px-5"
           onClick={(e) => {
             handleSubmit();
           }}
-          to="/results"
         >
           Buscar
-        </Link>
+        </button>
       </div>
       <div className="btn-group pt-0 pb-3 margin-home">
         <button
           type="button"
-          className="btn btn-secondary rounded-pill"
+          className="btn btn-secondary banner"
           data-bs-toggle=""
           aria-expanded=""
           onClick={(e) => busquedaFiltro()}
@@ -181,7 +183,7 @@ export const Home = () => {
           busquedaAvanzada === true ? "cool-class" : ""
         }`}
       >
-        <div className=" overflow-y-axis d-flex py-5 justify-content-evenly dark-bg rounded-form my-4">
+        <div className=" overflow-y-axis d-flex py-5 justify-content-evenly dark-bg banner my-4">
           <div className="d-flex flex-column text-center justify-items-center">
             <label htmlFor="" className="m-2 mt-0 form-label text-secondary">
               Presentación
@@ -190,7 +192,6 @@ export const Home = () => {
               onKeyDown={(e) => {
                 if (e.key == "Enter") {
                   consultPosts();
-                  navigate("/results");
                 }
               }}
               defaultValue={presentation}
@@ -211,7 +212,6 @@ export const Home = () => {
               onKeyDown={(e) => {
                 if (e.key == "Enter") {
                   consultPosts();
-                  navigate("/results");
                 }
               }}
               defaultValue={quantity}
@@ -230,7 +230,6 @@ export const Home = () => {
               onKeyDown={(e) => {
                 if (e.key == "Enter") {
                   consultPosts();
-                  navigate("/results");
                 }
               }}
               defaultValue={expirationDate}
