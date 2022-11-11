@@ -27,7 +27,7 @@ export const Upload2ndImage = (props) => {
       className="btn form-btn text-white"
       onClick={() => widgetRef.current.open()}
     >
-      <i class="fa-solid fa-camera"></i> {props.name}
+      <i className="fa-solid fa-camera"></i> {props.name}
     </button>
   );
 };
