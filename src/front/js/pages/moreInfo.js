@@ -104,7 +104,7 @@ export const MoreInfo = () => {
                   )}
                 </div>
                 <div className="p-2">
-                  <h6 className="mt-2 text-secondary mb-0">Nombre</h6>
+                  <h6 className="mt-2 text-secondary mb-0"><i class="fa-solid fa-user"></i> Nombre</h6>
                   <p className="text-secondary m_title">{post.list.user_info.name}</p>
                   <h6 className="text-secondary mb-0">
                     <i className="fa-solid fa-location-dot"></i> Ciudad
@@ -136,9 +136,9 @@ export const MoreInfo = () => {
           </div>
           {/* VIEW DE LA DESCRIPCION */}
           <div className="loading-bg rounded mx-5 mt-5 p-3">
-            <h6 className="mt-2 text-secondary text-center mb-3">
+            <h4 className="mt-2 text-secondary text-center mb-3">
               Descripción
-            </h6>
+            </h4>
             <div className="text-center text-secondary">
               {post.list.description}
             </div>

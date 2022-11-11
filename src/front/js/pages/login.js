@@ -17,7 +17,7 @@ export const Login = () => {
         <form className="col-11 m-auto" onSubmit={(e) => e.preventDefault()}>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
-              Correo electrónico
+            <i class="fa-regular fa-at"></i> Correo electrónico
             </label>
             <input
               type="email"
@@ -35,7 +35,7 @@ export const Login = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="exampleInputPassword1" className="form-label">
-              Contraseña
+            <i class="fa-solid fa-key"></i> Contraseña
             </label>
             <input
               type="password"
