@@ -3,6 +3,7 @@ import python3 from "../../img/python.png";
 import html5 from "../../img/html5.png";
 import postgre from "../../img/postgre.png";
 import fotoManuel from "../../img/fotoManuel.jpg";
+import fotoLuis from "../../img/fotoLuis.png";
 
 export const AboutUs = () => {
   return (
@@ -45,19 +46,26 @@ export const AboutUs = () => {
       <div className="row justify-content-center m-auto">
         <div className="col-8">
           <div className="ms-5 mt-4 d-flex">
-            <div className="img-container">
+            <div className="">
               <img className="card-pic" src={fotoManuel} />
             </div>
             <div className="text-secondary ms-3">
               <h3>Manuel Acosta</h3>
               <p>
-                Cocinero - Siempre me había llamado la atención este mundo de la programación pero no había tenido la oportunidad de entrar, hasta que supe de la existencia de 4Geeks y la verdad que termino contento con esta experiencia y gran reto que tome.
+                Cocinero - Siempre me había llamado la atención este mundo de la
+                programación pero no había tenido la oportunidad de entrar,
+                hasta que supe de la existencia de 4Geeks y la verdad que
+                termino contento con esta experiencia y gran reto que tome.
               </p>
             </div>
           </div>
           <div className="ms-5 mt-4 d-flex">
-            <div className="img-container">
-              <img className="card-pic" src={postgre} />
+            <div className="">
+              <img
+                className="card-pic"
+                src={postgre}
+                style={{ width: 209, height: 209 }}
+              />
             </div>
             <div className="text-secondary ms-3">
               <h3>Alejandro Escalante</h3>
@@ -67,13 +75,21 @@ export const AboutUs = () => {
               </p>
             </div>
           </div>
-          <div className="ms-5 mt-4 d-flex">
-            <div className="img-container">
-              <img className="card-pic" src={postgre} />
+          <div className="ms-5 my-4 d-flex">
+            <div className="">
+              <img
+                className="card-pic"
+                src={fotoLuis}
+                style={{ width: 209, height: 209 }}
+              />
             </div>
-            <div className="text-secondary ms-3">
+            <div className="text-secondary m-3">
               <h3>Luis Rosal</h3>
-              <p>Más disperso que los chinos en el mundo</p>
+              <p>
+                Freelancer - Desde pequeño siempre estuve atraído a la
+                tecnología, me encanta esta area ya que puedo alimentar mi
+                curiosidad, y mis ganas de aprender.
+              </p>
             </div>
           </div>
         </div>

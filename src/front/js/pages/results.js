@@ -57,7 +57,7 @@ export const Results = () => {
                   Anterior
                 </a>
               </li>
-              <li class="page-item">
+              <li class="page-item active">
                 <a class="page-link" href="#">
                   1
                 </a>

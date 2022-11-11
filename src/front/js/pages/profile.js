@@ -25,7 +25,7 @@ export const Profile = () => {
                 <div className="container">
                   <div className="pt-5 mt-5 ">
                     <h1 className="text-center mt-4 text-secondary ">
-                    Información de usuario
+                      Información de usuario
                     </h1>
                   </div>
                   <div className="d-flex justify-content-evenly py-5 ">
@@ -69,13 +69,13 @@ export const Profile = () => {
                     </div>
                   </div>
                   <div className="d-flex flex-row-reverse img-profile-container p-5 p-5">
-                  <img  className="" src={logo}/>
+                    <img className="" src={logo} />
                   </div>
-                </div>
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
+        </div>
       )}
     </div>
   );

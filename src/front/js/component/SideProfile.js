@@ -19,12 +19,12 @@ export const SideProfile = () => {
           className="prof-pic"
         />
       </div>
-      <div className="text-secondary text-center mt-3 fw-bold fs-4 m_title">
+      <div className="text-secondary text-center mt-3 fw-bold fs-3 m_title">
         {store.activeUser[0].name + " " + store.activeUser[0].last_name}
       </div>
       <Link
         to={`/user/` + store.activeUser[0].id}
-        className={`nav-link text-secondary mt-4 text-center ${
+        className={`nav-link fs-5 text-secondary mt-4 text-center ${
           location.pathname == "/user/" + store.activeUser[0].id
             ? "fw-bold"
             : ""
@@ -35,7 +35,7 @@ export const SideProfile = () => {
       {/* this location.pathname stuff has to be done with the other links when they're defined */}
       <Link
         to={`/user/${store.activeUser[0].id}/donation`}
-        className={`nav-link text-secondary mt-2 text-center ${
+        className={`nav-link fs-5 text-secondary mt-2 text-center ${
           location.pathname == "/user/" + store.activeUser[0].id + "/donation"
             ? "fw-bold"
             : ""
@@ -45,7 +45,7 @@ export const SideProfile = () => {
       </Link>
       <Link
         to={`/user/${store.activeUser[0].id}/request`}
-        className={`nav-link text-secondary mt-2 text-center ${
+        className={`nav-link fs-5 text-secondary mt-2 text-center ${
           location.pathname == "/user/" + store.activeUser[0].id + "/request"
             ? "fw-bold"
             : ""
@@ -55,7 +55,7 @@ export const SideProfile = () => {
       </Link>
       <Link
         to={`/user/${store.activeUser[0].id}/trades`}
-        className={`nav-link text-secondary mt-2 text-center ${
+        className={`nav-link fs-5 text-secondary mt-2 text-center ${
           location.pathname == "/user/" + store.activeUser[0].id + "/trades"
             ? "fw-bold"
             : ""

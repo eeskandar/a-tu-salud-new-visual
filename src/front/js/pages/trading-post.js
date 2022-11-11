@@ -232,7 +232,7 @@ export const TradingPost = () => {
             <label htmlFor="description" className="form-label">
               Descripción
             </label>
-            <input
+            <textarea
               type="string"
               className="form-control form-input border-0"
               onChange={(event) => {
@@ -240,7 +240,7 @@ export const TradingPost = () => {
               }}
               defaultValue={description}
               id="description"
-            />
+            ></textarea>
           </div>
           <button
             type="submit"

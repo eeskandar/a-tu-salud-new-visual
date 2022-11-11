@@ -113,14 +113,14 @@ export const UserPost = () => {
             <label htmlFor="" className="form-label text-secondary">
               Descripción de la donación
             </label>
-            <input
+            <textarea
               className="form-control form-input"
               type="text"
               aria-label="readonly input example"
               onChange={(event) => {
                 setDescription(event.target.value);
               }}
-            />
+            ></textarea>
           </div>
           <UploadImage name="Sube la foto del medicamento" />
         </div>
@@ -137,7 +137,9 @@ export const UserPost = () => {
                 expiration_date.trim() == "" ||
                 quantity.trim() == ""
               ) {
-                swal("Debes llenar todos los campos para poder publicar tu solicitud.");
+                swal(
+                  "Debes llenar todos los campos para poder publicar tu solicitud."
+                );
               } else {
                 console.log(store.image);
                 let success = await post(
