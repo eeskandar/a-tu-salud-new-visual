@@ -163,3 +163,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.footer-bg {
+  background-color: rgb(66, 66, 66);
+}
