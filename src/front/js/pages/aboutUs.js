@@ -95,7 +95,7 @@ export const AboutUs = () => {
               <h3>Alejandro Escalante</h3>
               <p>
                 <dd>
-                  Customer Services- Empecé este curso con la meta de seguir
+                  Customer Services - Empecé este curso con la meta de seguir
                   creciendo profesionalmente y entender aunque sea una pequeña
                   parte del gran mundo de la programación. Solo me queda
                   agradecer a mis profesores por la paciencia sabiendo que este

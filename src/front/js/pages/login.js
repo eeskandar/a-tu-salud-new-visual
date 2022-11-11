@@ -17,7 +17,7 @@ export const Login = () => {
         <form className="col-11 m-auto" onSubmit={(e) => e.preventDefault()}>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
-              <i class="fa-regular fa-at"></i> Correo electrónico
+              <i className="fa-regular fa-at"></i> Correo electrónico
             </label>
             <input
               type="email"

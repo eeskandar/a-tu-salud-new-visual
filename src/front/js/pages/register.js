@@ -24,7 +24,7 @@ export const Register = () => {
         <form className="col-11 m-auto" onSubmit={(e) => e.preventDefault()}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
-              <i class="fa-solid fa-user"></i> Nombre
+              <i className="fa-solid fa-user"></i> Nombre
             </label>
             <input
               type="string"
@@ -37,7 +37,7 @@ export const Register = () => {
               aria-describedby="name"
             />
             <label htmlFor="last-name" className="form-label">
-              <i class="fa-solid fa-user"></i> Apellidos
+              <i className="fa-regular fa-user"></i> Apellidos
             </label>
             <input
               type="string"
@@ -107,8 +107,8 @@ export const Register = () => {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Verifica tu Contraseña
+            <label htmlFor="exampleInputPassword2" className="form-label">
+              <i className="fa-solid fa-unlock"></i> Verifica tu Contraseña
             </label>
             <input
               type="password"
@@ -117,7 +117,7 @@ export const Register = () => {
                 setVeriPassword(event.target.value);
               }}
               value={veriPassword}
-              id="exampleInputPassword1"
+              id="exampleInputPassword2"
             />
           </div>
           <div className="justify-content-center d-flex">
@@ -133,7 +133,7 @@ export const Register = () => {
               }}
               id="flexCheckDefault"
             />
-            <label className="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" htmlFor="flexCheckDefault">
               Haz leído y aceptas los <strong>Terminos y Condiciones</strong>
             </label>
           </div>
