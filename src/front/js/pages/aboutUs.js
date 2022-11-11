@@ -12,7 +12,7 @@ import flaskImg from "../../img/flaskImg.png";
 import reactRouter from "../../img/reactRouter.png";
 import reactImg from "../../img/reactImg.png";
 import sweetalert2Img from "../../img/sweetalert2Img.png";
-import flasksqlalchemyImg from "../../img/flasksqlalchemyImg.png";
+import sqlalchemyimg from "../../img/sqlalchemyimg.png";
 
 export const AboutUs = () => {
   return (
@@ -62,6 +62,13 @@ export const AboutUs = () => {
           <img className="ms-2" src={python3} style={{ height: 209 }} />
           <img className="ms-2" src={postgre} style={{ height: 209 }} />
           <img className="ms-2" src={flaskImg} style={{ height: 209 }} />
+          <div className="d-flex align-items-center">
+            <img
+              className="ms-2"
+              src={sqlalchemyimg}
+              style={{ width: 209, height: 50 }}
+            />
+          </div>
         </div>
       </div>
       <h2 className="ms-2 mt-5 ps-5 pb-5 text-secondary text-center">
