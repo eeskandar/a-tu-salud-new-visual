@@ -24,7 +24,7 @@ export const Register = () => {
         <form className="col-11 m-auto" onSubmit={(e) => e.preventDefault()}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
-              Nombre
+            <i class="fa-solid fa-user"></i> Nombre
             </label>
             <input
               type="string"
@@ -37,7 +37,7 @@ export const Register = () => {
               aria-describedby="name"
             />
             <label htmlFor="last-name" className="form-label">
-              Apellidos
+            <i class="fa-solid fa-user"></i> Apellidos
             </label>
             <input
               type="string"
