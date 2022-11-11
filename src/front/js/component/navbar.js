@@ -88,7 +88,8 @@ export const Navbar = () => {
                       className="nav-link text-white"
                       aria-current="page"
                     >
-                      Perfil de usuario
+                      <i className="fa-solid fa-user"></i>{" "}
+                      <span className="ms-2">Perfil de usuario</span>
                     </Link>
                   </li>
                   <li className="nav-item px-4">

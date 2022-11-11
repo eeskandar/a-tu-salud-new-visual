@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Loading } from "../component/Loading";
 import { SideProfile } from "../component/SideProfile";
 import { Context } from "../store/appContext";
-import logo from "../../img/logo-final.png";
+import logo from "../../img/logo-final_v2.png";
 
 export const Profile = () => {
   const { store, actions } = useContext(Context);

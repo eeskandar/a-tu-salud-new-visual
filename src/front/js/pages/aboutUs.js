@@ -69,9 +69,19 @@ export const AboutUs = () => {
             </div>
             <div className="text-secondary ms-3">
               <h3>Alejandro Escalante</h3>
-              <p>
-                Tipazo, apasionado por aprender cómo funcionan las cosas y
-                siempre alegre.
+              <p className="primeralinea">
+                <dd>
+                  Actualmente encargado del departamento de Atención al Cliente
+                  en una empresa de telecomunicaciones. Me gusta entender la
+                  lógica detras de las cosas y aprender de ellas. <br></br>
+                </dd>
+                <dd>
+                  Empecé este curso con la meta de seguir creciendo
+                  profesionalmente y entender aunque sea una pequeña parte del
+                  gran mundo de la programación. Solo me queda agradecer a mis
+                  profesores por la paciencia sabiendo que este no es el fin del
+                  viaje, sino el inicio de toda una aventura.
+                </dd>
               </p>
             </div>
           </div>
