@@ -98,7 +98,7 @@ export const AboutUs = () => {
               <p>
                 Freelancer - Desde pequeño siempre estuve atraído a la
                 tecnología, me encanta esta area ya que puedo alimentar mi
-                curiosidad, y mis ganas de aprender.
+                curiosidad y mis ganas de aprender.
               </p>
             </div>
           </div>
