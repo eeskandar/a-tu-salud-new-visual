@@ -63,7 +63,7 @@ export const UserRequests = () => {
             })
           ) : (
             <h3 className="text-center text-secondary my-5 mt-5">
-              No ha creado donaciones todavia.
+              No ha hecho solicitudes todavia.
             </h3>
           )}
           <div>

@@ -62,7 +62,7 @@ export const UserTrades = () => {
             })
           ) : (
             <h3 className="text-center text-secondary my-5 mt-5">
-              No ha creado solicitudes todavia.
+              No ha creado intercambios todavia.
             </h3>
           )}
           <div>
