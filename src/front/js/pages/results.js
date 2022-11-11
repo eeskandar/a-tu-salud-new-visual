@@ -39,6 +39,7 @@ export const Results = () => {
                     city={posts.user_info.city}
                     expiration_date={posts.expiration_date}
                     key={posts.id}
+                    url={posts.typeof}
                   />
                 );
               })

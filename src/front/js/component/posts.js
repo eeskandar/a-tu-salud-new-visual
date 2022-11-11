@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import medPlaceholder from "../../img/med-03.png";
 
 export const Posts = (props) => {
+  let url = "";
+  if (props.url == "exchange") {
+    url = "/more-info-trade/";
+  } else {
+    url = "/more-info/";
+  }
   return (
     <div className="d-flex justify-content-center">
       <div className="container-request d-flex justify-content-between m-2">
@@ -42,11 +48,7 @@ export const Posts = (props) => {
         <div className="m-auto p-2">
           <Link
             className="btn btn-info text-white fw-bold m-1"
-            to={
-              localStorage.getItem("token") == null
-                ? ""
-                : "/more-info/" + props.id
-            }
+            to={localStorage.getItem("token") == null ? "" : url + props.id}
             onClick={(e) => {
               if (localStorage.getItem("token") == null) {
                 swal("¡Debes iniciar sesión para poder ver más información!");

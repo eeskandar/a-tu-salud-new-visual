@@ -277,7 +277,22 @@ def get_trades_filter():
         ]
 
     if request.args.get('name') != None:
-        filters.append(TradingPost.name == request.args.get('name'))
+            filters.append(TradingPost.name == request.args.get('name'))
+
+    if request.args.get('expiration_date') != None:
+        filters.append(TradingPost.expiration_date == request.args.get('expiration_date'))
+
+    if request.args.get('typeof') != None:
+        filters.append(TradingPost.typeof == request.args.get('typeof'))
+
+    if request.args.get('presentation') != None:
+        filters.append(TradingPost.presentation == request.args.get('presentation'))
+
+    if request.args.get('quantity') != None:
+        filters.append(TradingPost.quantity == request.args.get('quantity'))
+
+    if request.args.get('city') != None:
+        filters.append(User.city == request.args.get('city'))
 
     # post = db.session.query()
     try:
@@ -295,21 +310,21 @@ def get_trades_filter():
         return jsonify({
             "msg":"no posts found"
         }), 404
-@api.route('/delete-posts<int:postid>', methods=['DELETE'])
-def delete_posts(postid):
-    try:
-        result = Post.query.filter_by(Post.id == postid).one_or_none()
-        if result != None:
-            db.session.delete(result)
-            db.session.commit()
-            return jsonify({
-                "msg":"Post deleted succesfully"
-            }), 200
-        else:
-            return jsonify({
-                "msg":"something unexpected happened"
-            }),400
+# @api.route('/delete-posts/<int:postid>', methods=['DELETE'])
+# def delete_posts(postid):
+#     try:
+#         result = Post.query.filter_by(Post.id == postid).one_or_none()
+#         if result != None:
+#             db.session.delete(result)
+#             db.session.commit()
+#             return jsonify({
+#                 "msg":"Post deleted succesfully"
+#             }), 200
+#         else:
+#             return jsonify({
+#                 "msg":"something unexpected happened"
+#             }),400
         
-    except Exception as error:
-        db.session.rollback()
+#     except Exception as error:
+#         db.session.rollback()
     

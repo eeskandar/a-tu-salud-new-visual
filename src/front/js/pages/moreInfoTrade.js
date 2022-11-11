@@ -34,7 +34,7 @@ export const MoreInfoTrade = () => {
           <div className=" d-flex justify-content-around py-3">
             {/* POST */}
             <div>
-              <h3 className="text-secondary text-center">Medicamento</h3>
+              <h3 className="text-secondary text-center">Poseo</h3>
               <div className="">
                 <div className="m-auto pt-4 d-flex img-container">
                   {post.list.medicine_picture != null ? (
@@ -50,9 +50,11 @@ export const MoreInfoTrade = () => {
                     <img className="p-2 card-pic" src={medPlaceholder} />
                   )}
                 </div>
-                <div className="p-5 pt-3 d-flex">
+                <div className="px-5 py-3 d-flex shadow bg-body rounded-form">
                   <div className="mt-2 me-4">
-                    <h6 className="text-secondary mb-0">Medicamento</h6>
+                    <h6 className="text-secondary mb-0">
+                      <i className="fa-solid fa-pills"></i> Medicamento
+                    </h6>
                     <p className="text-secondary m_title">{post.list.name}</p>
                     <h6 className="text-secondary mb-0">Componente activo</h6>
                     <p className="text-secondary m_title">
@@ -64,19 +66,77 @@ export const MoreInfoTrade = () => {
                     </p>
                   </div>
                   <div className="mt-2 ms-4">
-                    <h6 className="text-secondary mb-0">Dosis</h6>
-                    <p className="text-secondary m_title m_title">
-                      {post.list.dosis}
-                    </p>
                     <h6 className="text-secondary mb-0">
-                      Fecha de vencimiento
+                      <i className="fa-solid fa-calendar-xmark"></i> Fecha de
+                      vencimiento
                     </h6>
                     <p className="text-secondary">
                       {post.list.expiration_date}
                     </p>
+                    <h6 className="text-secondary mb-0">Dosis</h6>
+                    <p className="text-secondary m_title m_title">
+                      {post.list.dosis}
+                    </p>
                     <h6 className="text-secondary mb-0">Cantidad</h6>
                     <p className="text-secondary mb-0 m_title">
                       {post.list.quantity}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="d-flex justify-content-center align-items-center">
+              <i className="fa-solid fa-arrow-right-arrow-left fs-3 pe-2"></i>
+            </div>
+            <div>
+              <h3 className="text-secondary text-center">Solicito</h3>
+              <div className="">
+                <div className="m-auto pt-4 d-flex img-container">
+                  {post.list.req_medicine_picture != null ? (
+                    <img
+                      className="p-2 card-pic"
+                      src={post.list.req_medicine_picture}
+                      onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; //evitar looping
+                        currentTarget.src = { medPlaceholder };
+                      }}
+                    />
+                  ) : (
+                    <img className="p-2 card-pic" src={medPlaceholder} />
+                  )}
+                </div>
+                <div className="px-5 py-3 d-flex shadow bg-body rounded-form">
+                  <div className="mt-2 me-4">
+                    <h6 className="text-secondary mb-0">
+                      <i className="fa-solid fa-pills"></i> Medicamento
+                    </h6>
+                    <p className="text-secondary m_title">
+                      {post.list.req_name}
+                    </p>
+                    <h6 className="text-secondary mb-0">Componente activo</h6>
+                    <p className="text-secondary m_title">
+                      {post.list.req_active_component}
+                    </p>
+                    <h6 className="text-secondary mb-0">Presentación</h6>
+                    <p className="text-secondary mb-0 m_title">
+                      {post.list.req_presentation}
+                    </p>
+                  </div>
+                  <div className="mt-2 ms-4">
+                    <h6 className="text-secondary mb-0">
+                      <i className="fa-solid fa-calendar-xmark"></i> Fecha de
+                      vencimiento
+                    </h6>
+                    <p className="text-secondary">
+                      {post.list.req_expiration_date}
+                    </p>
+                    <h6 className="text-secondary mb-0">Dosis</h6>
+                    <p className="text-secondary m_title m_title">
+                      {post.list.req_dosis}
+                    </p>
+                    <h6 className="text-secondary mb-0">Cantidad</h6>
+                    <p className="text-secondary mb-0 m_title">
+                      {post.list.req_quantity}
                     </p>
                   </div>
                 </div>
@@ -87,24 +147,31 @@ export const MoreInfoTrade = () => {
               <h3 className="text-secondary text-center">Donante</h3>
               <div className="bg-light p-4">
                 <div className="m-auto img-container">
-                  <object
-                    data={post.list.user_info.profile_picture}
-                    className="card-pic"
-                    type="image/jpg"
-                  >
+                  {post.list.user_info.profile_picture != null ? (
                     <img
-                      src="https://via.placeholder.com/400x400.png?text=Image+Not+Found"
-                      className="card-img-top"
-                      alt="stock picture"
+                      className="p-2 card-pic"
+                      src={post.list.user_info.profile_picture}
+                      onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; //evitar looping
+                        currentTarget.src = { medPlaceholder };
+                      }}
                     />
-                  </object>
+                  ) : (
+                    <img className="p-2 card-pic" src={medPlaceholder} />
+                  )}
                 </div>
                 <div className="p-2">
                   <h6 className="mt-2 text-secondary mb-0">Nombre</h6>
-                  <p className="text-secondary m_title">{post.list.user_info.name}</p>
-                  <h6 className="text-secondary mb-0">Ciudad</h6>
-                  <p className="text-secondary m_title">{post.list.user_info.city}</p>
-                  <div className="dropdown d-flex justify-content-center">
+                  <p className="text-secondary m_title">
+                    {post.list.user_info.name}
+                  </p>
+                  <h6 className="text-secondary mb-0">
+                    <i className="fa-solid fa-location-dot"></i> Ciudad
+                  </h6>
+                  <p className="text-secondary m_title">
+                    {post.list.user_info.city}
+                  </p>
+                  <div className="dropdown d-flex">
                     <button
                       className="btn btn-secondary dropdown-toggle"
                       type="button"
@@ -113,7 +180,7 @@ export const MoreInfoTrade = () => {
                       aria-expanded="false"
                       data-bs-auto-close="outside"
                     >
-                      Número de contacto
+                      <i className="fa-solid fa-phone"></i> Número de contacto
                     </button>
                     <ul
                       className="dropdown-menu"
@@ -129,7 +196,7 @@ export const MoreInfoTrade = () => {
             </div>
           </div>
           {/* VIEW DE LA DESCRIPCION */}
-          <div className="loading-bg rounded mx-5 p-3">
+          <div className="loading-bg rounded mx-5 mt-5 p-3">
             <h6 className="mt-2 text-secondary text-center mb-3">
               Descripción
             </h6>
