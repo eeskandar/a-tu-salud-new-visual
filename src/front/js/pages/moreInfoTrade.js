@@ -161,7 +161,7 @@ export const MoreInfoTrade = () => {
                   )}
                 </div>
                 <div className="p-2">
-                  <h6 className="mt-2 text-secondary mb-0">Nombre</h6>
+                  <h6 className="mt-2 text-secondary mb-0"><i class="fa-solid fa-user"></i> Nombre</h6>
                   <p className="text-secondary m_title">
                     {post.list.user_info.name}
                   </p>
