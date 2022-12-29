@@ -87,6 +87,9 @@ export const Home = () => {
         let success = await actions.getPostsTrade(urlParams);
         if (success) {
           navigate("/results");
+        } else {
+          swal("¡Ups!", "No encontramos coincidencias para tu busqueda");
+          navigate("/");
         }
       }
     }
@@ -222,8 +225,8 @@ export const Home = () => {
               aria-label="Search"
             />
           </div>
-          <div className="d-flex flex-column text-center justify-items-center">
-            <label htmlFor="" className="m-2 form-label text-secondary">
+          {/* <div className="d-flex flex-column text-center justify-items-center">
+            <label htmlFor="" className="m-2 mt-0 form-label text-secondary">
               Fecha de vencimiento
             </label>
             <input
@@ -241,7 +244,7 @@ export const Home = () => {
               placeholder="dd/mm/aaaa"
               aria-label="Search"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

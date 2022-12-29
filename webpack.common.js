@@ -46,8 +46,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      favicon: "/workspace/react-flask-hello/src/front/img/logo-icon.ico",
-      template: "/workspace/react-flask-hello/src/front/img/logo-icon.ico",
+      favicon: "4geeks.ico",
+      template: "template.html",
     }),
     new Dotenv({ safe: true, systemvars: true }),
   ],
